@@ -35,7 +35,7 @@ class CustomTextFormField extends StatelessWidget {
           const SizedBox(width: 6,),
           Container(
             height: 50,
-            width: 1.5,
+            width:1.5,
             color: AppColors.mainColor,
           ),
           const SizedBox(width: 6,),

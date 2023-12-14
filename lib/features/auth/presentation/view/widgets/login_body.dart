@@ -1,4 +1,6 @@
+import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/text.dart';
+import 'package:aoun_tu/features/auth/presentation/view/widgets/button.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/field.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/logo_widget.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/progress_widget.dart';
@@ -28,20 +30,20 @@ class _LoginBodyState extends State<LoginBody> {
          const SliverToBoxAdapter(
            child: AuthLogoWidget(),
          ),
-         const SliverPadding(padding: EdgeInsets.symmetric(
-             vertical: 30
+         const SliverPadding(padding: EdgeInsets.only(
+             bottom: 45
          )),
          const SliverToBoxAdapter(
            child: WelcomeToWidget(),
          ),
-         const SliverPadding(padding: EdgeInsets.symmetric(
-             vertical: 30
+         const SliverPadding(padding: EdgeInsets.only(
+             bottom: 35
          )),
          const SliverToBoxAdapter(
            child: ProgressWidget(number: 2),
          ),
-         const SliverPadding(padding: EdgeInsets.symmetric(
-             vertical: 30
+          const SliverPadding(padding: EdgeInsets.only(
+             bottom: 45
          )),
          SliverToBoxAdapter(
            child: CustomTextFormField(
@@ -49,10 +51,21 @@ class _LoginBodyState extends State<LoginBody> {
              textEditingController:emailController ,
            ),
          ),
-         const SliverPadding(padding: EdgeInsets.symmetric(
-             vertical: 30
+          const SliverPadding(padding: EdgeInsets.only(
+             bottom: 45
          )),
 
+          SliverToBoxAdapter(
+           child: Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               CustomButton(
+                 color:AppColors.mainColor ,
+                 txt: AppText.next,
+               ),
+             ],
+           ),
+         ),
 
        ],
       ),
