@@ -4,6 +4,7 @@ abstract class AppImages {
   static const String visibleEye ="assets/icons/visible_eye.svg";
   static const String notVisibleEye ="assets/icons/not_visible_eye.svg";
   static const String emailIcon ="assets/icons/email_icon.svg";
+  static const String passwordIcon ="assets/icons/password_icon.svg";
 
 
 }

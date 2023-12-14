@@ -1,22 +1,27 @@
 import 'package:aoun_tu/core/utls/colors.dart';
-import 'package:aoun_tu/core/utls/images.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextFormField extends StatelessWidget {
-    const CustomTextFormField(
+     CustomTextFormField(
+
+
        {Key? key, required this.hintText,  this.secure = false, this.onChanged, this.validator, required this.textEditingController,  this.secureWidget
+
+     ,this.obscureText, required this.iconImage
        }) : super(key: key);
 
   final String hintText;
    final bool secure;
+   bool ?  obscureText;
    final Widget? secureWidget ; // if secure  = true
   final String? Function(String?)? validator;
   final TextEditingController textEditingController;
     final void Function(String)? onChanged;
 
+    final String iconImage;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +36,7 @@ class CustomTextFormField extends StatelessWidget {
         children: [
           const SizedBox(width: 6,),
 
-       SvgPicture.asset(AppImages.emailIcon),
+       SvgPicture.asset(iconImage),
           const SizedBox(width: 6,),
           Container(
             height: 50,
@@ -48,8 +53,9 @@ class CustomTextFormField extends StatelessWidget {
               validator: validator,
 
 
-
+obscureText: obscureText??false,
               decoration: InputDecoration(
+
 
                   contentPadding:  const EdgeInsets.symmetric(
                       vertical: 10,

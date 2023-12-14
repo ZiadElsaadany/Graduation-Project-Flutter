@@ -1,11 +1,14 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/button.dart';
-import 'package:aoun_tu/features/auth/presentation/view/widgets/field.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/logo_widget.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/progress_widget.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/welcome_widget.dart';
+import 'package:aoun_tu/features/auth/presentation/view_model/login/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'email_or_pasword_login.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({Key? key}) : super(key: key);
@@ -16,9 +19,11 @@ class LoginBody extends StatefulWidget {
 
 class _LoginBodyState extends State<LoginBody> {
   final TextEditingController emailController= TextEditingController();
+  final TextEditingController passController= TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var cubit  = BlocProvider.of<LoginCubit>(context);
     return  Padding(
       padding: const EdgeInsets.symmetric(
           horizontal: 20.0),
@@ -45,12 +50,8 @@ class _LoginBodyState extends State<LoginBody> {
           const SliverPadding(padding: EdgeInsets.only(
              bottom: 45
          )),
-         SliverToBoxAdapter(
-           child: CustomTextFormField(
-             hintText: AppText.enterYourEmail,
-             textEditingController:emailController ,
-           ),
-         ),
+
+        PasswordOrEmailFields(emailController: emailController, passController: passController) ,
           const SliverPadding(padding: EdgeInsets.only(
              bottom: 45
          )),
@@ -60,15 +61,22 @@ class _LoginBodyState extends State<LoginBody> {
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
                CustomButton(
+
+                 onPressed: (  )  {
+                   cubit.plusProgressCounter();
+                 },
                  color:AppColors.mainColor ,
                  txt: AppText.next,
                ),
              ],
            ),
          ),
+         
 
        ],
       ),
     );
   }
 }
+
+

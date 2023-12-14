@@ -18,6 +18,12 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(PlusProgressState( ));
   }
 
+  bool secure =  true;
+  changeSecureLogin(   ) {
+    secure =!secure;
+    emit(ChangeSecureLoginState());
+  }
+
 
 
 }
