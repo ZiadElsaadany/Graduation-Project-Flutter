@@ -13,6 +13,10 @@ abstract class AppStyles{
     fontSize: 30,
     fontWeight: FontWeight.w600,
 
+  );  static final  textStyle19 =GoogleFonts.almarai(
+    fontSize: 19,
+    fontWeight: FontWeight.w600,
+
   );
   static final  textStyle20 =GoogleFonts.almarai(
     fontSize: 20,
