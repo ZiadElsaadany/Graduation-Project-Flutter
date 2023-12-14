@@ -17,7 +17,11 @@ static OutlineInputBorder outlineInputBorder(
 }
     ) {
   return  OutlineInputBorder(
-    borderRadius: BorderRadius.circular(radius.toDouble()),
+    borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(radius.toDouble()),
+        bottomLeft: Radius.circular(radius.toDouble()),
+
+    ),
     borderSide: BorderSide(
       color: borderColor,
       width: 1

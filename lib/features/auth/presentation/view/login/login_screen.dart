@@ -9,11 +9,15 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  Directionality(
+       textDirection: TextDirection.rtl,
 
-      body: BlocProvider(
-        create:           (c)=>LoginCubit(),
-          child: LoginBody()),
+      child: Scaffold(
+
+        body: BlocProvider(
+          create:           (c)=>LoginCubit(),
+            child: LoginBody()),
+      ),
     );
   }
 }

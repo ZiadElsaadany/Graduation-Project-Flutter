@@ -4,6 +4,7 @@ abstract class AppText {
   static const String  welcomeTo= "مرحبا بك في";
   static const String  appName= "خيّـــــــــــر";
   static const String  enterToLogin= "قم بتسحيل الدخول";
+  static const String  enterYourEmail= "ادخل البريد الألكتروني";
 
 
 
