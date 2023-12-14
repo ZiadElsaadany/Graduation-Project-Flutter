@@ -1,4 +1,5 @@
 abstract class AppImages {
-  // static const String image1 ="";
+  static const String logo ="assets/images/logo.svg";
+
 
 }
