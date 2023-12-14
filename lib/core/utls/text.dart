@@ -7,6 +7,10 @@ abstract class AppText {
   static const String  enterYourEmail= "ادخل البريد الألكتروني";
   static const String  enterYourPassword= "ادخل كلمة المرور";
   static const String  next= "التالي";
+  static const String  haventAccount= "ليس لديك حساب؟";
+  static const String  makeAccount= "قم بإنشاء حساب";
+  static const String  or= "أو";
+  static const String  enterAsAGuest= "الدخول كزائر";
 
 
 
