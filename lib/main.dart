@@ -21,7 +21,6 @@ class AounApp extends StatelessWidget {
           return MaterialApp.router(
             routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
-            locale: Locale("ar"),
             title: 'Flutter Demo',
             theme: ThemeData(
               // This is the theme of your application.

@@ -16,6 +16,13 @@ class HomeAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          InkWell(child: SvgPicture.asset(AppImages.menu)),
+          SvgPicture.asset(
+            AppImages.logo,
+            width: 35,
+            height: 30,
+            color: AppColors.mainColor,
+          ),
           ClipRRect(
             borderRadius: BorderRadius.circular(17.5),
             child: Image.network(
@@ -24,13 +31,6 @@ class HomeAppBar extends StatelessWidget {
               height: 35,
             ),
           ),
-          SvgPicture.asset(
-            AppImages.logo,
-            width: 35,
-            height: 30,
-            color: AppColors.mainColor,
-          ),
-          InkWell(child: SvgPicture.asset(AppImages.menu))
         ],
       ),
     );

@@ -7,6 +7,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: HomeBody());
+    return const Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: HomeBody(),
+      ),
+    );
   }
 }
