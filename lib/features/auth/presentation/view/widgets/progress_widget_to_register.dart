@@ -1,22 +1,23 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
-import 'package:aoun_tu/features/auth/presentation/view_model/login/login_cubit.dart';
-import 'package:aoun_tu/features/auth/presentation/view_model/login/login_states.dart';
+
+import 'package:aoun_tu/features/auth/presentation/view_model/register/register_cubit.dart';
+
+import 'package:aoun_tu/features/auth/presentation/view_model/register/register_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProgressWidget extends StatefulWidget {
-  const ProgressWidget({Key? key, required this.number}) : super(key: key);
+class ProgressWidgetToRegister extends StatefulWidget {
+  const ProgressWidgetToRegister({Key? key}) : super(key: key);
 
-  final int number;
 
   @override
-  State<ProgressWidget> createState() => _ProgressWidgetState();
+  State<ProgressWidgetToRegister> createState() => _ProgressWidgetToRegisterState();
 }
 
-class _ProgressWidgetState extends State<ProgressWidget>  with TickerProviderStateMixin {
+class _ProgressWidgetToRegisterState extends State<ProgressWidgetToRegister>  with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -25,7 +26,7 @@ class _ProgressWidgetState extends State<ProgressWidget>  with TickerProviderSta
       /// [AnimationController]s can be created with `vsync: this` because of
       /// [TickerProviderStateMixin].
       vsync: this,
-      value:  BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress,
+      value:  BlocProvider.of<RegisterCubit>(context).progressCounter /  BlocProvider.of<RegisterCubit>(context).progress,
       duration: const Duration(milliseconds: 800),
     )..addListener(() {
       setState(() {
@@ -33,7 +34,7 @@ class _ProgressWidgetState extends State<ProgressWidget>  with TickerProviderSta
       });
     });
     // controller.repeat();
-    controller.animateTo(BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress);
+    controller.animateTo(BlocProvider.of<RegisterCubit>(context).progressCounter /  BlocProvider.of<RegisterCubit>(context).progress);
 
     super.initState();
   }
@@ -46,31 +47,19 @@ class _ProgressWidgetState extends State<ProgressWidget>  with TickerProviderSta
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<LoginCubit>(context);
-    return BlocConsumer<LoginCubit, LoginStates>(
+    var cubit = BlocProvider.of<RegisterCubit>(context);
+    return BlocConsumer<RegisterCubit, RegisterStates>(
       listener: (c,state) {
 
 
-        if(state is PlusProgressState) {
-          controller.animateTo(BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress);
+        if(state is PlusProgressStateRegister) {
+          controller.animateTo(BlocProvider.of<RegisterCubit>(context).progressCounter /  BlocProvider.of<RegisterCubit>(context).progress);
 
         }
 
         debugPrint(
-          controller.value.toString()
-        );   debugPrint(
-         "BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress"+
-            "${BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress}"
+            controller.value.toString()
         );
-        // Update the controller duration when progressCounter changes
-    // if(state is PlusProgressState) {
-    //   controller.duration = const Duration(seconds: 2);
-    //   if(BlocProvider.of<LoginCubit>(context).progressCounter==1) {
-    //     controller.animateBack(1);
-    //   }    if(BlocProvider.of<LoginCubit>(context).progressCounter==2) {
-    //     controller.animateTo(2);
-    //   }
-    // }
 
       },
       builder: (context, state) {
@@ -85,7 +74,7 @@ class _ProgressWidgetState extends State<ProgressWidget>  with TickerProviderSta
                     child: AnimatedOpacity(
                       opacity: cubit.progressCounter
                           ==
-                          widget.number
+                          cubit.progressCounter
                           ? 1.0 : 0.3,
                       duration: const Duration(milliseconds: 800),
                       child: LinearProgressIndicator(

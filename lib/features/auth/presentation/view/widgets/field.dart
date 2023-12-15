@@ -2,6 +2,7 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -10,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
 
        {Key? key, required this.hintText,  this.secure = false, this.onChanged, this.validator, required this.textEditingController,  this.secureWidget
 
-     ,this.obscureText, required this.iconImage
+     ,this.obscureText, required this.iconImage,  this.textInputType=TextInputType.text,  this.lst
        }) : super(key: key);
 
   final String hintText;
@@ -20,8 +21,10 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController textEditingController;
     final void Function(String)? onChanged;
+    final List<TextInputFormatter> ?  lst ;
 
     final String iconImage;
+    final TextInputType textInputType;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,7 +50,11 @@ class CustomTextFormField extends StatelessWidget {
 
           Expanded(
             child: TextFormField(
-
+              inputFormatters:lst ,
+              keyboardType:textInputType ,
+onTapOutside: (e) {
+  FocusManager.instance.primaryFocus?.unfocus();
+} ,
               onChanged: onChanged,
               controller: textEditingController,
               validator: validator,

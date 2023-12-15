@@ -3,7 +3,7 @@ import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/button.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/havent_account_row_widget.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/logo_widget.dart';
-import 'package:aoun_tu/features/auth/presentation/view/widgets/progress_widget.dart';
+import 'package:aoun_tu/features/auth/presentation/view/widgets/progress_widget_to_login.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/welcome_widget.dart';
 import 'package:aoun_tu/features/auth/presentation/view_model/login/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class _LoginBodyState extends State<LoginBody> {
              bottom: 35
          )),
          const SliverToBoxAdapter(
-           child: ProgressWidget(number: 2),
+           child: ProgressWidgetToLogin(number: 2),
          ),
           const SliverPadding(padding: EdgeInsets.only(
              bottom: 45
@@ -76,7 +76,10 @@ class _LoginBodyState extends State<LoginBody> {
              bottom: 45
          )),
          const SliverToBoxAdapter(
-           child: HaventAccountRowWidget(underLineText: AppText.makeAccount, text: AppText.haventAccount,),
+           child: HaventAccountRowWidget(
+
+             loginOrRegister: LoginOrRegister.LOGIN,
+             underLineText: AppText.makeAccount, text: AppText.haventAccount,),
          ),
 
 
