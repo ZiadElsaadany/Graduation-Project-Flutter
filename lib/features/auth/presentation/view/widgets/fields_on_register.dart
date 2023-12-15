@@ -140,6 +140,7 @@ class _FieldsONRegisterState extends State<FieldsONRegister> {
 
 
             cubit.progressCounter == 5 ?  const GenderWidget(): const SizedBox(),
+              // cubit.progressCounter==6? SelectPhotoWidget() :const SizedBox()
 
               const SizedBox(height: 40,),
 
