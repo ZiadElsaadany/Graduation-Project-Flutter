@@ -9,4 +9,5 @@ abstract class AppColors {
   static const Color text3 = Color(0xff6582AD);
   static Color lightBlue = const Color(0xff92A7C6).withOpacity(0.9);
   static const Color lightGrey = Color(0xffD9D9D9);
+  static const Color yellow = Color(0xFFF9A825);
 }
