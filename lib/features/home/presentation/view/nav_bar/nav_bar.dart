@@ -1,4 +1,5 @@
 import 'package:aoun_tu/core/utls/colors.dart';
+import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _NavBarViewState extends State<NavBarView> {
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,
-        textStyle: const TextStyle(fontSize: 10),
+        textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.doc_text),
@@ -41,7 +42,7 @@ class _NavBarViewState extends State<NavBarView> {
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,
-        textStyle: const TextStyle(fontSize: 10),
+        textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.rectangle_grid_2x2),
@@ -49,7 +50,7 @@ class _NavBarViewState extends State<NavBarView> {
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 20,
-        textStyle: const TextStyle(fontSize: 10),
+        textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.house),
@@ -57,7 +58,7 @@ class _NavBarViewState extends State<NavBarView> {
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,
-        textStyle: const TextStyle(fontSize: 10),
+        textStyle: AppStyles.textStyle10,
       ),
     ];
   }
