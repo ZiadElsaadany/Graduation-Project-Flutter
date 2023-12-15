@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../home_screen.dart';
+
 class NavBarView extends StatefulWidget {
   const NavBarView({super.key});
 
@@ -18,7 +20,7 @@ class _NavBarViewState extends State<NavBarView> {
       Container(),
       Container(),
       Container(),
-      Container(),
+      const HomeScreen(),
     ];
   }
 

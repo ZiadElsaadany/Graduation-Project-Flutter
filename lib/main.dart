@@ -20,6 +20,7 @@ class AounApp extends StatelessWidget {
         builder: (_, context) {
           return MaterialApp.router(
             routerConfig: AppRouter.router,
+            debugShowCheckedModeBanner: false,
             locale: Locale("ar"),
             title: 'Flutter Demo',
             theme: ThemeData(
