@@ -2,7 +2,6 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class HaventAccountRowWidget extends StatelessWidget {
   const HaventAccountRowWidget({Key? key, required this.underLineText, required this.text}) : super(key: key);
@@ -16,10 +15,12 @@ class HaventAccountRowWidget extends StatelessWidget {
       RichText(
       textDirection: TextDirection.rtl,
       text:  TextSpan(
-          text: text,
+          text: "$text ",
           style: AppStyles.textStyle11.copyWith(
             color: AppColors.mainColor ,
-            fontWeight: FontWeight.w400
+              fontSize: 12,
+
+              fontWeight: FontWeight.w400
           ),
           children: [
 

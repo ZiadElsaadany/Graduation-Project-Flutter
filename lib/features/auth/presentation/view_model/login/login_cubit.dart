@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login_states.dart';
@@ -14,8 +15,15 @@ class LoginCubit extends Cubit<LoginStates> {
   void plusProgressCounter ( ){
     if(progressCounter<progress) {
       progressCounter++ ;
+      debugPrint("++");
+      debugPrint("$progressCounter");
+      debugPrint("$progress");
+
     }else{
       progressCounter --;
+      debugPrint("--");
+      debugPrint("$progressCounter");
+      debugPrint("$progress");
     }
     emit(PlusProgressState( ));
   }
