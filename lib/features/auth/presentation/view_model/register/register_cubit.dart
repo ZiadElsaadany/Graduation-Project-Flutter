@@ -53,6 +53,20 @@ class RegisterCubit extends Cubit<RegisterStates> {
       RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
   RegExp passwordRegex =
       RegExp(   r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$' );
+
+
+  BoyOrGirl boyOrGirl = BoyOrGirl.NONE;
+  changeBoyOrGirl (
+      BoyOrGirl boyOrGirl_
+      ) {
+    boyOrGirl = boyOrGirl_;
+    emit(ChangeBoyOrGirlState());
+  }
+}
+enum BoyOrGirl {
+  BOY,
+  GIRL,
+  NONE
 }
 
 class RegisterOptionsModel {

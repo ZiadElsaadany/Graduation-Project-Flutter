@@ -10,6 +10,7 @@ abstract class AppColors {
   static const Color text1  = Color(0xff515057);
   static const Color text2  = Color(0xff727177);
   static const Color text3  = Color(0xff6582AD);
+  static const Color c7c7c7  = Color(0xffC7C7C7);
 
 static OutlineInputBorder outlineInputBorder(
   {
