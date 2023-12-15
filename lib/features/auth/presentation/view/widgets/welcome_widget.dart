@@ -61,7 +61,7 @@ fontSize: 17,
 
           ),
         ),
-        const SizedBox(height: 3,),
+        const SizedBox(height: 7,),
         Text(
         AppText.enterToLogin,
           style: textStyle,
