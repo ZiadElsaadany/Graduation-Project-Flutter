@@ -1,6 +1,7 @@
 import 'package:aoun_tu/features/home/presentation/view/widgets/home_search_bar.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_carousel_slider.dart';
 import 'home_app_bar.dart';
 
 class HomeBody extends StatelessWidget {
@@ -15,7 +16,8 @@ class HomeBody extends StatelessWidget {
           Divider(
             thickness: 1,
           ),
-          HomeSearchBar()
+          HomeSearchBar(),
+          CustomCarouselSlider(),
         ],
       ),
     );

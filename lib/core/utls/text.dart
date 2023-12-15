@@ -9,7 +9,7 @@ abstract class AppText {
   static const String charities = "الجمعيات الخيرية";
   static const String carouselTitle = "الصدقة.. خيرٌ لا ينقطع";
   static const String carouselSubTitle =
-      "الصدقة سببٌ في نشر السعادة والسرور في قلوب \nالمساكين، و هي من أفضل الأعمال.";
+      "الصدقة سببٌ في نشر السعادة والسرور في قلوب المساكين، و هي من أفضل الأعمال.";
   static const String emergency = "الحالات الطارئة";
   static const String donateNow = "تبرع الان";
   static const String misrElkher = "مصر الخير";
