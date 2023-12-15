@@ -1,8 +1,9 @@
 import 'package:aoun_tu/core/utls/colors.dart';
-import 'package:aoun_tu/core/utls/images.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
-import 'package:aoun_tu/core/utls/text.dart';
+import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
+import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
@@ -12,44 +13,38 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  PageController _pageController = PageController();
-  List<Map<String, String>> onBoardingData = [
-    {
-      'title': AppText.donate,
-      'description':
-          'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.',
-      'image': AppImages.firstOnBoarding, // Replace with your image asset
-    },
-    {
-      'title': AppText.clothsDonate,
-      'description':
-          'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.',
-      'image': AppImages.secOnBoarding, // Replace with your image asset
-    },
-    {
-      'title': AppText.foodDonate,
-      'description':
-          'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.',
-      'image': AppImages.thirdOnBoarding, // Replace with your image asset
-    },
-  ];
+  @override
+  void dispose() {
+    super.dispose();
+    BlocProvider.of<OnBoardingCubit>(context).pageController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Scaffold(
-        body: PageView.builder(
-          itemBuilder: (context, index) {
-            return OnboardingScreen(
-              title: onBoardingData[index]['title']!,
-              description: onBoardingData[index]['description']!,
-              image: onBoardingData[index]['image']!,
-            );
-          },
-          controller: _pageController,
-          itemCount: onBoardingData.length,
-        ),
+      child: BlocBuilder<OnBoardingCubit, OnBoardingState>(
+        builder: (context, state) {
+          return Scaffold(
+            body: PageView.builder(
+              itemBuilder: (context, index) {
+                return OnboardingScreen(
+                  title: BlocProvider.of<OnBoardingCubit>(context)
+                      .onBoardingData[index]['title']!,
+                  description: BlocProvider.of<OnBoardingCubit>(context)
+                      .onBoardingData[index]['description']!,
+                  image: BlocProvider.of<OnBoardingCubit>(context)
+                      .onBoardingData[index]['image']!,
+                );
+              },
+              controller:
+                  BlocProvider.of<OnBoardingCubit>(context).pageController,
+              itemCount: BlocProvider.of<OnBoardingCubit>(context)
+                  .onBoardingData
+                  .length,
+            ),
+          );
+        },
       ),
     );
   }
