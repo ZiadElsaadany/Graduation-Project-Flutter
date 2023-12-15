@@ -4,7 +4,7 @@ import '../../features/onboarding/presentation/view/onboarding_screen.dart';
 
 abstract class AppRouter {
   static const kSplash = '/';
-  static const kFirstOnBoarding = '/';
+  static const kFirstOnBoarding = '/kFirstOnBoarding';
 
   static final router = GoRouter(
     routes: [
