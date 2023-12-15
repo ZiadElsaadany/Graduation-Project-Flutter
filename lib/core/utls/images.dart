@@ -5,4 +5,9 @@ abstract class AppImages {
   static const String menu = 'assets/icons/menu.svg';
   static const String campiagn =
       "https://i.pinimg.com/564x/71/d8/9d/71d89d826b4ba5d03ad90541014ab080.jpg";
+  static const String emergency = 'assets/images/emergency.png';
+  static const String bedayaCharity = 'assets/images/bedayaCharity.png';
+  static const String ahlMisr = 'assets/images/ahlMisr.png';
+  static const String misrElkher = 'assets/images/misrElkher.png';
+  static const String elhelalAlahmar = 'assets/images/elhelalAlahmar.png';
 }
