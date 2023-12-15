@@ -1,8 +1,9 @@
+import 'package:aoun_tu/core/utls/text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
-import 'donate_button.dart';
+import 'app_button.dart';
 
 class DonationPercentage extends StatelessWidget {
   const DonationPercentage({super.key});
@@ -42,7 +43,10 @@ class DonationPercentage extends StatelessWidget {
           const SizedBox(
             height: 13,
           ),
-          const DonateButton(),
+          const AppButton(
+            title: AppText.donateNow,
+            color: AppColors.yellow,
+          ),
         ],
       ),
     );

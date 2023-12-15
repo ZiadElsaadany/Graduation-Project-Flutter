@@ -13,7 +13,10 @@ class Header extends StatelessWidget {
       alignment: AlignmentDirectional.topStart,
       child: Text(
         title,
-        style: AppStyles.textStyle14.copyWith(color: AppColors.mainColor),
+        style: AppStyles.textStyle14.copyWith(
+          color: AppColors.mainColor,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     );
   }

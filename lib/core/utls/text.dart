@@ -26,4 +26,5 @@ abstract class AppText {
       "هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء\n لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص .";
 
   static const String helpPalestine = 'تقديم المساعدات الطارئة \nفي فلسطين';
+  static const String currentCampaigns = 'الحملات الحالية';
 }

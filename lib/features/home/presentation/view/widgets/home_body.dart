@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utls/text.dart';
 import 'charity_list.dart';
+import 'current_campiagn_list.dart';
 import 'custom_carousel_slider.dart';
 import 'emergency_list.dart';
 import 'header.dart';
@@ -40,6 +41,11 @@ class HomeBody extends StatelessWidget {
                     height: 12,
                   ),
                   const EmergencyList(),
+                  const Header(title: AppText.currentCampaigns),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const CurrentCampiagnList()
                 ],
               ),
             )

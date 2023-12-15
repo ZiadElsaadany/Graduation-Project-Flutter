@@ -18,7 +18,7 @@ class EmergencyList extends StatelessWidget {
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return const Padding(
-            padding: EdgeInsetsDirectional.only(end: 24, bottom: 20),
+            padding: EdgeInsetsDirectional.only(end: 24, bottom: 23),
             child: EmergencyItem(),
           );
         },
