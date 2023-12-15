@@ -26,6 +26,28 @@ class CarouselItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
+            Container(
+              width: double.infinity,
+              height: 171,
+              decoration: ShapeDecoration(
+                gradient: LinearGradient(
+                  begin: const Alignment(0.00, -1.00),
+                  end: const Alignment(0, 1),
+                  colors: [Colors.black.withOpacity(0), Colors.black],
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                shadows: const [
+                  BoxShadow(
+                    color: Color(0x3F000000),
+                    blurRadius: 10,
+                    offset: Offset(0, 0),
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(
                   top: 16.0, left: 14, right: 14, bottom: 24),
