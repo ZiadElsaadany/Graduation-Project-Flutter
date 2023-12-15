@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../../../../posts/presentation/view/posts_screen.dart';
 import '../home_screen.dart';
 
 class NavBarView extends StatefulWidget {
@@ -18,7 +19,7 @@ class _NavBarViewState extends State<NavBarView> {
   List<Widget> _buildScreens() {
     return [
       Container(),
-      Container(),
+      const PostsScreen(),
       Container(),
       const HomeScreen(),
     ];

@@ -10,5 +10,7 @@ abstract class AppImages {
   static const String ahlMisr = 'assets/images/ahlMisr.png';
   static const String misrElkher = 'assets/images/misrElkher.png';
   static const String elhelalAlahmar = 'assets/images/elhelalAlahmar.png';
-  static const currentCampiagn = 'assets/images/current_campiagn.png';
+  static const String currentCampiagn = 'assets/images/current_campiagn.png';
+  static const String photos = "assets/icons/photos.png";
+  static const String addPost = "assets/icons/addPost.png";
 }
