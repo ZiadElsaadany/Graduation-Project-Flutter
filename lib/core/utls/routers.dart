@@ -5,13 +5,13 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter  {
 
-  static const kLogin = '/';
+  static const kLogin = '/kLogin';
 
 
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
+        path: "/",
         builder: (context, state) => const LoginScreen(),
       ),
 

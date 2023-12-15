@@ -14,6 +14,8 @@ class LoginCubit extends Cubit<LoginStates> {
   void plusProgressCounter ( ){
     if(progressCounter<progress) {
       progressCounter++ ;
+    }else{
+      progressCounter --;
     }
     emit(PlusProgressState( ));
   }

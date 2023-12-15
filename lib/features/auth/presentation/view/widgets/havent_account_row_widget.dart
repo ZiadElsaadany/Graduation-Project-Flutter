@@ -36,8 +36,7 @@ class HaventAccountRowWidget extends StatelessWidget {
           ]
       ),
 
-    ).animate().fade(duration: 1000.ms,
-      ),
+    ),
         const SizedBox(
           height: 16,
         ),
