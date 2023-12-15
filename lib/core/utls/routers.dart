@@ -1,11 +1,8 @@
-
-
 import 'package:go_router/go_router.dart';
 
-abstract class AppRouter  {
+import '../../features/home/presentation/view/nav_bar/nav_bar.dart';
 
-
-
+abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       // GoRoute(
@@ -13,6 +10,10 @@ abstract class AppRouter  {
       //   builder: (context, state) => const SplashScreen(),
       // ),
 
+      GoRoute(
+        path: '/navBar',
+        builder: (context, state) => const NavBarView(),
+      ),
     ],
   );
 }
