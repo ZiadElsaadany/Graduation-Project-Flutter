@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width*0.4,
+      width: MediaQuery.of(context).size.width*0.42,
       child: MaterialButton(onPressed:onPressed,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
 
       child: Text(
         txt ,
-        style: AppStyles.textStyle20.copyWith(
+        style: AppStyles.textStyle17.copyWith(
           color: AppColors.white ,
           fontWeight: FontWeight.bold
         ),

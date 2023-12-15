@@ -151,11 +151,15 @@ class _FieldsONRegisterState extends State<FieldsONRegister> {
                   CustomButton(
 
                     onPressed: (  )  {
-                      checkProgressCounter(cubit);
+                      if(cubit.progressCounter!=6 ) {
+                        checkProgressCounter(cubit);
+                      }else{
+
+                      }
 
                     },
                     color:AppColors.mainColor ,
-                    txt: AppText.next,
+                    txt:cubit.progressCounter!=6 ?  AppText.next:AppText.createTheAccount,
                   ),
                 ],
               ),

@@ -33,7 +33,7 @@ class HaventAccountRowWidget extends StatelessWidget {
             GestureDetector(
               onTap: ( )  {
                 if(loginOrRegister == LoginOrRegister.LOGIN ) {
-                  GoRouter.of(context).pushReplacement(AppRouter.kRegister);
+                  GoRouter.of(context).push(AppRouter.kRegister);
                 } else{
                   GoRouter.of(context).pushReplacement(AppRouter.kLogin);
 

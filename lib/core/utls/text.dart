@@ -31,6 +31,7 @@ abstract class AppText {
   static const String  requiredPasswordMatching='''يجب مطابقة كلمة السر''';
   static const String  correctEmail='''ادخل بريد الكتروني صالح''';
   static const String  correctPassword='''ادخل كلمة سر قوية تحتوي على احرف وارقام ورموز''';
+  static const String  createTheAccount='''إنشاء الحساب''';
 
 
 

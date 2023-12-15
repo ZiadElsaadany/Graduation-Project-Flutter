@@ -33,7 +33,7 @@ class RegisterBody extends StatelessWidget {
             child: ProgressWidgetToRegister(),
           ),
           SliverPadding(padding: EdgeInsets.only(
-              bottom: 45
+              bottom: 37
           )),
 
 
