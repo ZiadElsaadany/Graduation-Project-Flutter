@@ -4,6 +4,7 @@ import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_c
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
@@ -84,34 +85,65 @@ class OnboardingScreen extends StatelessWidget {
         ),
         Expanded(
           flex: 3,
-          child: Container(
-            padding:
-                const EdgeInsets.only(top: 39, bottom: 80, right: 24, left: 24),
-            decoration: const BoxDecoration(
-                color: AppColors.mainColor,
-                borderRadius: BorderRadiusDirectional.only(
-                    topStart: Radius.circular(30),
-                    topEnd: Radius.circular(30))),
-            child: Column(
-              children: [
-                Text(
-                  title,
-                  style: AppStyles.textStyle20.copyWith(
-                      color: AppColors.white, fontWeight: FontWeight.bold),
+          child: BlocBuilder<OnBoardingCubit, OnBoardingState>(
+            builder: (context, state) {
+              return Container(
+                padding: const EdgeInsets.only(
+                    top: 39, bottom: 80, right: 24, left: 24),
+                decoration: const BoxDecoration(
+                    color: AppColors.mainColor,
+                    borderRadius: BorderRadiusDirectional.only(
+                        topStart: Radius.circular(30),
+                        topEnd: Radius.circular(30))),
+                child: Column(
+                  children: [
+                    Text(
+                      title,
+                      style: AppStyles.textStyle20.copyWith(
+                          color: AppColors.white, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 35,
+                    ),
+                    Text(
+                      description,
+                      style: AppStyles.textStyle13
+                          .copyWith(color: AppColors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 86,
+                    ),
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            SmoothPageIndicator(
+                                controller:
+                                    BlocProvider.of<OnBoardingCubit>(context)
+                                        .pageController,
+                                count: BlocProvider.of<OnBoardingCubit>(context)
+                                    .onBoardingData
+                                    .length,
+                                effect: ExpandingDotsEffect(
+                                  dotColor: AppColors.white.withOpacity(0.4),
+                                  activeDotColor: AppColors.white,
+                                  dotHeight:
+                                      MediaQuery.of(context).size.height *
+                                          0.0072,
+                                  dotWidth: MediaQuery.of(context).size.width *
+                                      0.0172,
+                                  offset: 40,
+                                  spacing: 6,
+                                )),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 35,
-                ),
-                Text(
-                  description,
-                  style: AppStyles.textStyle13.copyWith(color: AppColors.white),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  height: 86,
-                ),
-              ],
-            ),
+              );
+            },
           ),
         ),
       ],
