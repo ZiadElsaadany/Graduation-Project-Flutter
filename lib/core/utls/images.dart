@@ -13,4 +13,7 @@ abstract class AppImages {
   static const String currentCampiagn = 'assets/images/current_campiagn.png';
   static const String photos = "assets/icons/photos.png";
   static const String addPost = "assets/icons/addPost.png";
+  static const String postImage = "assets/images/postImage.png";
+  static const String comment = "assets/icons/comment.png";
+  static const String bookmark = "assets/icons/bookmark.png";
 }

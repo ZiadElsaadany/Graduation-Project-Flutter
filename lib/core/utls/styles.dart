@@ -34,4 +34,12 @@ abstract class AppStyles {
     fontSize: 13,
     fontWeight: FontWeight.w400,
   );
+  static final textStyle14Cairo = GoogleFonts.cairo(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+  );
+  static final textStyle10 = GoogleFonts.almarai(
+    fontSize: 10,
+    fontWeight: FontWeight.w700,
+  );
 }
