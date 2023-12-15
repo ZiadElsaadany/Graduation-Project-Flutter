@@ -15,7 +15,7 @@ abstract class AppText {
   static const String misrElkher = "مصر الخير";
   static const String ahlMisr = "اهل مصر";
   static const String bedayaCharity = "بداية الأعمال الخيرية";
-  static const String elhalalAlahmar = "الهلال الأحمر المصري";
+  static const String elhalalAlahmar = "الهلال الأحمر \nالمصري";
   static const String ahlMisrFoundation = "مؤسسة أهل مصر";
   static const String definitionCampaign =
       "شهدت مصر توافد كبير من الشعب في حملة موسعة\n للتبرع بالدم دعما للشعب الفلسطيني، تزامنا مع تعرض\n قطاع غزة لتصعيد عسكري إسرائيلي عنيف تحت رعاية \nمؤسسة أهل مصر.";

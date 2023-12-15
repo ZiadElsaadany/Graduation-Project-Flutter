@@ -2,6 +2,7 @@ import 'package:aoun_tu/features/home/presentation/view/widgets/home_search_bar.
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utls/text.dart';
+import 'charity_list.dart';
 import 'custom_carousel_slider.dart';
 import 'header.dart';
 import 'home_app_bar.dart';
@@ -32,6 +33,7 @@ class HomeBody extends StatelessWidget {
                       title: AppText.charities,
                     ),
                   ),
+                  const CharitiesList(),
                 ],
               ),
             )
