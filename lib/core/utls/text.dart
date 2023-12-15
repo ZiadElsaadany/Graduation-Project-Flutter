@@ -27,7 +27,7 @@ abstract class AppText {
   static const String  tellYourGender= "أخبرنا عن نوعك";
   static const String  tellYourGenderDescription='''لتعزيز تجربتك داخل التطبيق يجب ان تخبرنا عن نوعك ذكر ام انثي''';
   static const String  addProfilePhoto='''اضافة صورة شخصية''';
-  static const String  addProfileDescription='''يفضل ان تضع صورة شخصية لك لحسابك  لسهولة التعرف عليك داخل التطبيق''';
+  static const String  addProfileDescription='''يفضل ان تضع صورة شخصية لك لحسابك\n لسهولة التعرف عليك داخل التطبيق''';
   static const String  requiredPasswordMatching='''يجب مطابقة كلمة السر''';
   static const String  correctEmail='''ادخل بريد الكتروني صالح''';
   static const String  correctPassword='''ادخل كلمة سر قوية تحتوي على احرف وارقام ورموز''';

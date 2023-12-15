@@ -19,6 +19,9 @@ class GenderWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FadeInRight(
+              duration: const Duration(
+                milliseconds: 800
+              ),
               child: GestureDetector(
                 onTap: () {
                   cubit.changeBoyOrGirl(BoyOrGirl.BOY);
@@ -47,6 +50,9 @@ class GenderWidget extends StatelessWidget {
               ),
             ),
             FadeInLeft(
+              duration: const Duration(
+                  milliseconds: 800
+              ),
               child: GestureDetector(
                 onTap: () {
                   cubit.changeBoyOrGirl(BoyOrGirl.GIRL);

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:aoun_tu/constants.dart';
+import 'package:aoun_tu/features/auth/presentation/view/widgets/add_photo_widget.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/field.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/title_and_description_register.dart';
 import 'package:aoun_tu/features/auth/presentation/view_model/register/register_cubit.dart';
@@ -140,9 +141,9 @@ class _FieldsONRegisterState extends State<FieldsONRegister> {
 
 
             cubit.progressCounter == 5 ?  const GenderWidget(): const SizedBox(),
-              // cubit.progressCounter==6? SelectPhotoWidget() :const SizedBox()
+              cubit.progressCounter==6? const AddPhotoWidget() :const SizedBox(),
 
-              const SizedBox(height: 40,),
+              const SizedBox(height: 55,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -224,6 +225,13 @@ class _FieldsONRegisterState extends State<FieldsONRegister> {
         (phoneController.text.trim().isEmpty)
     )  {
       Constants.snackBar(context: context, text: AppText.enterYourPhone, color: AppColors.red);
+
+
+    }else if(
+    cubit.progressCounter == 5&&
+       cubit.boyOrGirl ==BoyOrGirl.NONE
+    )  {
+      Constants.snackBar(context: context, text: AppText.tellYourGender, color: AppColors.red);
 
 
     }

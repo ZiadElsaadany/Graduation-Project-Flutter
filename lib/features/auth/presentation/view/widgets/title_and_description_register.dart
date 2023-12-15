@@ -18,6 +18,7 @@ class TitleAndDescriptionWidget extends StatelessWidget {
           height: 18,
         ),
         Text(registerOptionsModel.description,
+        textAlign: TextAlign.center,
         style: AppStyles.textStyle12.copyWith(
           color: AppColors.text1
         ),
