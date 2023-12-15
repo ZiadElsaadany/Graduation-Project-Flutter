@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding_view_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -24,17 +25,7 @@ class OnBoardingViewBody extends StatelessWidget {
       children: [
         Expanded(
           flex: 60,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Image.asset(
-                image,
-                fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.height*0.6 ,
-              )
-            ],
-          ),
+          child: OnBoardingViewImage(image: image),
         ),
         Expanded(
           flex: 40,
