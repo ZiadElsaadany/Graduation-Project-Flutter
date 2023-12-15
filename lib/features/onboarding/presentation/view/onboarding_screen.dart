@@ -4,9 +4,32 @@ import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:flutter/material.dart';
 
-class OnBoardingView extends StatelessWidget {
+class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
 
+  @override
+  State<OnBoardingView> createState() => _OnBoardingViewState();
+}
+
+class _OnBoardingViewState extends State<OnBoardingView> {
+  List<Map<String,String>> onBoardingData=[
+    {
+      'title': AppText.donate,
+      'description': 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.',
+      'image': AppImages.firstOnBoarding, // Replace with your image asset
+    },
+    {
+      'title': AppText.clothsDonate,
+      'description': 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.',
+      'image': AppImages.secOnBoarding, // Replace with your image asset
+    },
+    {
+      'title': AppText.foodDonate,
+      'description': 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.',
+      'image': AppImages.thirdOnBoarding, // Replace with your image asset
+    },
+
+  ];
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -54,6 +77,7 @@ class OnBoardingView extends StatelessWidget {
                       child: Text(
                         "هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.",
                         style: AppStyles.textStyle13.copyWith(color: AppColors.white),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
