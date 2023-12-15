@@ -39,5 +39,10 @@ abstract class AppStyles{
     fontWeight: FontWeight.bold,
 
   );
+  static final  textStyle17 =GoogleFonts.almarai(
+    fontSize: 17,
+    fontWeight: FontWeight.normal,
+
+  );
 
 }
