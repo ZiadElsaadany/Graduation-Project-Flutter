@@ -13,6 +13,7 @@ import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
 import '../../../../../core/utls/text.dart';
 import 'button.dart';
+import 'gender_widget.dart';
 
 class FieldsONRegister extends StatefulWidget {
   const FieldsONRegister({Key? key}) : super(key: key);
@@ -138,7 +139,7 @@ class _FieldsONRegisterState extends State<FieldsONRegister> {
               ,
 
 
-
+            cubit.progressCounter == 5 ?  const GenderWidget(): const SizedBox(),
 
               const SizedBox(height: 40,),
 
