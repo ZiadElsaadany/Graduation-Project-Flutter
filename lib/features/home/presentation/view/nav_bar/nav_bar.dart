@@ -16,29 +16,21 @@ class NavBarView extends StatefulWidget {
 }
 
 class _NavBarViewState extends State<NavBarView> {
-  final _controller = PersistentTabController(initialIndex: 3);
+  final _controller = PersistentTabController();
   List<Widget> _buildScreens() {
     return [
+      const HomeScreen(),
       Container(),
       const PostsScreen(),
       Container(),
-      const HomeScreen(),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.volunteer_activism_rounded),
-        title: AppText.myDonation,
-        activeColorPrimary: AppColors.mainColor,
-        inactiveColorPrimary: AppColors.lightBlue,
-        iconSize: 22,
-        textStyle: AppStyles.textStyle10,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.doc_text),
-        title: AppText.posts,
+        icon: const Icon(CupertinoIcons.house),
+        title: AppText.home,
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,
@@ -53,8 +45,16 @@ class _NavBarViewState extends State<NavBarView> {
         textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.house),
-        title: AppText.home,
+        icon: const Icon(CupertinoIcons.doc_text),
+        title: AppText.posts,
+        activeColorPrimary: AppColors.mainColor,
+        inactiveColorPrimary: AppColors.lightBlue,
+        iconSize: 22,
+        textStyle: AppStyles.textStyle10,
+      ),
+      PersistentBottomNavBarItem(
+        icon: const Icon(Icons.volunteer_activism_rounded),
+        title: AppText.myDonation,
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,
@@ -65,34 +65,37 @@ class _NavBarViewState extends State<NavBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PersistentTabView(
-        context,
-        controller: _controller,
-        screens: _buildScreens(),
-        items: _navBarsItems(),
-        confineInSafeArea: true,
-        backgroundColor: AppColors.white,
-        handleAndroidBackButtonPress: true,
-        resizeToAvoidBottomInset: true,
-        stateManagement: true,
-        hideNavigationBarWhenKeyboardShows: true,
-        decoration: NavBarDecoration(
-          colorBehindNavBar: AppColors.white,
-          border: Border.all(color: AppColors.mainColor, width: 0.5),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: PersistentTabView(
+          context,
+          controller: _controller,
+          screens: _buildScreens(),
+          items: _navBarsItems(),
+          confineInSafeArea: true,
+          backgroundColor: AppColors.white,
+          handleAndroidBackButtonPress: true,
+          resizeToAvoidBottomInset: true,
+          stateManagement: true,
+          hideNavigationBarWhenKeyboardShows: true,
+          decoration: NavBarDecoration(
+            colorBehindNavBar: AppColors.white,
+            border: Border.all(color: AppColors.mainColor, width: 0.5),
+          ),
+          popAllScreensOnTapOfSelectedTab: true,
+          popActionScreens: PopActionScreensType.all,
+          itemAnimationProperties: const ItemAnimationProperties(
+            duration: Duration(milliseconds: 200),
+            curve: Curves.ease,
+          ),
+          screenTransitionAnimation: const ScreenTransitionAnimation(
+            animateTabTransition: true,
+            curve: Curves.ease,
+            duration: Duration(milliseconds: 200),
+          ),
+          navBarStyle: NavBarStyle.style6,
         ),
-        popAllScreensOnTapOfSelectedTab: true,
-        popActionScreens: PopActionScreensType.all,
-        itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 200),
-          curve: Curves.ease,
-        ),
-        screenTransitionAnimation: const ScreenTransitionAnimation(
-          animateTabTransition: true,
-          curve: Curves.ease,
-          duration: Duration(milliseconds: 200),
-        ),
-        navBarStyle: NavBarStyle.style6,
       ),
     );
   }
