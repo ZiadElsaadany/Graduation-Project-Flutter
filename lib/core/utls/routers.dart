@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +19,10 @@ abstract class AppRouter {
       GoRoute(
         path: '/posts',
         builder: (context, state) => const PostsScreen(),
+      ),
+      GoRoute(
+        path: '/charity',
+        builder: (context, state) => const CharityView(),
       ),
     ],
   );
