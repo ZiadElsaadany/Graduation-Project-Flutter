@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/home/presentation/view/nav_bar/nav_bar.dart';
 
 abstract class AppRouter {
+  static const kCharity = '/charity';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -21,7 +22,7 @@ abstract class AppRouter {
         builder: (context, state) => const PostsScreen(),
       ),
       GoRoute(
-        path: '/charity',
+        path: kCharity,
         builder: (context, state) => const CharityView(),
       ),
     ],
