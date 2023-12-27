@@ -10,6 +10,7 @@ class CharityView extends StatelessWidget {
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
+          backgroundColor: AppColors.mainColor,
           appBar: AppBar(
             actions: [
               IconButton(
@@ -27,6 +28,7 @@ class CharityView extends StatelessWidget {
                 color: AppColors.yellow,
               ),
             ),
+            backgroundColor: AppColors.mainColor,
           ),
           body: const CharityBody(),
         ));

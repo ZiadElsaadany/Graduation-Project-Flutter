@@ -16,4 +16,5 @@ abstract class AppImages {
   static const String postImage = "assets/images/postImage.png";
   static const String comment = "assets/icons/comment.png";
   static const String bookmark = "assets/icons/bookmark.png";
+  static const String misrElkherLogo = "assets/images/misrElkherLogo.png";
 }

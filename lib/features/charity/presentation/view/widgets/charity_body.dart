@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_name_and_logo.dart';
 import 'package:flutter/material.dart';
 
 class CharityBody extends StatelessWidget {
@@ -5,10 +6,13 @@ class CharityBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
+    return const SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Column(
-        children: [],
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CharityNameAndLogo(),
+        ],
       ),
     );
   }
