@@ -29,7 +29,8 @@ abstract class AppText {
   static const String currentCampaigns = 'الحملات الحالية';
   static const String misrElkherCharity = "مؤسسه مصر الخير";
   static const String misrElkherDefination =
-      "مؤسسة تنموية غير هادفة للربح تعمل في ستة مجالات \nلتنمية الإنسان; الصحة، التعليم، البحث العلمي، التكافل\n الاجتماعي، مناحي الحياة ومجال التنمية المتكاملة على\n أمل القضاء على البطالة، والأمية، والفقر، والمرض";
+      "مؤسسة تنموية غير هادفة للربح تعمل في ستة مجالات لتنمية الإنسان; الصحة، التعليم، البحث العلمي، التكافل الاجتماعي، مناحي الحياة ومجال التنمية المتكاملة على أمل القضاء على البطالة، والأمية، والفقر، والمرض";
+
   static const String forContact = "للتواصل";
   static const String education = "تعليم";
   static const String housing = "السكن";
