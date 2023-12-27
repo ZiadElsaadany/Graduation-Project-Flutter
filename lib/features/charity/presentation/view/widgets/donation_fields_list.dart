@@ -31,7 +31,7 @@ class DonationFieldsList extends StatelessWidget {
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: 8,
+              itemCount: donationFieldsTitles.length,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Padding(

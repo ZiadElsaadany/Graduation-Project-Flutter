@@ -22,4 +22,5 @@ abstract class AppImages {
   static const String feeding = "assets/images/feeding.png";
   static const String alms = "assets/images/alms.png";
   static const String clothes = "assets/images/clothes.png";
+  static const String sampleDonations = "assets/images/sampleDonation.png";
 }
