@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'charity_info.dart';
+import 'donation_fields_list.dart';
 
 class CharityBody extends StatelessWidget {
   const CharityBody({super.key});
@@ -23,8 +24,6 @@ class CharityBody extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsetsDirectional.only(
-                      start: 18.w, end: 23.w, top: 22.h, bottom: 22.h),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30.w),
@@ -33,13 +32,15 @@ class CharityBody extends StatelessWidget {
                   child: const Column(
                     children: [
                       CharityInfo(),
+                      DonationFieldsList(),
+                      SizedBox(height: 30),
                     ],
                   ),
                 ),
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

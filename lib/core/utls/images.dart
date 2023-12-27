@@ -17,4 +17,9 @@ abstract class AppImages {
   static const String comment = "assets/icons/comment.png";
   static const String bookmark = "assets/icons/bookmark.png";
   static const String misrElkherLogo = "assets/images/misrElkherLogo.png";
+  static const String education = "assets/images/education.png";
+  static const String housing = "assets/images/housing.png";
+  static const String feeding = "assets/images/feeding.png";
+  static const String alms = "assets/images/alms.png";
+  static const String clothes = "assets/images/clothes.png";
 }
