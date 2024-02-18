@@ -1,24 +1,34 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:aoun_tu/core/utls/images.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingViewImage extends StatelessWidget {
   const OnBoardingViewImage({super.key, required this.image});
-   final String image;
 
+  final String image;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Stack(
+      alignment: Alignment.center,
       children: [
         Image.asset(
-          image,
+          AppImages.backGround,
           fit: BoxFit.cover,
-          height: MediaQuery.of(context).size.height*0.6 ,
+        ),
+        FadeInDown(
+          duration: Duration(
+            milliseconds: 700
+          ),
+          child: AspectRatio(
+            aspectRatio: 2/1,
+            child: Image.asset(
+              image,
+              fit: BoxFit.contain,
+            ),
+          ),
         )
       ],
     );
   }
-
-
 }

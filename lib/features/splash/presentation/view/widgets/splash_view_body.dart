@@ -27,10 +27,14 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 3), () {
-      GoRouter.of(context).push(AppRouter.kFirstOnBoarding);
-    });
+
     return MaterialApp(
       home: Scaffold(
         backgroundColor: AppColors.mainColor,

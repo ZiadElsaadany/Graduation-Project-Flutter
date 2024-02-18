@@ -4,3 +4,4 @@ import 'package:flutter/material.dart';
 abstract class OnBoardingState {}
 
 class OnBoardingInitial extends OnBoardingState {}
+class ChangePageCounterState extends OnBoardingState {}

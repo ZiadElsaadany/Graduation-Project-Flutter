@@ -19,11 +19,10 @@ class OnBoardingViewBody extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          flex: 60,
-          child: OnBoardingViewImage(image: image),
-        ),
+            flex: 50,
+            child: OnBoardingViewImage(image: image)),
         Expanded(
-            flex: 40,
+            flex: 45,
             child: OnBoardingViewContainer(
               title: title,
               description: description,
