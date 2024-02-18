@@ -15,8 +15,8 @@ class CharityNameAndLogo extends StatelessWidget {
           AppText.misrElkherCharity,
           style: AppStyles.textStyle17.copyWith(color: Colors.white),
         ),
-        SizedBox(
-          height: 18.h,
+        const SizedBox(
+          height: 18,
         ),
         ClipRRect(
           borderRadius: BorderRadius.circular(64.h),
