@@ -33,6 +33,9 @@ abstract class AppText {
   static const String  correctPassword='''ادخل كلمة سر قوية تحتوي على احرف وارقام ورموز''';
   static const String  createTheAccount='''إنشاء الحساب''';
 
-
+static const String clothsDonate = "تبرع ملابس";
+static const String foodDonate = "تبرع إطعام";
+static const String skip = "تخطي";
 
 }
+
