@@ -15,7 +15,7 @@ class CharityItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).pushReplacement(AppRouter.kCharity);
+        GoRouter.of(context).push(AppRouter.kCharity);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

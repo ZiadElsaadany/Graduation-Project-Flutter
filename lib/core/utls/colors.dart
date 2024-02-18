@@ -12,4 +12,29 @@ abstract class AppColors {
   static const Color yellow = Color(0xFFF9A825);
   static const Color grey = Color(0xFF504F4F);
   static const Color yellow2 = Color(0xffEECB15);
+
+
+  static const Color red = Colors.red ;
+
+  static const Color c7c7c7  = Color(0xffC7C7C7);
+
+static OutlineInputBorder outlineInputBorder(
+  {
+  required Color borderColor ,
+    int radius = 10
+}
+    ) {
+  return  OutlineInputBorder(
+    borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(radius.toDouble()),
+        bottomLeft: Radius.circular(radius.toDouble()),
+
+    ),
+    borderSide: BorderSide(
+      color: borderColor,
+      width: 1
+    )
+
+  );
+}
 }

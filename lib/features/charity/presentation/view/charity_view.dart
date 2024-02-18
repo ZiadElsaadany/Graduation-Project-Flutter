@@ -1,6 +1,7 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_body.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CharityView extends StatelessWidget {
   const CharityView({super.key});
@@ -14,7 +15,8 @@ class CharityView extends StatelessWidget {
           appBar: AppBar(
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                  },
                   icon: const Icon(
                     Icons.share_rounded,
                     color: AppColors.yellow,
@@ -22,7 +24,10 @@ class CharityView extends StatelessWidget {
                   )),
             ],
             leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).pop();
+
+              },
               icon: const Icon(
                 Icons.arrow_back_ios_rounded,
                 color: AppColors.yellow,
