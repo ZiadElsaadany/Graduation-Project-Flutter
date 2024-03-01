@@ -1,9 +1,8 @@
+import 'package:aoun_tu/features/charity/presentation/view/widgets/current_campiagn_item_in_charity.dart';
 import 'package:flutter/material.dart';
 
-import 'current_campiagn_item.dart';
-
-class CurrentCampiagnList extends StatelessWidget {
-  const CurrentCampiagnList({super.key});
+class CurrentCampiagnListInCharity extends StatelessWidget {
+  const CurrentCampiagnListInCharity({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class CurrentCampiagnList extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsetsDirectional.only(end: 10, bottom: 23),
-              child: CurrentCampiagnItem(),
+              child: CurrentCampiagnItemInCharity(),
             );
           }),
     );

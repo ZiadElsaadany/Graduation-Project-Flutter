@@ -51,6 +51,7 @@ class DonationFieldsList extends StatelessWidget {
 List<String> donationFieldsTitles = [
   AppText.education,
   AppText.housing,
+  "أسر متعففه",
   AppText.clothes,
   AppText.feeding,
   AppText.alms,
@@ -64,6 +65,7 @@ List<String> donationFieldsTitles = [
 List<String> donationFieldsImages = [
   AppImages.education,
   AppImages.housing,
+  AppImages.family,
   AppImages.clothes,
   AppImages.feeding,
   AppImages.alms,

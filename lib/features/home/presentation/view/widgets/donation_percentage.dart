@@ -47,6 +47,9 @@ class DonationPercentage extends StatelessWidget {
             title: AppText.donateNow,
             color: AppColors.yellow,
           ),
+          const SizedBox(
+            height: 16,
+          ),
         ],
       ),
     );

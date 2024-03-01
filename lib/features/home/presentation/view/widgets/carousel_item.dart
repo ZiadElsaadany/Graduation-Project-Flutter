@@ -19,16 +19,16 @@ class CarouselItem extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(24.0),
-              child: Image.network(
+              child: Image.asset(
                 carouselModel.image,
                 width: double.infinity,
-                height: 171,
+                height: 180.h,
                 fit: BoxFit.cover,
               ),
             ),
             Container(
               width: double.infinity,
-              height: 171,
+              height: 180.h,
               decoration: ShapeDecoration(
                 gradient: LinearGradient(
                   begin: const Alignment(0.00, -1.00),

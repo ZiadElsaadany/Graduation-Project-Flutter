@@ -14,7 +14,7 @@ class EmergencyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 281.w,
-      height: 260.h,
+      height: 281.h,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
