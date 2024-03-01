@@ -20,8 +20,8 @@ class _NavBarViewState extends State<NavBarView> {
   List<Widget> _buildScreens() {
     return [
       const HomeScreen(),
-      Container(),
       const PostsScreen(),
+      Container(),
       Container(),
     ];
   }
@@ -37,14 +37,6 @@ class _NavBarViewState extends State<NavBarView> {
         textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.rectangle_grid_2x2),
-        title: AppText.donationFields,
-        activeColorPrimary: AppColors.mainColor,
-        inactiveColorPrimary: AppColors.lightBlue,
-        iconSize: 20,
-        textStyle: AppStyles.textStyle10,
-      ),
-      PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.doc_text),
         title: AppText.posts,
         activeColorPrimary: AppColors.mainColor,
@@ -53,8 +45,16 @@ class _NavBarViewState extends State<NavBarView> {
         textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.volunteer_activism_rounded),
-        title: AppText.myDonation,
+        icon: const Icon(CupertinoIcons.gift),
+        title: AppText.donationGift,
+        activeColorPrimary: AppColors.mainColor,
+        inactiveColorPrimary: AppColors.lightBlue,
+        iconSize: 20,
+        textStyle: AppStyles.textStyle10,
+      ),
+      PersistentBottomNavBarItem(
+        icon: const Icon(Icons.settings_outlined),
+        title: AppText.setting,
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,

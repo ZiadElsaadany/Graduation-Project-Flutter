@@ -43,7 +43,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
           carouselController: _controller,
           options: CarouselOptions(
               autoPlay: true,
-              height: 191.h,
+              height: 220.h,
               enlargeCenterPage: true,
               aspectRatio: 2.0,
               onPageChanged: (index, reason) {

@@ -12,43 +12,39 @@ class DonationFieldItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 55.w,
-          height: 55.h,
-          decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      onTap: () {},
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 55.w,
+            height: 55.h,
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 1, color: AppColors.mainColor),
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
-            shadows: const [
-              BoxShadow(
-                color: Color(0x3F000000),
-                blurRadius: 4,
-                offset: Offset(0, 4),
-                spreadRadius: 0,
-              )
-            ],
-          ),
-          child: Center(
-            child: Image.asset(
-              imageSrc,
-              width: 50,
-              height: 47,
+            child: Center(
+              child: Image.asset(
+                imageSrc,
+                width: 50,
+                height: 47,
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 4.h,
-        ),
-        Text(
-          title,
-          style: AppStyles.textStyle13.copyWith(color: AppColors.text1),
-        ),
-      ],
+          SizedBox(
+            height: 4.h,
+          ),
+          Text(
+            title,
+            style: AppStyles.font12DarkGreyWeight400,
+          ),
+        ],
+      ),
     );
   }
 }

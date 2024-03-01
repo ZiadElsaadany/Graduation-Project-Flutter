@@ -5,8 +5,8 @@ import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_name_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../home/presentation/view/widgets/current_campiagn_list.dart';
 import 'charity_info.dart';
+import 'current_campiagn_list_in_charity.dart';
 import 'donation_fields_list.dart';
 import 'sample_donation_widget.dart';
 
@@ -54,10 +54,7 @@ class CharityBody extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.only(start: 20.w),
-                        child: const CurrentCampiagnList(),
-                      ),
-                      SizedBox(
-                        height: 46.h,
+                        child: const CurrentCampiagnListInCharity(),
                       ),
                       const SampleDonationWidget(),
                       SizedBox(height: 55.h),

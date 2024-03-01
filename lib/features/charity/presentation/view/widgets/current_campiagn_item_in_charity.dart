@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
-import 'app_button.dart';
+import '../../../../home/presentation/view/widgets/app_button.dart';
 
-class CurrentCampiagnItem extends StatelessWidget {
-  const CurrentCampiagnItem({super.key});
+class CurrentCampiagnItemInCharity extends StatelessWidget {
+  const CurrentCampiagnItemInCharity({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset(
-          AppImages.currentCampiagn,
-          width: 327.w,
-          height: 107.h,
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.asset(
+            AppImages.waterCampaign,
+            width: 327.w,
+            height: 107.h,
+            fit: BoxFit.cover,
+          ),
         ),
         SizedBox(
           height: 6.h,
@@ -49,7 +55,7 @@ class CurrentCampiagnItem extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
-                      AppImages.ahlMisr,
+                      AppImages.misrElkherLogo,
                       width: 30,
                       height: 30,
                     ),
@@ -58,7 +64,7 @@ class CurrentCampiagnItem extends StatelessWidget {
                     width: 6,
                   ),
                   Text(
-                    AppText.ahlMisrFoundation,
+                    AppText.misrElkherCharity,
                     style: AppStyles.textStyle13.copyWith(
                         color: AppColors.mainColor,
                         fontWeight: FontWeight.w700),
@@ -79,6 +85,10 @@ class CurrentCampiagnItem extends StatelessWidget {
                 height: 20.h,
               ),
               AppButton(
+                onTap: () {
+                  GoRouter.of(context)
+                      .push(AppRouter.kCurrentCampiagnInCharity);
+                },
                 title: AppText.knowMore,
                 width: 254.w,
               ),
