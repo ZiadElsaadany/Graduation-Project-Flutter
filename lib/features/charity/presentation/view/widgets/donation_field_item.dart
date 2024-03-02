@@ -1,5 +1,7 @@
+import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
@@ -13,7 +15,10 @@ class DonationFieldItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kDonationField,
+            extra: {'title': title, 'image': imageSrc});
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

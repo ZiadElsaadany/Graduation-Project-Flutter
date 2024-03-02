@@ -50,7 +50,6 @@ abstract class AppRouter {
         path: kCurrentCampiagnInCharity,
         builder: (context, state) => const CurrentCampiagnInCharityView(),
       ),
-      
       GoRoute(
         path: kRegister,
         builder: (context, state) => const RegisterScreen(),
@@ -59,6 +58,14 @@ abstract class AppRouter {
         path: kFirstOnBoarding,
         builder: (context, state) => const OnBoardingView(),
       ),
+      GoRoute(
+        path: kDonationField,
+        builder: (context, state) {
+          Map<String, String> args = state.extra as Map<String, String>;
+          return DonationFieldView(
+              title: args["title"]!, image: args["image"]!);
+        },
+      )
     ],
   );
 }
