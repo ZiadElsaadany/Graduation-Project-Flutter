@@ -32,7 +32,7 @@ abstract class AppText {
 
   static const String forContact = "للتواصل";
   static const String education = "تعليم";
-  static const String housing = "السكن";
+  static const String theHousing = "السكن";
   static const String clothes = "كساء";
   static const String feeding = "اطعام";
   static const String alms = "صدقة";
@@ -102,4 +102,49 @@ abstract class AppText {
   static const String moneyPaied = "المبلغ الدفوع";
   static const String moneyRemaining = "المبلغ المتبقي";
   static const String campiagnDetails = "تفاصيل الحمله";
+
+
+
+
+
+  static const String chooseCategoryToDonate='اختر احدي الفئات وتبرع بها كهدية';
+  static const String waterSupply="توفير مياه";
+  static const String charity="صدقة";
+  static const String feedThePoor="اطعام مسكين";
+  static const String payAffection="دفع بلاء";
+  static const String housing="سكن";
+  static const String garment="كساء";
+  static const String determinateTheGiftValue="حدد قيمة الهدية";
+  static const String addAnotherAmount="اضافة مبلغ اخر..";
+  static const String giftDetails="تفاصيل الهدية";
+  static const String donateAsGift="تبرع كهدية";
+  static const String enterTheGiftRecipientInfo="ادخل بيانات مستلم الهدية";
+  static const String recipientName="اسم المستلم";
+  static const String enterRecipientName="ادخل اسم المستلم";
+  static const String recipientPhone="هاتف المستلم";
+  static const String enterRecipientPhone="ادخل رقم هاتف مستلم الهدية";
+  static const String yourMessageToTheRecipient="رسالتك لمستلم الهدية";
+  static const String hideTheValueOfTheGiftFromRecipient="اخفاء قيمة الهدية للمستلم";
+  static const String enterSenderData="ادخل بيانات مرسل الهدية";
+  static const String senderName="اسم المرسل";
+  static const String senderPhone="هاتف المرسل";
+  static const String enterSenderName="ادخل اسم المرسل";
+  static const String enterSenderPhone="ادخل رقم هاتف المرسل";
+  static const String thisPhoneWillBeSentToTheRecipient="سيتم ارسال هذا الرقم الي مستلم الهدية";
+  static const String askConfirmCode="اطلب كود التأكيد";
+  static const String confirmVerificationCode="تأكيد رمز التحقق";
+  static const String confirmVerificationCodeWasSentTo="تم ارسال رمز التحقق الي";
+  static const String resentTheCode="اعادة ارسال الرمز";
+  static const String phoneConfirm="تحقق من رقم الهاتف";
+  static const String enterATMCardInfo="ادخل معلومات بطاقة الائتمان";
+  static const String enterATMCardNum="ادخل رقم البطاقة";
+  static const String expiryDate="تاريخ الانتهاء";
+  static const String cvvNum="رقم CVV";
+  static const String cardHolderName="اسم حامل البطاقة";
+  static const String iAgreeTo="أوافق علي ";
+  static const String termsAndConditions="الشروط والأحكام";
+  static const String thankU="شكرا لك";
+  static const String theDonationWasSuccessful="تم التبرع بنجاح";
+  static const String weWillSendMessageToTheRecipient="سنقوم بإرسال الرسالة الي مستلم الهدية";
+  static const String backToHome="العودة الي الرئيسية";
 }

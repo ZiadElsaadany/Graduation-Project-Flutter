@@ -33,7 +33,10 @@ abstract class AppStyles {
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
-  static final textStyle16 = GoogleFonts.almarai();
+  static final textStyle16 = GoogleFonts.almarai(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+  );
   static final textStyle17 = GoogleFonts.almarai(
     fontSize: 17,
     fontWeight: FontWeight.bold,
@@ -51,6 +54,10 @@ abstract class AppStyles {
   static final textStyle15 = GoogleFonts.almarai(
     fontSize: 15,
     fontWeight: FontWeight.w400,
+  );
+  static final textStyle15bold = GoogleFonts.almarai(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
   );
 
   static final textStyle14Cairo = GoogleFonts.cairo(

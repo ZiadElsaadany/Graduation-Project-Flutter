@@ -44,4 +44,17 @@ abstract class AppImages {
   static const String family = "assets/images/family.png";
   static const String people = "assets/images/people.png";
   static const String timer = "assets/images/timer.png";
+
+
+
+  static const String handWater = "assets/images/mdi_hand-water.png";
+  static const String handLove = "assets/images/mdi_love.png";
+  static const String loveFill = "assets/images/mingcute_love-fill.png";
+  static const String foodGrains = "assets/images/fluent_food-grains-20-filled.png";
+  static const String  solidHousing= "assets/images/fa6-solid_house-chimney.png";
+  static const String  tShert= "assets/images/t-shert.png";
+  static const String  gifts= "assets/images/gifts.png";
+  static const String  giftBackGround= "assets/images/gift_back_ground.svg";
+
+
 }

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/utls/colors.dart';
-import '../../../../../core/utls/images.dart';
-import '../../../../../core/utls/spacing.dart';
-import '../../../../../core/utls/styles.dart';
-import '../../../../../core/utls/text.dart';
+import '../../../core/utls/colors.dart';
+import '../../../core/utls/images.dart';
+import '../../../core/utls/spacing.dart';
+import '../../../core/utls/styles.dart';
+import '../../../core/utls/text.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
