@@ -3,6 +3,7 @@ import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
+import 'package:aoun_tu/features/inKind_donations/presentations/views/in_kind_donations_view.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
@@ -22,6 +23,7 @@ abstract class AppRouter {
   static const String kCurrentCampiagnInCharity = "/currentCampiagnInCharity";
   static const String kDonationField = "/donationField";
   static const String kCaseDetails = "/caseDetails";
+  static const String kInKindDonations = "/inKindDonations";
 
   static final router = GoRouter(
     routes: [
@@ -60,6 +62,10 @@ abstract class AppRouter {
       GoRoute(
         path: kFirstOnBoarding,
         builder: (context, state) => const OnBoardingView(),
+      ),
+      GoRoute(
+        path: kInKindDonations,
+        builder: (context, state) => const InKindDonations(),
       ),
       GoRoute(
         path: kDonationField,

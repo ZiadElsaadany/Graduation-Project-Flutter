@@ -47,4 +47,11 @@ abstract class AppImages {
   static const String people = "assets/images/people.png";
   static const String timer = "assets/images/timer.png";
   static const String loading = "assets/images/loading.png";
+  static const String food = "assets/images/food.png";
+  static const String clothes2 = "assets/images/clothes2.png";
+  static const String otherDonation = "assets/images/otherDonation.png";
+  static const String boy = "assets/images/boy.png";
+  static const String man = "assets/images/man.png";
+  static const String woman = "assets/images/woman.png";
+  static const String medicines = "assets/images/medicines.png";
 }
