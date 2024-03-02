@@ -55,6 +55,7 @@ class DonationFieldView extends StatelessWidget {
         ),
         body: DonationFieldBody(
           image: image,
+          title: title,
         ),
       ),
     );

@@ -103,4 +103,5 @@ abstract class AppText {
   static const String moneyRemaining = "المبلغ المتبقي";
   static const String campiagnDetails = "تفاصيل الحمله";
   static const String state = "الحاله";
+  static const String caseDetails = "تفاصيل الحاله";
 }

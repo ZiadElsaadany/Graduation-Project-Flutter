@@ -1,15 +1,22 @@
 import 'package:aoun_tu/core/utls/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
 import '../../../../home/presentation/view/widgets/app_button.dart';
 
 class CaseItem extends StatelessWidget {
-  const CaseItem({super.key, required this.index, required this.image});
+  const CaseItem(
+      {super.key,
+      required this.index,
+      required this.image,
+      required this.title});
   final int index;
+  final String title;
   final String image;
 
   @override
@@ -95,10 +102,14 @@ class CaseItem extends StatelessWidget {
             indent: 12,
           ),
           verticalSpace(20),
-          const AppButton(
+          AppButton(
             title: AppText.donateNow,
             color: AppColors.yellow,
-          )
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kCaseDetails,
+                  extra: {'title': title, 'image': image});
+            },
+          ),
         ],
       ),
     );

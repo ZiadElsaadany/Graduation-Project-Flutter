@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DonationFieldBody extends StatelessWidget {
-  const DonationFieldBody({super.key, required this.image});
+  const DonationFieldBody(
+      {super.key, required this.image, required this.title});
   final String image;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class DonationFieldBody extends StatelessWidget {
               return CaseItem(
                 index: index + 1,
                 image: image,
+                title: title,
               );
             }),
       ),
