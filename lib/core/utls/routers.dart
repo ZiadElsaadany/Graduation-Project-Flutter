@@ -6,6 +6,7 @@ import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/food_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/in_kind_donations_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/medicines_donation_view.dart';
+import 'package:aoun_tu/features/inKind_donations/presentations/views/other_donation_view.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
@@ -28,6 +29,7 @@ abstract class AppRouter {
   static const String kInKindDonations = "/inKindDonations";
   static const String kFoodDonations = "/foodDonations";
   static const String kMedicinesDonations = "/medicinesDonations";
+  static const String kOtherDonations = "/otherDonations";
 
   static final router = GoRouter(
     routes: [
@@ -70,6 +72,10 @@ abstract class AppRouter {
       GoRoute(
         path: kFoodDonations,
         builder: (context, state) => const FoodDonationView(),
+      ),
+      GoRoute(
+        path: kOtherDonations,
+        builder: (context, state) => const OtherDonationView(),
       ),
       GoRoute(
         path: kMedicinesDonations,
