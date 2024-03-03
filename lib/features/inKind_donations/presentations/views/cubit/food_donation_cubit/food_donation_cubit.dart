@@ -11,14 +11,12 @@ class FoodDonationCubit extends Cubit<FoodDonationState> {
   countPlus() {
     count = count + 1;
     emit(CountPlus());
-    print(count);
     emit(FoodDonationInitial());
   }
 
   countMinus() {
     if (count > 0) {
       count--;
-      print(count);
       emit(CountMinus());
       emit(FoodDonationInitial());
     }

@@ -36,7 +36,9 @@ class InKindDonationsBody extends StatelessWidget {
               InKindDonationItem(
                 image: AppImages.medicines,
                 name: AppText.medicines,
-                onTap: () {},
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kMedicinesDonations);
+                },
               ),
               verticalSpace(30),
               InKindDonationItem(

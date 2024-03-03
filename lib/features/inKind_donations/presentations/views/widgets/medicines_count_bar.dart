@@ -1,17 +1,17 @@
+import 'package:aoun_tu/features/inKind_donations/presentations/views/cubit/medicines_donation_cubit/medicines_donation_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
-import '../cubit/food_donation_cubit/food_donation_cubit.dart';
 
-class FoodCountBar extends StatelessWidget {
-  const FoodCountBar({super.key});
+class MedicinesCountBar extends StatelessWidget {
+  const MedicinesCountBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FoodDonationCubit, FoodDonationState>(
+    return BlocBuilder<MedicinesDonationCubit, MedicinesDonationState>(
       builder: (context, state) {
         return Container(
             width: 192.w,
@@ -27,7 +27,7 @@ class FoodCountBar extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    context.read<FoodDonationCubit>().countPlus();
+                    context.read<MedicinesDonationCubit>().countPlus();
                   },
                   child: Container(
                     width: 34,
@@ -43,22 +43,22 @@ class FoodCountBar extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  context.read<FoodDonationCubit>().count.toString(),
+                  context.read<MedicinesDonationCubit>().count.toString(),
                   style: AppStyles.font20YellowWeight500.copyWith(
                       fontSize: 22,
-                      color: context.read<FoodDonationCubit>().count == 0
+                      color: context.read<MedicinesDonationCubit>().count == 0
                           ? const Color(0xff7B7B7B)
                           : AppColors.yellow),
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.read<FoodDonationCubit>().countMinus();
+                    context.read<MedicinesDonationCubit>().countMinus();
                   },
                   child: Container(
                     width: 34,
                     height: 34,
                     decoration: BoxDecoration(
-                      color: context.read<FoodDonationCubit>().count == 0
+                      color: context.read<MedicinesDonationCubit>().count == 0
                           ? const Color(0xff7B7B7B).withOpacity(.25)
                           : AppColors.mainColor,
                       borderRadius: BorderRadius.circular(17),

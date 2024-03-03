@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/inKind_donations/presentations/views/cubit/medicines_donation_cubit/medicines_donation_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,11 +9,10 @@ import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
 import '../../../../home/presentation/view/widgets/app_button.dart';
-import '../cubit/food_donation_cubit/food_donation_cubit.dart';
-import 'food_count_bar.dart';
+import 'medicines_count_bar.dart';
 
-class FoodDonationBody extends StatelessWidget {
-  const FoodDonationBody({super.key});
+class MedicinesDonationBody extends StatelessWidget {
+  const MedicinesDonationBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,32 +28,32 @@ class FoodDonationBody extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(75),
             child: Image.asset(
-              AppImages.food,
+              AppImages.medicines,
               width: 150.w,
               height: 150.h,
             ),
           ),
           verticalSpace(30),
           Text(
-            AppText.selectMealCount,
+            AppText.selectPackageCount,
             style: AppStyles.font16GreyWeight400,
           ),
           verticalSpace(40),
-          const FoodCountBar(),
+          const MedicinesCountBar(),
           verticalSpace(8),
           Text(
             AppText.meal,
             style: AppStyles.font13LightGreyWeight400.copyWith(fontSize: 14),
           ),
           verticalSpace(75),
-          BlocBuilder<FoodDonationCubit, FoodDonationState>(
+          BlocBuilder<MedicinesDonationCubit, MedicinesDonationState>(
             builder: (context, state) {
               return AppButton(
                 title: AppText.next,
                 onTap: () {},
                 width: double.infinity,
                 height: 48.h,
-                color: context.read<FoodDonationCubit>().count == 0
+                color: context.read<MedicinesDonationCubit>().count == 0
                     ? const Color(0xffDEDEDE)
                     : AppColors.mainColor,
                 textStyle: AppStyles.font16WhiteBold.copyWith(fontSize: 17),
