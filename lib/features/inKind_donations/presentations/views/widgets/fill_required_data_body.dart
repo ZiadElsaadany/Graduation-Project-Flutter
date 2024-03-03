@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -28,30 +29,40 @@ class FillRequiredDataBody extends StatelessWidget {
               style: AppStyles.font16GreyWeight400.copyWith(fontSize: 15),
             ),
             verticalSpace(40),
-            CustomTextFormField(
-              hintText: AppText.enterPhone,
-              textEditingController: TextEditingController(),
-              iconImage: AppImages.phoneIcon,
-              textInputType: TextInputType.phone,
+            FadeInLeft(
+              duration: const Duration(seconds: 1),
+              child: CustomTextFormField(
+                hintText: AppText.enterPhone,
+                textEditingController: TextEditingController(),
+                iconImage: AppImages.phoneIcon,
+                textInputType: TextInputType.phone,
+              ),
             ),
             verticalSpace(24),
-            CustomTextFormField(
-              hintText: AppText.enterAddress,
-              textEditingController: TextEditingController(),
-              iconImage: AppImages.locationIcon,
-              textInputType: TextInputType.phone,
+            FadeInRight(
+              duration: const Duration(seconds: 1),
+              child: CustomTextFormField(
+                hintText: AppText.enterAddress,
+                textEditingController: TextEditingController(),
+                iconImage: AppImages.locationIcon,
+                textInputType: TextInputType.phone,
+              ),
             ),
             verticalSpace(13),
             const LocationButton(),
             verticalSpace(96),
-            AppButton(
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kDonationSuccess);
-              },
-              title: AppText.donateNow,
-              width: 263.w,
-              height: 48.h,
-              textStyle: AppStyles.font17BlueBold.copyWith(color: Colors.white),
+            FadeIn(
+              duration: const Duration(seconds: 1),
+              child: AppButton(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kDonationSuccess);
+                },
+                title: AppText.donateNow,
+                width: 263.w,
+                height: 48.h,
+                textStyle:
+                    AppStyles.font17BlueBold.copyWith(color: Colors.white),
+              ),
             )
           ],
         ),

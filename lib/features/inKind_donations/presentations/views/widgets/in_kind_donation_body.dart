@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -19,36 +20,48 @@ class InKindDonationsBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 50.h),
           child: Column(
             children: [
-              InKindDonationItem(
-                image: AppImages.food,
-                name: AppText.foodDonate,
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kFoodDonations);
-                },
+              FadeInLeft(
+                duration: const Duration(seconds: 1),
+                child: InKindDonationItem(
+                  image: AppImages.food,
+                  name: AppText.foodDonate,
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kFoodDonations);
+                  },
+                ),
               ),
               verticalSpace(30),
-              InKindDonationItem(
-                image: AppImages.clothes2,
-                name: AppText.clothesDonation,
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kClothesDonations);
-                },
+              FadeInRight(
+                duration: const Duration(seconds: 1),
+                child: InKindDonationItem(
+                  image: AppImages.clothes2,
+                  name: AppText.clothesDonation,
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kClothesDonations);
+                  },
+                ),
               ),
               verticalSpace(30),
-              InKindDonationItem(
-                image: AppImages.medicines,
-                name: AppText.medicines,
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kMedicinesDonations);
-                },
+              FadeInLeft(
+                duration: const Duration(seconds: 1),
+                child: InKindDonationItem(
+                  image: AppImages.medicines,
+                  name: AppText.medicines,
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kMedicinesDonations);
+                  },
+                ),
               ),
               verticalSpace(30),
-              InKindDonationItem(
-                image: AppImages.otherDonation,
-                name: AppText.otherDonathions,
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kOtherDonations);
-                },
+              FadeInRight(
+                duration: const Duration(seconds: 1),
+                child: InKindDonationItem(
+                  image: AppImages.otherDonation,
+                  name: AppText.otherDonathions,
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kOtherDonations);
+                  },
+                ),
               ),
             ],
           )),

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
@@ -28,37 +29,39 @@ class CharityBody extends StatelessWidget {
                 height: 26.h,
               ),
               Expanded(
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.w),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CharityInfo(),
-                      const DonationFieldsList(),
-                      SizedBox(height: 30.h),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 20),
-                        child: Text(
-                          AppText.currentCampaigns,
-                          style: AppStyles.textStyle16.copyWith(
-                              color: AppColors.mainColor,
-                              fontWeight: FontWeight.w700),
+                child: FadeInUp(
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.w),
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const CharityInfo(),
+                        const DonationFieldsList(),
+                        SizedBox(height: 30.h),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 20),
+                          child: Text(
+                            AppText.currentCampaigns,
+                            style: AppStyles.textStyle16.copyWith(
+                                color: AppColors.mainColor,
+                                fontWeight: FontWeight.w700),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 19.h,
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.only(start: 20.w),
-                        child: const CurrentCampiagnListInCharity(),
-                      ),
-                      const SampleDonationWidget(),
-                      SizedBox(height: 55.h),
-                    ],
+                        SizedBox(
+                          height: 19.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(start: 20.w),
+                          child: const CurrentCampiagnListInCharity(),
+                        ),
+                        const SampleDonationWidget(),
+                        SizedBox(height: 55.h),
+                      ],
+                    ),
                   ),
                 ),
               ),

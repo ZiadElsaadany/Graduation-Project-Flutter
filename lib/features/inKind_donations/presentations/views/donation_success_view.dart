@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:aoun_tu/core/utls/images.dart';
 import 'package:aoun_tu/core/utls/spacing.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
@@ -22,10 +23,12 @@ class DonationSuccessView extends StatelessWidget {
                   .copyWith(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             verticalSpace(58),
-            Image.asset(
-              AppImages.check,
-              width: 105.w,
-              height: 105.h,
+            ElasticIn(
+              child: Image.asset(
+                AppImages.check,
+                width: 105.w,
+                height: 105.h,
+              ),
             ),
             verticalSpace(19),
             Text(

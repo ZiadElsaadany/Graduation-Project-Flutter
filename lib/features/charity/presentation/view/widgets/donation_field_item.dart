@@ -29,7 +29,7 @@ class DonationFieldItem extends StatelessWidget {
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
-                side: BorderSide(width: 1, color: AppColors.mainColor),
+                side: const BorderSide(width: 1, color: AppColors.mainColor),
                 borderRadius: BorderRadius.circular(12),
               ),
             ),

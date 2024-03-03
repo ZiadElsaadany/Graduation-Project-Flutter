@@ -129,4 +129,7 @@ abstract class AppText {
   static const String willContactYou = "سنقوم بإرسال محصل لإستلام تبرعاتك";
   static const String package = "عبوة";
   static const String selectLocation = "تحديد الموقع";
+  static const String charityAddress =
+      "القاهره,4 شارع الاهرام- ميدان النفوره- المقطم";
+  static const String socialMedia = "وسائل التواصل";
 }

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,12 +29,14 @@ class FoodDonationBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(75),
-            child: Image.asset(
-              AppImages.food,
-              width: 150.w,
-              height: 150.h,
+          ElasticIn(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(75),
+              child: Image.asset(
+                AppImages.food,
+                width: 150.w,
+                height: 150.h,
+              ),
             ),
           ),
           verticalSpace(30),
@@ -42,7 +45,9 @@ class FoodDonationBody extends StatelessWidget {
             style: AppStyles.font16GreyWeight400,
           ),
           verticalSpace(40),
-          const FoodCountBar(),
+          FadeInLeft(
+              duration: const Duration(seconds: 1),
+              child: const FoodCountBar()),
           verticalSpace(8),
           Text(
             AppText.meal,

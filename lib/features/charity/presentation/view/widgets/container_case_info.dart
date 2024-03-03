@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,8 +20,10 @@ class ContainerCaseInfo extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30), topRight: Radius.circular(30))),
-        child: CaseInfo(
-          title: title,
+        child: FadeInUp(
+          child: CaseInfo(
+            title: title,
+          ),
         ),
       ),
     );

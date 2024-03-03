@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,40 +28,49 @@ class ClothesDonationBody extends StatelessWidget {
                 top: 24.h, left: 56.w, right: 56.h, bottom: 40.h),
             child: Column(
               children: [
-                KindOfClothesItem(
-                  image: AppImages.boy,
-                  title: AppText.children,
-                  count: context.read<ClothesDonationCubit>().childrenCount,
-                  plus: () {
-                    context.read<ClothesDonationCubit>().childrenCountPlus();
-                  },
-                  minus: () {
-                    context.read<ClothesDonationCubit>().childrenCountMinus();
-                  },
+                FadeInLeft(
+                  duration: const Duration(seconds: 1),
+                  child: KindOfClothesItem(
+                    image: AppImages.boy,
+                    title: AppText.children,
+                    count: context.read<ClothesDonationCubit>().childrenCount,
+                    plus: () {
+                      context.read<ClothesDonationCubit>().childrenCountPlus();
+                    },
+                    minus: () {
+                      context.read<ClothesDonationCubit>().childrenCountMinus();
+                    },
+                  ),
                 ),
                 verticalSpace(20),
-                KindOfClothesItem(
-                  image: AppImages.man,
-                  title: AppText.men,
-                  count: context.read<ClothesDonationCubit>().menCount,
-                  plus: () {
-                    context.read<ClothesDonationCubit>().menCountPlus();
-                  },
-                  minus: () {
-                    context.read<ClothesDonationCubit>().menCountMinus();
-                  },
+                FadeInRight(
+                  duration: const Duration(seconds: 1),
+                  child: KindOfClothesItem(
+                    image: AppImages.man,
+                    title: AppText.men,
+                    count: context.read<ClothesDonationCubit>().menCount,
+                    plus: () {
+                      context.read<ClothesDonationCubit>().menCountPlus();
+                    },
+                    minus: () {
+                      context.read<ClothesDonationCubit>().menCountMinus();
+                    },
+                  ),
                 ),
                 verticalSpace(20),
-                KindOfClothesItem(
-                  image: AppImages.woman,
-                  title: AppText.women,
-                  count: context.read<ClothesDonationCubit>().womenCount,
-                  plus: () {
-                    context.read<ClothesDonationCubit>().womenCountPlus();
-                  },
-                  minus: () {
-                    context.read<ClothesDonationCubit>().womenCountMinus();
-                  },
+                FadeInLeft(
+                  duration: const Duration(seconds: 1),
+                  child: KindOfClothesItem(
+                    image: AppImages.woman,
+                    title: AppText.women,
+                    count: context.read<ClothesDonationCubit>().womenCount,
+                    plus: () {
+                      context.read<ClothesDonationCubit>().womenCountPlus();
+                    },
+                    minus: () {
+                      context.read<ClothesDonationCubit>().womenCountMinus();
+                    },
+                  ),
                 ),
                 verticalSpace(27),
                 Row(

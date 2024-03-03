@@ -58,4 +58,8 @@ abstract class AppImages {
   static const String man = "assets/images/man.png";
   static const String woman = "assets/images/woman.png";
   static const String medicines = "assets/images/medicines.png";
+  static const String facebookIcon = "assets/icons/facebook.svg";
+  static const String instagramIcon = "assets/icons/instagram.svg";
+  static const String phoneOfficeIcon = "assets/icons/phone_office.svg";
+  static const String whatsApp = "assets/icons/whats_app.svg";
 }

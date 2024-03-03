@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,28 +31,35 @@ class _OtherDonationBodyState extends State<OtherDonationBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              AppImages.otherDonation,
-              width: 124.w,
-              height: 106.h,
-              fit: BoxFit.fill,
+            FadeIn(
+              duration: const Duration(seconds: 2),
+              child: Image.asset(
+                AppImages.otherDonation,
+                width: 124.w,
+                height: 106.h,
+                fit: BoxFit.fill,
+              ),
             ),
             verticalSpace(34),
-            OtherDonationTextField(
-              hintText: AppText.enterKindOfDonation,
-              onChanged: (value) {
-                context.read<OtherDonationCubit>().inKindDonation = value;
-                setState(() {});
-              },
+            FadeInLeft(
+              child: OtherDonationTextField(
+                hintText: AppText.enterKindOfDonation,
+                onChanged: (value) {
+                  context.read<OtherDonationCubit>().inKindDonation = value;
+                  setState(() {});
+                },
+              ),
             ),
             verticalSpace(24),
-            OtherDonationTextField(
-              maxLine: 5,
-              hintText: AppText.enterDetailsOfDonation,
-              onChanged: (value) {
-                context.read<OtherDonationCubit>().donationDetails = value;
-                setState(() {});
-              },
+            FadeInRight(
+              child: OtherDonationTextField(
+                maxLine: 5,
+                hintText: AppText.enterDetailsOfDonation,
+                onChanged: (value) {
+                  context.read<OtherDonationCubit>().donationDetails = value;
+                  setState(() {});
+                },
+              ),
             ),
             verticalSpace(47),
             AppButton(
