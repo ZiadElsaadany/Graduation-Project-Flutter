@@ -41,7 +41,10 @@ abstract class AppImages {
   static const String onBoarding3 = "assets/images/onBoarding3.png";
   static const String backGround = "assets/images/background.png";
   static const String coins = "assets/images/coins.png";
+  static const String coin2 = "assets/images/coin2.png";
+
   static const String family = "assets/images/family.png";
   static const String people = "assets/images/people.png";
   static const String timer = "assets/images/timer.png";
+  static const String loading = "assets/images/loading.png";
 }

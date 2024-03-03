@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/charity/presentation/view/case_details_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
@@ -20,6 +21,8 @@ abstract class AppRouter {
   static const kNavBar = '/NavBar';
   static const String kCurrentCampiagnInCharity = "/currentCampiagnInCharity";
   static const String kDonationField = "/donationField";
+  static const String kCaseDetails = "/caseDetails";
+
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -50,7 +53,6 @@ abstract class AppRouter {
         path: kCurrentCampiagnInCharity,
         builder: (context, state) => const CurrentCampiagnInCharityView(),
       ),
-      
       GoRoute(
         path: kRegister,
         builder: (context, state) => const RegisterScreen(),
@@ -59,6 +61,21 @@ abstract class AppRouter {
         path: kFirstOnBoarding,
         builder: (context, state) => const OnBoardingView(),
       ),
+      GoRoute(
+        path: kDonationField,
+        builder: (context, state) {
+          Map<String, String> args = state.extra as Map<String, String>;
+          return DonationFieldView(
+              title: args["title"]!, image: args["image"]!);
+        },
+      ),
+      GoRoute(
+        path: kCaseDetails,
+        builder: (context, state) {
+          Map<String, String> args = state.extra as Map<String, String>;
+          return CaseDetailsView(title: args["title"]!, image: args["image"]!);
+        },
+      )
     ],
   );
 }
