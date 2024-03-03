@@ -6,6 +6,9 @@ import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/home/presentation/view/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/utls/routers.dart';
 
 class DonationSuccessView extends StatelessWidget {
   const DonationSuccessView({super.key});
@@ -43,6 +46,9 @@ class DonationSuccessView extends StatelessWidget {
             ),
             verticalSpace(50),
             AppButton(
+              onTap: () {
+                GoRouter.of(context).pushReplacement(AppRouter.kNavBar);
+              },
               title: AppText.backToHome,
               height: 48.h,
               textStyle: AppStyles.font16WhiteBold.copyWith(fontSize: 15),
