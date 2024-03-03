@@ -118,7 +118,7 @@ abstract class AppStyles {
     textStyle: const TextStyle(color: AppColors.yellow),
   );
   static final font20YellowWeight500 = GoogleFonts.almarai(
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: FontWeight.w500,
     textStyle: const TextStyle(color: AppColors.yellow),
   );

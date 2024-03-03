@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/images.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/text.dart';
 import 'in_kind_donation_item.dart';
@@ -20,7 +22,9 @@ class InKindDonationsBody extends StatelessWidget {
               InKindDonationItem(
                 image: AppImages.food,
                 name: AppText.foodDonate,
-                onTap: () {},
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kFoodDonations);
+                },
               ),
               verticalSpace(30),
               InKindDonationItem(
