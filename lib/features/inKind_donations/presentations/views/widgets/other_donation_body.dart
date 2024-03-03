@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -53,7 +55,21 @@ class _OtherDonationBodyState extends State<OtherDonationBody> {
             ),
             verticalSpace(47),
             AppButton(
-              onTap: () {},
+              onTap:
+                  (context.read<OtherDonationCubit>().inKindDonation.trim() ==
+                              "" ||
+                          context
+                                  .read<OtherDonationCubit>()
+                                  .donationDetails
+                                  .trim() ==
+                              "")
+                      ? () {}
+                      : () {
+                          GoRouter.of(context)
+                              .push(AppRouter.kFillRequiredData, extra: {
+                            'title': AppText.otherDonathions,
+                          });
+                        },
               title: AppText.next,
               width: double.infinity,
               height: 48.h,

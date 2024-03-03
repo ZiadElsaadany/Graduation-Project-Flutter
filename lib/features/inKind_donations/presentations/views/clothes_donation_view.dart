@@ -1,4 +1,4 @@
-import 'package:aoun_tu/features/inKind_donations/presentations/views/cubit/food_donation_cubit/food_donation_cubit.dart';
+import 'package:aoun_tu/features/inKind_donations/presentations/views/cubit/clothes_donation_cubit/clothes_donation_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,10 +8,10 @@ import '../../../../core/utls/colors.dart';
 import '../../../../core/utls/images.dart';
 import '../../../../core/utls/styles.dart';
 import '../../../../core/utls/text.dart';
-import 'widgets/food_donation_body.dart';
+import 'widgets/clothes_donation_body.dart';
 
-class FoodDonationView extends StatelessWidget {
-  const FoodDonationView({super.key});
+class ClothesDonationView extends StatelessWidget {
+  const ClothesDonationView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class FoodDonationView extends StatelessWidget {
             ),
           ),
           title: Text(
-            AppText.foodDonate,
+            AppText.clothesDonation,
             style: AppStyles.font16BlueBold,
           ),
           centerTitle: true,
@@ -54,10 +54,8 @@ class FoodDonationView extends StatelessWidget {
           ],
         ),
         body: BlocProvider(
-          create: (context) => FoodDonationCubit(),
-          child: const FoodDonationBody(
-            title: AppText.foodDonate,
-          ),
+          create: (context) => ClothesDonationCubit(),
+          child: const ClothesDonationBody(),
         ),
       ),
     );

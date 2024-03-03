@@ -3,6 +3,8 @@ import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
+import 'package:aoun_tu/features/inKind_donations/presentations/views/clothes_donation_view.dart';
+import 'package:aoun_tu/features/inKind_donations/presentations/views/fill_required_data_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/food_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/in_kind_donations_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/medicines_donation_view.dart';
@@ -30,6 +32,8 @@ abstract class AppRouter {
   static const String kFoodDonations = "/foodDonations";
   static const String kMedicinesDonations = "/medicinesDonations";
   static const String kOtherDonations = "/otherDonations";
+  static const String kClothesDonations = "/ClothesDonations";
+  static const String kFillRequiredData = "/fillRequiredData";
 
   static final router = GoRouter(
     routes: [
@@ -78,6 +82,10 @@ abstract class AppRouter {
         builder: (context, state) => const OtherDonationView(),
       ),
       GoRoute(
+        path: kClothesDonations,
+        builder: (context, state) => const ClothesDonationView(),
+      ),
+      GoRoute(
         path: kMedicinesDonations,
         builder: (context, state) => const MedicinesDonationView(),
       ),
@@ -98,6 +106,15 @@ abstract class AppRouter {
         builder: (context, state) {
           Map<String, String> args = state.extra as Map<String, String>;
           return CaseDetailsView(title: args["title"]!, image: args["image"]!);
+        },
+      ),
+      GoRoute(
+        path: kFillRequiredData,
+        builder: (context, state) {
+          Map<String, String> args = state.extra as Map<String, String>;
+          return FillRequiredDataView(
+            title: args["title"]!,
+          );
         },
       )
     ],

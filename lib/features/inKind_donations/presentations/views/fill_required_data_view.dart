@@ -1,23 +1,20 @@
-import 'package:aoun_tu/features/inKind_donations/presentations/views/cubit/medicines_donation_cubit/medicines_donation_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utls/colors.dart';
 import '../../../../core/utls/images.dart';
 import '../../../../core/utls/styles.dart';
-import '../../../../core/utls/text.dart';
-import 'widgets/medicines_donation_body.dart';
 
-class MedicinesDonationView extends StatelessWidget {
-  const MedicinesDonationView({super.key});
+class FillRequiredDataView extends StatelessWidget {
+  const FillRequiredDataView({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.white,
@@ -30,7 +27,7 @@ class MedicinesDonationView extends StatelessWidget {
               ),
             ),
             title: Text(
-              AppText.medicines,
+              title,
               style: AppStyles.font16BlueBold,
             ),
             centerTitle: true,
@@ -53,12 +50,16 @@ class MedicinesDonationView extends StatelessWidget {
               ),
             ],
           ),
-          body: BlocProvider(
-            create: (context) => MedicinesDonationCubit(),
-            child: const MedicinesDonationBody(
-              title: AppText.medicines,
-            ),
-          ),
-        ));
+          body: const FillRequiredDataBody()),
+    );
+  }
+}
+
+class FillRequiredDataBody extends StatelessWidget {
+  const FillRequiredDataBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

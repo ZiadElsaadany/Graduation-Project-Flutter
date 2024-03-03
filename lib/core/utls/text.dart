@@ -127,4 +127,5 @@ abstract class AppText {
   static const String donationSuccess = "تم التبرع بنجاح ";
   static const String backToHome = "العودة إلي الرئيسية";
   static const String willContactYou = "سنقوم بإرسال محصل لإستلام تبرعاتك";
+  static const String package = "عبوة";
 }

@@ -2,9 +2,11 @@ import 'package:aoun_tu/features/inKind_donations/presentations/views/cubit/medi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -12,7 +14,8 @@ import '../../../../home/presentation/view/widgets/app_button.dart';
 import 'medicines_count_bar.dart';
 
 class MedicinesDonationBody extends StatelessWidget {
-  const MedicinesDonationBody({super.key});
+  const MedicinesDonationBody({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,7 @@ class MedicinesDonationBody extends StatelessWidget {
           const MedicinesCountBar(),
           verticalSpace(8),
           Text(
-            AppText.meal,
+            AppText.package,
             style: AppStyles.font13LightGreyWeight400.copyWith(fontSize: 14),
           ),
           verticalSpace(75),
@@ -50,7 +53,14 @@ class MedicinesDonationBody extends StatelessWidget {
             builder: (context, state) {
               return AppButton(
                 title: AppText.next,
-                onTap: () {},
+                onTap: context.read<MedicinesDonationCubit>().count == 0
+                    ? () {}
+                    : () {
+                        GoRouter.of(context)
+                            .push(AppRouter.kFillRequiredData, extra: {
+                          'title': title,
+                        });
+                      },
                 width: double.infinity,
                 height: 48.h,
                 color: context.read<MedicinesDonationCubit>().count == 0

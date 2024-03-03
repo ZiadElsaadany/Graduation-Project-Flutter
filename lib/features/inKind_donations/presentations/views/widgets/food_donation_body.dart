@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -12,7 +14,8 @@ import '../cubit/food_donation_cubit/food_donation_cubit.dart';
 import 'food_count_bar.dart';
 
 class FoodDonationBody extends StatelessWidget {
-  const FoodDonationBody({super.key});
+  const FoodDonationBody({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,14 @@ class FoodDonationBody extends StatelessWidget {
             builder: (context, state) {
               return AppButton(
                 title: AppText.next,
-                onTap: () {},
+                onTap: context.read<FoodDonationCubit>().count == 0
+                    ? () {}
+                    : () {
+                        GoRouter.of(context)
+                            .push(AppRouter.kFillRequiredData, extra: {
+                          'title': title,
+                        });
+                      },
                 width: double.infinity,
                 height: 48.h,
                 color: context.read<FoodDonationCubit>().count == 0

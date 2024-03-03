@@ -30,7 +30,9 @@ class InKindDonationsBody extends StatelessWidget {
               InKindDonationItem(
                 image: AppImages.clothes2,
                 name: AppText.clothesDonation,
-                onTap: () {},
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kClothesDonations);
+                },
               ),
               verticalSpace(30),
               InKindDonationItem(
