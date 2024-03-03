@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/utls/colors.dart';
 import '../../../../core/utls/images.dart';
 import '../../../../core/utls/styles.dart';
+import 'widgets/fill_required_data_body.dart';
 
 class FillRequiredDataView extends StatelessWidget {
   const FillRequiredDataView({super.key, required this.title});
@@ -52,14 +53,5 @@ class FillRequiredDataView extends StatelessWidget {
           ),
           body: const FillRequiredDataBody()),
     );
-  }
-}
-
-class FillRequiredDataBody extends StatelessWidget {
-  const FillRequiredDataBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }

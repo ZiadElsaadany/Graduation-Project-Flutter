@@ -4,6 +4,7 @@ import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_c
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/clothes_donation_view.dart';
+import 'package:aoun_tu/features/inKind_donations/presentations/views/donation_success_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/fill_required_data_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/food_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/in_kind_donations_view.dart';
@@ -34,6 +35,7 @@ abstract class AppRouter {
   static const String kOtherDonations = "/otherDonations";
   static const String kClothesDonations = "/ClothesDonations";
   static const String kFillRequiredData = "/fillRequiredData";
+  static const String kDonationSuccess = "/donationSuccess";
 
   static final router = GoRouter(
     routes: [
@@ -92,6 +94,10 @@ abstract class AppRouter {
       GoRoute(
         path: kInKindDonations,
         builder: (context, state) => const InKindDonations(),
+      ),
+      GoRoute(
+        path: kDonationSuccess,
+        builder: (context, state) => const DonationSuccessView(),
       ),
       GoRoute(
         path: kDonationField,

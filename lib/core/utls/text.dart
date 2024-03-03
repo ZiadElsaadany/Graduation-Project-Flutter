@@ -128,4 +128,5 @@ abstract class AppText {
   static const String backToHome = "العودة إلي الرئيسية";
   static const String willContactYou = "سنقوم بإرسال محصل لإستلام تبرعاتك";
   static const String package = "عبوة";
+  static const String selectLocation = "تحديد الموقع";
 }

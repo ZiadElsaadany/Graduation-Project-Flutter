@@ -30,6 +30,9 @@ abstract class AppImages {
   static const String passwordIcon = "assets/icons/password_icon.svg";
   static const String personIcon = "assets/icons/personIcon.svg";
   static const String phoneIcon = "assets/icons/phone_icon.svg";
+  static const String sendIcon = "assets/icons/send_icon.svg";
+  static const String checkIcon = "assets/icons/check_icon.svg";
+  static const String locationIcon = "assets/icons/location_icon.svg";
   static const String boyIcon = "assets/icons/boy_icon.svg";
   static const String girlIcon = "assets/icons/girl_icon.svg";
   static const String addPhotoIcon = "assets/icons/add_photo_icon.svg";
@@ -42,6 +45,7 @@ abstract class AppImages {
   static const String backGround = "assets/images/background.png";
   static const String coins = "assets/images/coins.png";
   static const String coin2 = "assets/images/coin2.png";
+  static const String check = "assets/images/check.png";
 
   static const String family = "assets/images/family.png";
   static const String people = "assets/images/people.png";
