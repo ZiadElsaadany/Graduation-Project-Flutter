@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class GiftCategoriesView extends StatelessWidget {
   const GiftCategoriesView({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return const Directionality(
