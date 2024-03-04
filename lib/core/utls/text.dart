@@ -147,4 +147,5 @@ abstract class AppText {
   static const String theDonationWasSuccessful="تم التبرع بنجاح";
   static const String weWillSendMessageToTheRecipient="سنقوم بإرسال الرسالة الي مستلم الهدية";
   static const String backToHome="العودة الي الرئيسية";
+  static const String lE="ج.م";
 }

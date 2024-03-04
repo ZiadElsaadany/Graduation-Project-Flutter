@@ -53,8 +53,9 @@ abstract class AppImages {
   static const String foodGrains = "assets/images/fluent_food-grains-20-filled.png";
   static const String  solidHousing= "assets/images/fa6-solid_house-chimney.png";
   static const String  tShert= "assets/images/t-shert.png";
-  static const String  gifts= "assets/images/gifts.png";
+  static const String  gifts= "assets/images/gifts3.png";
   static const String  giftBackGround= "assets/images/gift_back_ground.svg";
+  static const String  halfGiftBackGround= "assets/images/half_gift_back_ground.svg";
 
 
 }

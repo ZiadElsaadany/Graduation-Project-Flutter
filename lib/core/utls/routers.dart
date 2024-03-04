@@ -10,7 +10,7 @@ import 'package:aoun_tu/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/onboarding/presentation/view/onboarding_screen.dart';
 import '../../features/home/presentation/view/nav_bar/nav_bar.dart';
-
+import '../../features/gift_donation/presentation/view/gift_category_details_view.dart';
 abstract class AppRouter {
   static const kSplash = '/';
   static const kFirstOnBoarding = '/kFirstOnBoarding';
@@ -20,6 +20,7 @@ abstract class AppRouter {
   static const kNavBar = '/NavBar';
   static const String kCurrentCampiagnInCharity = "/currentCampiagnInCharity";
   static const String kDonationField = "/donationField";
+  static const String kGiftDetailsView = "/giftDetailsView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -58,6 +59,10 @@ abstract class AppRouter {
       GoRoute(
         path: kFirstOnBoarding,
         builder: (context, state) => const OnBoardingView(),
+      ),
+      GoRoute(
+        path: kGiftDetailsView,
+        builder: (context, state) => const GiftCategoryDetailsView(),
       ),
     ],
   );
