@@ -4,3 +4,4 @@ part of 'gift_cubit.dart';
 abstract class GiftState {}
 
 class GiftInitial extends GiftState {}
+class SelectGiftValueContainer extends GiftState {}
