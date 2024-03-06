@@ -7,9 +7,7 @@ import '../../../../../core/utls/text.dart';
 import '../../../../home/presentation/view/widgets/app_button.dart';
 
 class AllAmountContainer extends StatelessWidget {
-  const AllAmountContainer({Key? key, required this.allAmountText})
-      : super(key: key);
-  final String allAmountText;
+  const AllAmountContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +42,13 @@ class AllAmountContainer extends StatelessWidget {
                   children: [
                     BlocBuilder<GiftCubit, GiftState>(
                       builder: (context, state) {
+                        var cubit = BlocProvider.of<GiftCubit>(context);
                         return Text(
-                          BlocProvider.of<GiftCubit>(context).selected?allAmountText:"",
+                          cubit.textStates(),
+                              // (cubit.textEditingController.text.isNotEmpty)
+                              //     ? cubit.textEditingController.text
+                              //     :(cubit.selected)
+                              //     ? cubit.values[cubit.itemIndex]: "",
                           style: AppStyles.font18Bold
                               .copyWith(color: AppColors.yellow),
                         );

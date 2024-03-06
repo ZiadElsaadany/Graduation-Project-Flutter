@@ -109,7 +109,7 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                       AllAmountContainer(allAmountText:cubit.values[cubit.itemIndex],),
+                       const AllAmountContainer(),
                     ],
                   ),
                 ),
