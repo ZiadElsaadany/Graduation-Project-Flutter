@@ -10,8 +10,11 @@ class AddAmountTextFormField extends StatelessWidget {
   final GiftCategoryModel giftCategoryModel;
   @override
   Widget build(BuildContext context) {
+    final yellowTextStyle = AppStyles.textStyle22bold.copyWith(color: AppColors.yellow);
+
     return TextFormField(
       cursorColor: giftCategoryModel.color,
+      keyboardType:  TextInputType.number,
       decoration: InputDecoration(
         suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(
@@ -26,7 +29,9 @@ class AddAmountTextFormField extends StatelessWidget {
         hintText: AppText.addAnotherAmount,
         hintStyle:
         AppStyles.textStyle14.copyWith(color: AppColors.grey),
+
       ),
+      style: yellowTextStyle,
     );
   }
   OutlineInputBorder outLineInputBorder() {

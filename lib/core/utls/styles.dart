@@ -29,6 +29,10 @@ abstract class AppStyles {
     fontSize: 20,
     fontWeight: FontWeight.normal,
   );
+  static final textStyle22bold = GoogleFonts.almarai(
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+  );
   static final textStyle14 = GoogleFonts.almarai(
     fontSize: 14,
     fontWeight: FontWeight.normal,
