@@ -148,4 +148,6 @@ abstract class AppText {
   static const String weWillSendMessageToTheRecipient="سنقوم بإرسال الرسالة الي مستلم الهدية";
   static const String backToHome="العودة الي الرئيسية";
   static const String lE="ج.م";
+  static const String theWholeAmount="المبلغ الكلي";
+  static const String payment="الدفع";
 }
