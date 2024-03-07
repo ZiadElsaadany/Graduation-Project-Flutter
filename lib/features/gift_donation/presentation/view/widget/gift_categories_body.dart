@@ -45,7 +45,7 @@ class GiftCategoriesBody extends StatelessWidget {
                   (index) {
                     return GestureDetector(
                       onTap: () {
-                        GoRouter.of(context).push(AppRouter.kGiftDetailsView,extra: {"giftCategoryModel":gridItemData[index] });
+                        GoRouter.of(context).push(AppRouter.kGiftCategoryDetailsView,extra: {"giftCategoryModel":gridItemData[index] });
                         // cubit.getGridItemIndex(index);
                         // print(cubit.gridItemIndex);
                       },

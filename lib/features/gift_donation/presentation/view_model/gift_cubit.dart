@@ -33,4 +33,10 @@ class GiftCubit extends Cubit<GiftState> {
       return '0.0';
     }
   }
+
+  late bool checkBoxSelected=false;
+  isCheckBoxSelected(bool checkBoxSelected){
+    this.checkBoxSelected=checkBoxSelected;
+    emit(CheckBoxSelectedState());
+  }
 }

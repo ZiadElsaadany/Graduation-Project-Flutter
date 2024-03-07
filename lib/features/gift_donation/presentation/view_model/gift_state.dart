@@ -11,3 +11,5 @@ class AddedTextInTextEditingController extends GiftState {
 
   AddedTextInTextEditingController(this.textEditingController);
 }
+class CheckBoxSelectedState extends GiftState {}
+

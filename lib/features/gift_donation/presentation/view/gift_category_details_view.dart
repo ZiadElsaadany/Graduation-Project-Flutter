@@ -13,9 +13,9 @@ class GiftCategoryDetailsView extends StatelessWidget {
     return  Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar:DonateAsGiftAppBar(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-            title: AppText.donateAsGift, child: Container(),
+        appBar:const DonateAsGiftAppBar(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+            title: AppText.donateAsGift, child: SizedBox(),
         ),
         body: GiftCategoryDetailsViewBody(giftCategoryModel: giftCategoryModel,),
       ),

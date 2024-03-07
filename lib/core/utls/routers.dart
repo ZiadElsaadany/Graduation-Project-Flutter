@@ -1,5 +1,6 @@
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/gift_details_view.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
@@ -19,7 +20,8 @@ abstract class AppRouter {
   static const kNavBar = '/NavBar';
   static const String kCurrentCampiagnInCharity = "/currentCampiagnInCharity";
   static const String kDonationField = "/donationField";
-  static const String kGiftDetailsView = "/giftDetailsView";
+  static const String kGiftCategoryDetailsView = "/giftCategoryDetailsView";
+  static const String kGiftDataDetailsView = "/giftDataDetailsView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -59,12 +61,16 @@ abstract class AppRouter {
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
-        path: kGiftDetailsView,
+        path: kGiftCategoryDetailsView,
         builder: (context, state) {
           Map<String, dynamic> args = state.extra as Map<String, dynamic>;
           return GiftCategoryDetailsView(
               giftCategoryModel: args['giftCategoryModel']!);
         },
+      ),
+      GoRoute(
+        path: kGiftDataDetailsView,
+        builder: (context, state) => const GiftDataDetailsView(),
       ),
     ],
   );

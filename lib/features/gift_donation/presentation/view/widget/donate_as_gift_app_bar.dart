@@ -15,20 +15,28 @@ class DonateAsGiftAppBar extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios_new,
-        ),
-        color: AppColors.mainColor,
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
-      title: Text(
-        title,
-        style: AppStyles.textStyle17.copyWith(
+    return Container(
+      decoration: const BoxDecoration(
+          color: AppColors.white,
+          border: Border(
+            bottom: BorderSide(width: 1, color: AppColors.mainColor),
+          )),
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+          ),
           color: AppColors.mainColor,
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: Text(
+          title,
+          style: AppStyles.textStyle17.copyWith(
+            color: AppColors.mainColor,
+          ),
         ),
       ),
     );

@@ -1,6 +1,8 @@
+import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -74,6 +76,9 @@ class AllAmountContainer extends StatelessWidget {
             title: AppText.payment,
             height: MediaQuery.of(context).size.height * 0.06,
             textStyle: AppStyles.font16WhiteBold,
+            onTap: (){
+              GoRouter.of(context).push(AppRouter.kGiftDataDetailsView);
+            },
           ),
           const SizedBox(
             height: 25,
