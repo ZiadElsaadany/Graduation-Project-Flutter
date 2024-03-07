@@ -1,6 +1,7 @@
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
-import 'package:aoun_tu/features/gift_donation/presentation/view/gift_details_view.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/confirm_code_view.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/gift_data_details_view.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
@@ -22,6 +23,7 @@ abstract class AppRouter {
   static const String kDonationField = "/donationField";
   static const String kGiftCategoryDetailsView = "/giftCategoryDetailsView";
   static const String kGiftDataDetailsView = "/giftDataDetailsView";
+  static const String kConfirmCode = "/confirmCodeView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -71,6 +73,10 @@ abstract class AppRouter {
       GoRoute(
         path: kGiftDataDetailsView,
         builder: (context, state) => const GiftDataDetailsView(),
+      ),
+      GoRoute(
+        path: kConfirmCode,
+        builder: (context, state) => const ConfirmCodeView(),
       ),
     ],
   );

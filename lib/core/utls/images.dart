@@ -56,6 +56,7 @@ abstract class AppImages {
   static const String  gifts= "assets/images/gifts3.png";
   static const String  giftBackGround= "assets/images/gift_back_ground.svg";
   static const String  halfGiftBackGround= "assets/images/half_gift_back_ground.svg";
+  static const String  logoBlue= "assets/images/logo_blue.svg";
 
 
 }

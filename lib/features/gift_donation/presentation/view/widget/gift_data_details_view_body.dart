@@ -1,3 +1,4 @@
+import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_data_details_header_text.dart';
@@ -6,6 +7,7 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/hide_gif
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/message_text_form_filed.dart';
 import 'package:aoun_tu/features/home/presentation/view/widgets/app_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 
@@ -94,6 +96,9 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                   color: AppColors.yellow,
                   height:  MediaQuery.of(context).size.height * 0.055,
                   width:  MediaQuery.of(context).size.width*0.45,
+                  onTap: (){
+                    GoRouter.of(context).push(AppRouter.kConfirmCode);
+                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,

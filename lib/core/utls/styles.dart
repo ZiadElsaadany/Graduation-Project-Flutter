@@ -24,6 +24,10 @@ static final textStyle13bold = GoogleFonts.almarai(
     fontSize: 13,
     fontWeight: FontWeight.bold,
   );
+  static final textStyle11bold = GoogleFonts.almarai(
+    fontSize: 11,
+    fontWeight: FontWeight.bold,
+  );
 
   static final textStyle19 = GoogleFonts.almarai(
     fontSize: 19,
@@ -40,6 +44,10 @@ static final textStyle13bold = GoogleFonts.almarai(
   static final textStyle14 = GoogleFonts.almarai(
     fontSize: 14,
     fontWeight: FontWeight.normal,
+  );
+  static final textStyle14bold = GoogleFonts.almarai(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
   );
   static final textStyle16 = GoogleFonts.almarai(
     fontSize: 16,
@@ -65,6 +73,10 @@ static final textStyle13bold = GoogleFonts.almarai(
   );
   static final textStyle15bold = GoogleFonts.almarai(
     fontSize: 15,
+    fontWeight: FontWeight.bold,
+  );
+  static final textStyle24bold = GoogleFonts.almarai(
+    fontSize: 24,
     fontWeight: FontWeight.bold,
   );
 
