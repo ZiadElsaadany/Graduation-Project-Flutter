@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utls/colors.dart';
 
 class GiftDataSRTextFormField extends StatelessWidget {
-  const GiftDataSRTextFormField({Key? key, required this.hintText, required this.labelText}) : super(key: key);
+  const GiftDataSRTextFormField({Key? key, required this.hintText, required this.labelText, this.controller}) : super(key: key);
 
   final String hintText;
   final String labelText;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       style: AppStyles.textStyle13bold.copyWith(color: AppColors.text1),
       textAlign: TextAlign.center,
       cursorColor: AppColors.mainColor,

@@ -2,9 +2,7 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/donate_as_gift_app_bar.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_data_details_view_body.dart';
-import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class GiftDataDetailsView extends StatelessWidget {
@@ -12,19 +10,16 @@ class GiftDataDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Directionality(
+    return  const Directionality(
       textDirection: TextDirection.rtl,
-      child: BlocProvider(
-        create: (context) =>GiftCubit(),
-        child: const Scaffold(
-          backgroundColor: AppColors.white,
-          appBar: DonateAsGiftAppBar(
-            preferredSize: Size.fromHeight(kToolbarHeight),
-            title: AppText.giftDetails,
-            child: SizedBox(),
-          ),
-          body: GiftDataDetailsViewBody(),
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        appBar: DonateAsGiftAppBar(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          title: AppText.giftDetails,
+          child: SizedBox(),
         ),
+        body: GiftDataDetailsViewBody(),
       ),
     );
   }

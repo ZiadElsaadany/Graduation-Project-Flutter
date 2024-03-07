@@ -5,8 +5,10 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_dat
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_data_sr_text_form_field.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/hide_gift_value_row.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/message_text_form_filed.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:aoun_tu/features/home/presentation/view/widgets/app_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
@@ -30,16 +32,20 @@ class GiftDataDetailsViewBody extends StatelessWidget {
           Form(
             child: Column(
               children: [
-                const GiftDataSRTextFormField(
+                GiftDataSRTextFormField(
                   hintText: AppText.enterRecipientName,
                   labelText: AppText.recipientName,
+                  controller: BlocProvider.of<GiftCubit>(context)
+                      .recipientNameTextController,
                 ),
                 const SizedBox(
                   height: 24,
                 ),
-                const GiftDataSRTextFormField(
+                GiftDataSRTextFormField(
                   hintText: AppText.enterRecipientPhone,
                   labelText: AppText.recipientPhone,
+                  controller: BlocProvider.of<GiftCubit>(context)
+                      .recipientPhoneTextController,
                 ),
                 const SizedBox(
                   height: 24,
@@ -68,16 +74,20 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                const GiftDataSRTextFormField(
+                GiftDataSRTextFormField(
                   hintText: AppText.enterSenderName,
                   labelText: AppText.senderName,
+                  controller: BlocProvider.of<GiftCubit>(context)
+                      .senderNameTextController,
                 ),
                 const SizedBox(
                   height: 24,
                 ),
-                const GiftDataSRTextFormField(
+                GiftDataSRTextFormField(
                   hintText: AppText.enterSenderPhone,
                   labelText: AppText.senderPhone,
+                  controller: BlocProvider.of<GiftCubit>(context)
+                      .senderPhoneTextController,
                 ),
                 const SizedBox(
                   height: 8,
@@ -94,9 +104,9 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                   textStyle: AppStyles.textStyle13bold
                       .copyWith(color: AppColors.white),
                   color: AppColors.yellow,
-                  height:  MediaQuery.of(context).size.height * 0.055,
-                  width:  MediaQuery.of(context).size.width*0.45,
-                  onTap: (){
+                  height: MediaQuery.of(context).size.height * 0.055,
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  onTap: () {
                     GoRouter.of(context).push(AppRouter.kConfirmCode);
                   },
                 ),
@@ -105,10 +115,10 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 ),
                 AppButton(
                   title: AppText.next,
-                  textStyle: AppStyles.textStyle17
-                      .copyWith(color: AppColors.white),
+                  textStyle:
+                      AppStyles.textStyle17.copyWith(color: AppColors.white),
                   color: AppColors.frame,
-                  height:  MediaQuery.of(context).size.height * 0.055,
+                  height: MediaQuery.of(context).size.height * 0.055,
                 ),
               ],
             ),
