@@ -38,7 +38,7 @@ class HomeAppBar extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(17.5),
             child: Image.asset(
-              AppImages.profileImage,
+              AppImages.profileImageFromAsset,
               width: 35,
               height: 35,
             ),

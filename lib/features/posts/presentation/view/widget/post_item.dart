@@ -1,3 +1,5 @@
+import 'package:aoun_tu/features/posts/presentation/view/widget/circle_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,6 +7,7 @@ import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
+import 'bottom_sheet_comments/comments_sheet_view.dart';
 
 class PostItem extends StatelessWidget {
   const PostItem({super.key});
@@ -36,14 +39,7 @@ class PostItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(17),
-                    child: Image.network(
-                      AppImages.profileImage,
-                      width: 34,
-                      height: 34,
-                    ),
-                  ),
+                CircleForImage(image:  AppImages.profileImageFromAsset),
                   const SizedBox(
                     width: 8,
                   ),
@@ -89,7 +85,26 @@ class PostItem extends StatelessWidget {
                   Column(
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          // show comments sheet
+          showModalBottomSheet(
+            isScrollControlled: true,
+            elevation: 0
+              ,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15) ,
+                    topRight:Radius.circular(15) )
+              ),
+              enableDrag: true,
+              useSafeArea: true,
+              // showDragHandle: true,
+               backgroundColor: AppColors.white,
+              context: context, builder: ( c )  {
+            return CommentsSheetView();
+          } );
+
+                        },
                         child: Image.asset(
                           AppImages.comment,
                           width: 30,

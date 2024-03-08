@@ -65,8 +65,8 @@ class CurrentCampiagnItem extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 13,
+               SizedBox(
+                height: 13.h,
               ),
               Text(
                 AppText.definitionCampaign,

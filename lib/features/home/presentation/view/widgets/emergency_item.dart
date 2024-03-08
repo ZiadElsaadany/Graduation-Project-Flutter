@@ -47,7 +47,7 @@ class EmergencyItem extends StatelessWidget {
               ),
               PositionedDirectional(
                 top: 80.h,
-                start: 12,
+                start: 50.w,
                 child: Text(
                   AppText.helpPalestine,
                   style: AppStyles.textStyle15.copyWith(
