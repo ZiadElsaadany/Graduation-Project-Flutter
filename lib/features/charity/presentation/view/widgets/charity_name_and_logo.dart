@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:aoun_tu/core/utls/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,9 +12,11 @@ class CharityNameAndLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          AppText.misrElkherCharity,
-          style: AppStyles.textStyle17.copyWith(color: Colors.white),
+        FadeInLeft(
+          child: Text(
+            AppText.misrElkherCharity,
+            style: AppStyles.textStyle17.copyWith(color: Colors.white),
+          ),
         ),
         const SizedBox(
           height: 18,

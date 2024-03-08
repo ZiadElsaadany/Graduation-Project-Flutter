@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'charity_item.dart';
@@ -16,9 +17,9 @@ class CharitiesList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsetsDirectional.only(end: 16),
-            child: CharityItem(),
+          return Padding(
+            padding: const EdgeInsetsDirectional.only(end: 16),
+            child: const CharityItem().animate().effect().scale().move(),
           );
         },
       ),

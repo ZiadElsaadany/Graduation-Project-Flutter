@@ -104,4 +104,32 @@ abstract class AppText {
   static const String campiagnDetails = "تفاصيل الحمله";
   static const String state = "الحاله";
   static const String caseDetails = "تفاصيل الحاله";
+  static const String inKindDonations = "تبرعات عينية";
+  static const String foodDonation = "تبرع طعام";
+  static const String clothesDonation = "تبرع ملابس";
+
+  static const String medicines = "تبرع أدوية و مستلزمات طبية";
+  static const String otherDonathions = "تبرع عيني أخر ";
+  static const String selectMealCount = "قم بتحديد عدد الوجبات";
+  static const String meal = "وجبة";
+  static const String children = "أطفال";
+  static const String men = "رجال";
+  static const String women = "سيدات";
+  static const String allNumber = "العدد الكلي";
+  static const String piece = "قطعة";
+  static const String selectPackageCount = "قم بتحديد عدد العبوات";
+  static const String enterKindOfDonation = "أدخل نوع العينة";
+  static const String enterDetailsOfDonation = "أدخل تفاصيل العينة";
+  static const String fillRequiredData = "قم بملئ البيانات المطلوبة";
+  static const String enterPhone = "أدخل رقم الهاتف";
+  static const String enterAddress = "أدخل العنوان";
+  static const String thankYou = "شكرا لك ";
+  static const String donationSuccess = "تم التبرع بنجاح ";
+  static const String backToHome = "العودة إلي الرئيسية";
+  static const String willContactYou = "سنقوم بإرسال محصل لإستلام تبرعاتك";
+  static const String package = "عبوة";
+  static const String selectLocation = "تحديد الموقع";
+  static const String charityAddress =
+      "القاهره,4 شارع الاهرام- ميدان النفوره- المقطم";
+  static const String socialMedia = "وسائل التواصل";
 }

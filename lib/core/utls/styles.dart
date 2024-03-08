@@ -87,6 +87,11 @@ abstract class AppStyles {
     fontWeight: FontWeight.w400,
     textStyle: const TextStyle(color: AppColors.text2),
   );
+  static final font16GreyWeight400 = GoogleFonts.almarai(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    textStyle: const TextStyle(color: AppColors.text1),
+  );
   static final font14LightGreyBold = GoogleFonts.almarai(
     fontSize: 14,
     fontWeight: FontWeight.bold,
@@ -94,6 +99,11 @@ abstract class AppStyles {
   );
   static final font12BlueBold = GoogleFonts.almarai(
     fontSize: 12,
+    fontWeight: FontWeight.bold,
+    textStyle: const TextStyle(color: AppColors.mainColor),
+  );
+  static final font17BlueBold = GoogleFonts.almarai(
+    fontSize: 17,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(color: AppColors.mainColor),
   );
@@ -107,9 +117,19 @@ abstract class AppStyles {
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(color: AppColors.yellow),
   );
+  static final font20YellowWeight500 = GoogleFonts.almarai(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    textStyle: const TextStyle(color: AppColors.yellow),
+  );
   static final font16WhiteBold = GoogleFonts.almarai(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     textStyle: const TextStyle(color: Colors.white),
+  );
+  static final font13LightBlueWeight500 = GoogleFonts.almarai(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    textStyle: const TextStyle(color: AppColors.text3),
   );
 }
