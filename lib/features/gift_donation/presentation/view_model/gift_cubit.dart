@@ -47,4 +47,6 @@ class GiftCubit extends Cubit<GiftState> {
   late TextEditingController senderNameTextController = TextEditingController();
   late TextEditingController senderPhoneTextController =
       TextEditingController();
+  late TextEditingController pinCodeController =
+      TextEditingController();
 }

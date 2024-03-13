@@ -1,5 +1,6 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';
+import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/custom_pin_code_text_field.dart';
@@ -8,6 +9,7 @@ import 'package:aoun_tu/features/home/presentation/view/widgets/app_button.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ConfirmCodeView extends StatelessWidget {
   const ConfirmCodeView({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class ConfirmCodeView extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: AppColors.white,
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(
@@ -92,6 +95,9 @@ class ConfirmCodeView extends StatelessWidget {
                 textStyle:
                     AppStyles.textStyle15bold.copyWith(color: AppColors.white),
                 height: MediaQuery.of(context).size.height * 0.06,
+                onTap: (){
+                  GoRouter.of(context).pushReplacement(AppRouter.kGiftDataDetailsView);
+                },
               ),
             ),
           ],

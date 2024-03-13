@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:aoun_tu/core/utls/styles.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../../core/utls/colors.dart';
@@ -23,6 +25,7 @@ class CustomPinCodeTextField extends StatelessWidget {
             horizontal: MediaQuery.of(context).size.width * 0.16,
           ),
           child: PinCodeTextField(
+            controller: BlocProvider.of<GiftCubit>(context).pinCodeController,
             appContext: context,
             length: 5,
             errorAnimationController: errorController,
@@ -46,7 +49,8 @@ class CustomPinCodeTextField extends StatelessWidget {
               print("Completed");
             },
             onChanged: (value) {
-              print(value);
+              // print(value);
+              // print(BlocProvider.of<GiftCubit>(context).pinCodeController);
             },
             beforeTextPaste: (text) {
               print("Allowing to paste $text");

@@ -4,6 +4,8 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/donate_a
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_category_details_view_body.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utls/colors.dart';
+
 class GiftCategoryDetailsView extends StatelessWidget {
   const GiftCategoryDetailsView({super.key, required this.giftCategoryModel});
 
@@ -13,6 +15,7 @@ class GiftCategoryDetailsView extends StatelessWidget {
     return  Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: AppColors.white,
         appBar:const DonateAsGiftAppBar(
           preferredSize: Size.fromHeight(kToolbarHeight),
             title: AppText.donateAsGift, child: SizedBox(),

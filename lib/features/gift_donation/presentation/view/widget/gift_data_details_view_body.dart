@@ -1,6 +1,7 @@
 import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/widget/confirm_code_custom_button.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_data_details_header_text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_data_sr_text_form_field.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/hide_gift_value_row.dart';
@@ -99,15 +100,30 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.034,
                 ),
-                AppButton(
-                  title: AppText.askConfirmCode,
-                  textStyle: AppStyles.textStyle13bold
-                      .copyWith(color: AppColors.white),
-                  color: AppColors.yellow,
-                  height: MediaQuery.of(context).size.height * 0.055,
-                  width: MediaQuery.of(context).size.width * 0.45,
-                  onTap: () {
-                    GoRouter.of(context).push(AppRouter.kConfirmCode);
+                BlocBuilder<GiftCubit, GiftState>(
+                  builder: (context, state) {
+                    return ConfirmCodeCustomButton(
+                      title: BlocProvider.of<GiftCubit>(context)
+                                  .pinCodeController
+                                  .text ==
+                              '22335'
+                          ? AppText.confirmedSuccessful
+                          : AppText.askConfirmCode,
+                      color: BlocProvider.of<GiftCubit>(context)
+                                  .pinCodeController
+                                  .text ==
+                              '22335'
+                          ? AppColors.green
+                          : AppColors.yellow,
+                      onTap: () {
+                        if (BlocProvider.of<GiftCubit>(context)
+                                .pinCodeController
+                                .text ==
+                            '') {
+                          GoRouter.of(context).pushReplacement(AppRouter.kConfirmCode);
+                        }
+                      },
+                    );
                   },
                 ),
                 SizedBox(
@@ -117,7 +133,12 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                   title: AppText.next,
                   textStyle:
                       AppStyles.textStyle17.copyWith(color: AppColors.white),
-                  color: AppColors.frame,
+                  color: BlocProvider.of<GiftCubit>(context)
+                              .pinCodeController
+                              .text ==
+                          '22335'
+                      ? AppColors.mainColor
+                      : AppColors.frame,
                   height: MediaQuery.of(context).size.height * 0.055,
                 ),
               ],

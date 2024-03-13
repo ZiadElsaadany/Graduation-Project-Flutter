@@ -150,4 +150,5 @@ abstract class AppText {
   static const String lE="ج.م";
   static const String theWholeAmount="المبلغ الكلي";
   static const String payment="الدفع";
+  static const String confirmedSuccessful="تم التحقق بنجاح";
 }
