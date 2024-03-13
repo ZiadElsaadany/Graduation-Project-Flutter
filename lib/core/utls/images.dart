@@ -30,6 +30,9 @@ abstract class AppImages {
   static const String passwordIcon = "assets/icons/password_icon.svg";
   static const String personIcon = "assets/icons/personIcon.svg";
   static const String phoneIcon = "assets/icons/phone_icon.svg";
+  static const String sendIcon = "assets/icons/send_icon.svg";
+  static const String checkIcon = "assets/icons/check_icon.svg";
+  static const String locationIcon = "assets/icons/location_icon.svg";
   static const String boyIcon = "assets/icons/boy_icon.svg";
   static const String girlIcon = "assets/icons/girl_icon.svg";
   static const String addPhotoIcon = "assets/icons/add_photo_icon.svg";
@@ -41,22 +44,22 @@ abstract class AppImages {
   static const String onBoarding3 = "assets/images/onBoarding3.png";
   static const String backGround = "assets/images/background.png";
   static const String coins = "assets/images/coins.png";
+  static const String coin2 = "assets/images/coin2.png";
+  static const String check = "assets/images/check.png";
+
   static const String family = "assets/images/family.png";
   static const String people = "assets/images/people.png";
   static const String timer = "assets/images/timer.png";
-
-
-
-  static const String handWater = "assets/images/mdi_hand-water.png";
-  static const String handLove = "assets/images/mdi_love.png";
-  static const String loveFill = "assets/images/mingcute_love-fill.png";
-  static const String foodGrains = "assets/images/fluent_food-grains-20-filled.png";
-  static const String  solidHousing= "assets/images/fa6-solid_house-chimney.png";
-  static const String  tShert= "assets/images/t-shert.png";
-  static const String  gifts= "assets/images/gifts3.png";
-  static const String  giftBackGround= "assets/images/gift_back_ground.svg";
-  static const String  halfGiftBackGround= "assets/images/half_gift_back_ground.svg";
-  static const String  logoBlue= "assets/images/logo_blue.svg";
-
-
+  static const String loading = "assets/images/loading.png";
+  static const String food = "assets/images/food.png";
+  static const String clothes2 = "assets/images/clothes2.png";
+  static const String otherDonation = "assets/images/otherDonation.png";
+  static const String boy = "assets/images/boy.png";
+  static const String man = "assets/images/man.png";
+  static const String woman = "assets/images/woman.png";
+  static const String medicines = "assets/images/medicines.png";
+  static const String facebookIcon = "assets/icons/facebook.svg";
+  static const String instagramIcon = "assets/icons/instagram.svg";
+  static const String phoneOfficeIcon = "assets/icons/phone_office.svg";
+  static const String whatsApp = "assets/icons/whats_app.svg";
 }

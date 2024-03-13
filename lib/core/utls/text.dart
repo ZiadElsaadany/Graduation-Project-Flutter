@@ -32,7 +32,7 @@ abstract class AppText {
 
   static const String forContact = "للتواصل";
   static const String education = "تعليم";
-  static const String theHousing = "السكن";
+  static const String housing = "السكن";
   static const String clothes = "كساء";
   static const String feeding = "اطعام";
   static const String alms = "صدقة";
@@ -102,53 +102,34 @@ abstract class AppText {
   static const String moneyPaied = "المبلغ الدفوع";
   static const String moneyRemaining = "المبلغ المتبقي";
   static const String campiagnDetails = "تفاصيل الحمله";
+  static const String state = "الحاله";
+  static const String caseDetails = "تفاصيل الحاله";
+  static const String inKindDonations = "تبرعات عينية";
+  static const String foodDonation = "تبرع طعام";
+  static const String clothesDonation = "تبرع ملابس";
 
-
-
-
-
-  static const String chooseCategoryToDonate='اختر احدي الفئات وتبرع بها كهدية';
-  static const String waterSupply="توفير مياه";
-  static const String charity="صدقة";
-  static const String feedThePoor="اطعام مسكين";
-  static const String payAffection="دفع بلاء";
-  static const String housing="سكن";
-  static const String garment="كساء";
-  static const String determinateTheGiftValue="حدد قيمة الهدية";
-  static const String addAnotherAmount="اضافة مبلغ اخر..";
-  static const String giftDetails="تفاصيل الهدية";
-  static const String donateAsGift="تبرع كهدية";
-  static const String enterTheGiftRecipientInfo="ادخل بيانات مستلم الهدية";
-  static const String recipientName="اسم المستلم";
-  static const String enterRecipientName="ادخل اسم المستلم";
-  static const String recipientPhone="هاتف المستلم";
-  static const String enterRecipientPhone="ادخل رقم هاتف مستلم الهدية";
-  static const String yourMessageToTheRecipient="رسالتك لمستلم الهدية";
-  static const String hideTheValueOfTheGiftFromRecipient="اخفاء قيمة الهدية للمستلم";
-  static const String enterSenderData="ادخل بيانات مرسل الهدية";
-  static const String senderName="اسم المرسل";
-  static const String senderPhone="هاتف المرسل";
-  static const String enterSenderName="ادخل اسم المرسل";
-  static const String enterSenderPhone="ادخل رقم هاتف المرسل";
-  static const String thisPhoneWillBeSentToTheRecipient="سيتم ارسال هذا الرقم الي مستلم الهدية";
-  static const String askConfirmCode="اطلب كود التأكيد";
-  static const String confirmVerificationCode="تأكيد رمز التحقق";
-  static const String confirmVerificationCodeWasSentTo="تم ارسال رمز التحقق الي";
-  static const String resentTheCode="اعادة ارسال الرمز";
-  static const String phoneConfirm="تحقق من رقم الهاتف";
-  static const String enterCreditCardInfo="ادخل معلومات بطاقة الائتمان";
-  static const String enterCreditCardNum="ادخل رقم البطاقة";
-  static const String expiryDate="تاريخ الانتهاء";
-  static const String cvvNum="رقم CVV";
-  static const String cardHolderName="اسم حامل البطاقة";
-  static const String iAgreeTo="أوافق علي ";
-  static const String termsAndConditions="الشروط والأحكام";
-  static const String thankU="شكرا لك";
-  static const String theDonationWasSuccessful="تم التبرع بنجاح";
-  static const String weWillSendMessageToTheRecipient="سنقوم بإرسال الرسالة الي مستلم الهدية";
-  static const String backToHome="العودة الي الرئيسية";
-  static const String lE="ج.م";
-  static const String theWholeAmount="المبلغ الكلي";
-  static const String payment="الدفع";
-  static const String confirmedSuccessful="تم التحقق بنجاح";
+  static const String medicines = "تبرع أدوية و مستلزمات طبية";
+  static const String otherDonathions = "تبرع عيني أخر ";
+  static const String selectMealCount = "قم بتحديد عدد الوجبات";
+  static const String meal = "وجبة";
+  static const String children = "أطفال";
+  static const String men = "رجال";
+  static const String women = "سيدات";
+  static const String allNumber = "العدد الكلي";
+  static const String piece = "قطعة";
+  static const String selectPackageCount = "قم بتحديد عدد العبوات";
+  static const String enterKindOfDonation = "أدخل نوع العينة";
+  static const String enterDetailsOfDonation = "أدخل تفاصيل العينة";
+  static const String fillRequiredData = "قم بملئ البيانات المطلوبة";
+  static const String enterPhone = "أدخل رقم الهاتف";
+  static const String enterAddress = "أدخل العنوان";
+  static const String thankYou = "شكرا لك ";
+  static const String donationSuccess = "تم التبرع بنجاح ";
+  static const String backToHome = "العودة إلي الرئيسية";
+  static const String willContactYou = "سنقوم بإرسال محصل لإستلام تبرعاتك";
+  static const String package = "عبوة";
+  static const String selectLocation = "تحديد الموقع";
+  static const String charityAddress =
+      "القاهره,4 شارع الاهرام- ميدان النفوره- المقطم";
+  static const String socialMedia = "وسائل التواصل";
 }

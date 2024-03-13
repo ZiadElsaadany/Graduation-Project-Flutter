@@ -32,14 +32,14 @@ class AppButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            shadows: const [
-              BoxShadow(
-                color: Color(0x3F000000),
-                blurRadius: 2,
-                offset: Offset(0, 2),
-                spreadRadius: 0,
-              )
-            ],
+            // shadows: const [
+            //   BoxShadow(
+            //     color: Color(0x3F000000),
+            //     blurRadius: 2,
+            //     offset: Offset(0, 2),
+            //     spreadRadius: 0,
+            //   )
+            // ],
           ),
           child: Center(
             child: Text(title,

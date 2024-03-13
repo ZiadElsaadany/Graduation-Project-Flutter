@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import 'current_campiagn_item.dart';
 
@@ -15,9 +16,9 @@ class CurrentCampiagnList extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const Padding(
+            return Padding(
               padding: EdgeInsetsDirectional.only(end: 10, bottom: 23),
-              child: CurrentCampiagnItem(),
+              child: CurrentCampiagnItem().animate().effect().scale().move(),
             );
           }),
     );
