@@ -136,8 +136,8 @@ abstract class AppText {
   static const String confirmVerificationCodeWasSentTo="تم ارسال رمز التحقق الي";
   static const String resentTheCode="اعادة ارسال الرمز";
   static const String phoneConfirm="تحقق من رقم الهاتف";
-  static const String enterATMCardInfo="ادخل معلومات بطاقة الائتمان";
-  static const String enterATMCardNum="ادخل رقم البطاقة";
+  static const String enterCreditCardInfo="ادخل معلومات بطاقة الائتمان";
+  static const String enterCreditCardNum="ادخل رقم البطاقة";
   static const String expiryDate="تاريخ الانتهاء";
   static const String cvvNum="رقم CVV";
   static const String cardHolderName="اسم حامل البطاقة";

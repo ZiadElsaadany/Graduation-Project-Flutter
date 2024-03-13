@@ -78,6 +78,7 @@ abstract class AppRouter {
         path: kConfirmCode,
         builder: (context, state) => const ConfirmCodeView(),
       ),
+
     ],
   );
 }
