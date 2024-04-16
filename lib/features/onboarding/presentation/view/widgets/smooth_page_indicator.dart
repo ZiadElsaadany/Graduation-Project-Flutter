@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/onboarding/data/on_boarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -18,7 +19,7 @@ class _CustomSmoothPAgeIndicatorState extends State<CustomSmoothPAgeIndicator> {
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
       controller: BlocProvider.of<OnBoardingCubit>(context).pageController,
-      count: BlocProvider.of<OnBoardingCubit>(context).onBoardingData.length,
+      count:pages.length,
       effect: ExpandingDotsEffect(
         dotColor: AppColors.white.withOpacity(0.4),
         activeDotColor: AppColors.white,

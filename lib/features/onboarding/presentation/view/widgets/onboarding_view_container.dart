@@ -18,9 +18,12 @@ class OnBoardingViewContainer extends StatelessWidget {
           right: MediaQuery.of(context).size.width * 0.045,
           left: MediaQuery.of(context).size.width * 0.045),
       decoration: const BoxDecoration(
-          color: AppColors.mainColor,
-          borderRadius: BorderRadiusDirectional.only(
-              topStart: Radius.circular(30), topEnd: Radius.circular(30))),
+        color: AppColors.mainColor,
+        borderRadius: BorderRadiusDirectional.only(
+          topStart: Radius.circular(30),
+          topEnd: Radius.circular(30),
+        ),
+      ),
       child: OnBoardingViewContainerBody(
         title: title,
         description: description,
