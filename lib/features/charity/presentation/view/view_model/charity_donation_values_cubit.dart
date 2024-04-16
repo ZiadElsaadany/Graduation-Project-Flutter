@@ -9,13 +9,13 @@ part 'charity_donation_values_state.dart';
 class CharityDonationValuesCubit extends Cubit<CharityDonationValuesState> {
   CharityDonationValuesCubit() : super(CharityDonationValuesInitial());
 
-  late int itemIndex = 0;
+  late int charityItemIndex = 0;
   late bool selected = false;
 
   selectedItemIndex(int index) {
-    itemIndex = index;
+    charityItemIndex = index;
     selected = true;
-    emit(SelectCharityDonationValuesContainer());
+    emit(SelectCharityDonationValueState());
   }
 
 
@@ -28,8 +28,8 @@ class CharityDonationValuesCubit extends Cubit<CharityDonationValuesState> {
       emit(AddedTextInTextEditingController(charityDonationValueTextEditingController));
       return charityDonationValueTextEditingController.text;
     } else if (selected == true) {
-      emit(SelectCharityDonationValuesContainer());
-      return charityDonationValuesList[itemIndex].value;
+      emit(SelectCharityDonationValueState());
+      return charityDonationValuesList[charityItemIndex].value;
     } else {
       return '0.0';
     }

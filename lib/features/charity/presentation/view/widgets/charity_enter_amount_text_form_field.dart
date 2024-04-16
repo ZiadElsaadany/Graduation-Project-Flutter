@@ -1,24 +1,24 @@
 import 'package:aoun_tu/core/utls/colors.dart';
+import 'package:aoun_tu/features/charity/presentation/view/view_model/charity_donation_values_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
 
 
 class CharityEnterDonationAmountTextFormField extends StatelessWidget {
-  const CharityEnterDonationAmountTextFormField({Key? key, required this.controller})
+  const CharityEnterDonationAmountTextFormField({Key? key,})
       : super(key: key);
-  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     final yellowTextStyle =
     AppStyles.textStyle22bold.copyWith(color: AppColors.yellow);
 
-    return BlocBuilder<GiftCubit, GiftState>(
+    return BlocBuilder<CharityDonationValuesCubit, CharityDonationValuesState>(
       builder: (context, state) {
+        var cubit=BlocProvider.of<CharityDonationValuesCubit>(context);
         return TextFormField(
-          controller: controller,
+          controller: cubit.charityDonationValueTextEditingController,
           cursorColor: AppColors.mainColor,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(

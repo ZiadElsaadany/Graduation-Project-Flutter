@@ -8,10 +8,9 @@ import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
 
 class AddAmountTextFormField extends StatelessWidget {
-  const AddAmountTextFormField({Key? key, required this.giftCategoryModel, required this.controller})
+  const AddAmountTextFormField({Key? key, required this.giftCategoryModel, })
       : super(key: key);
   final GiftCategoryModel giftCategoryModel;
-  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     final yellowTextStyle =
@@ -19,8 +18,9 @@ class AddAmountTextFormField extends StatelessWidget {
 
     return BlocBuilder<GiftCubit, GiftState>(
       builder: (context, state) {
+        var cubit=BlocProvider.of<GiftCubit>(context);
         return TextFormField(
-          controller: controller,
+          controller: cubit.giftValueTextEditingController,
           cursorColor: giftCategoryModel.color,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(

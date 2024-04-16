@@ -111,8 +111,6 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                             horizontal: 24, vertical: 31),
                         child: AddAmountTextFormField(
                           giftCategoryModel: giftCategoryModel,
-                          controller: BlocProvider.of<GiftCubit>(context)
-                              .giftValueTextEditingController,
                         ),
                       ),
                       const Spacer(),

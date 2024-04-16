@@ -27,7 +27,7 @@ class CharityDonationValuesContainer extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 20),
             decoration: BoxDecoration(
-              color: (cubit.itemIndex== index && cubit.selected == true)
+              color: (cubit.charityItemIndex== index && cubit.selected == true)
                   ? AppColors.mainColor
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(12),
@@ -35,7 +35,7 @@ class CharityDonationValuesContainer extends StatelessWidget {
             ),
             child: Text(
               text,
-              style: (cubit.itemIndex == index && cubit.selected == true)
+              style: (cubit.charityItemIndex == index && cubit.selected == true)
                   ? AppStyles.textStyle17.copyWith(color: AppColors.white)
                   : AppStyles.textStyle17,
             ),
