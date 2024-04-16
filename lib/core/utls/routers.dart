@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/charity/presentation/view/campaign_donation_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/case_details_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
@@ -42,6 +43,7 @@ abstract class AppRouter {
   static const String kGiftCategoryDetailsView = "/giftCategoryDetailsView";
   static const String kGiftDataDetailsView = "/giftDataDetailsView";
   static const String kConfirmCode = "/confirmCodeView";
+  static const String kCampaignDonation = "/campaignDonation";
 
   static final router = GoRouter(
     routes: [
@@ -144,6 +146,15 @@ abstract class AppRouter {
       GoRoute(
         path: kConfirmCode,
         builder: (context, state) => const ConfirmCodeView(),
+      ),
+      GoRoute(
+        path: kCampaignDonation,
+        builder: (context, state) {
+          Map<String, String> args = state.extra as Map<String, String>;
+          return  CampaignDonationView(
+            title: args['title']!,
+          );
+        },
       ),
     ],
   );

@@ -9,7 +9,6 @@ class OnBoardingData {
 
   OnBoardingData(this.title, this.description, this.image, this.skip);
 }
-
 List<OnBoardingData> pages = [
   OnBoardingData(
       AppText.donate,
