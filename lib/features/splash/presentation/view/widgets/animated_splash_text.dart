@@ -15,7 +15,7 @@ class AnimatedTextSplash extends StatelessWidget {
       isRepeatingAnimation: false,
       animatedTexts: [
         FlickerAnimatedText(
-            speed: const Duration(seconds: 2),
+            speed: const Duration(seconds:2 ),
             AppText.appName,
             textStyle: AppStyles.textStyle27.copyWith(color: AppColors.white))
       ],
