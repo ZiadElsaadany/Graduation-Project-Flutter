@@ -18,15 +18,14 @@ class OnBoardingViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Expanded(flex: 50, child: OnBoardingViewImage(image: image)),
         Expanded(
-            flex: 50,
-            child: OnBoardingViewImage(image: image)),
-        Expanded(
-            flex: 45,
-            child: OnBoardingViewContainer(
-              title: title,
-              description: description,
-            )),
+          flex: 45,
+          child: OnBoardingViewContainer(
+            title: title,
+            description: description,
+          ),
+        ),
       ],
     );
   }

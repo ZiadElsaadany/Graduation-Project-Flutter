@@ -25,7 +25,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
         Column(
           children: [
             FadeInRight(
-              duration: const Duration(milliseconds: 700),
+              duration: const Duration(seconds: 1),
               child: Text(
                 title,
                 style: AppStyles.textStyle20.copyWith(
@@ -71,13 +71,13 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                         SizedBox(
+                        SizedBox(
                           width: 55,
                           height: 55,
                           child: CircularProgressIndicator(
                             value: 1.0,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(AppColors.white.withOpacity(0.5)),
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                AppColors.white.withOpacity(0.5)),
                           ),
                         ),
                         SizedBox(
@@ -94,6 +94,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
+
                         if(   BlocProvider.of<OnBoardingCubit>(context).currentPage <2 ) {
                           BlocProvider.of<OnBoardingCubit>(context)
                               .getCurrentPageViewIndex(

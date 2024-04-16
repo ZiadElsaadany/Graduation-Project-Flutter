@@ -3,6 +3,7 @@ import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/on_boarding_data.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
@@ -49,19 +50,16 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
     return PageView.builder(
       itemBuilder: (context, index) {
         return OnBoardingViewBody(
-          title: onBoardingCubit.onBoardingData[index]['title']!,
-          description: onBoardingCubit.onBoardingData[index]['description']!,
-          image: BlocProvider.of<OnBoardingCubit>(context).onBoardingData[index]
-              ['image']!,
+          title: pages[index].title,
+          description: pages[index].description,
+          image: pages[index].image,
         );
       },
       controller: onBoardingCubit.pageController,
       onPageChanged: (c) {
         onBoardingCubit.getCurrentPageViewIndex(c);
       },
-      itemCount:
-          BlocProvider.of<OnBoardingCubit>(context).onBoardingData.length,
-      // physics: const NeverScrollableScrollPhysics(),
+      itemCount: pages.length,
     );
   }
 }
