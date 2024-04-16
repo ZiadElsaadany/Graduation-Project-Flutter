@@ -1,5 +1,5 @@
 import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
-import 'package:aoun_tu/features/gift_donation/presentation/view/widget/add_amount_text_form_field.dart';
+import 'package:aoun_tu/core/shared_widgets/add_amount_text_form_field.dart';
 import 'package:aoun_tu/core/shared_widgets/custom_gift_value_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/whole_amount_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
@@ -55,36 +55,40 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                 height: 25,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment
-                                    .spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   CustomGiftValueContainer(
                                     text: giftValuesList[0].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(0);
-                                    }, index: 0,
+                                    },
+                                    index: 0,
                                   ),
                                   CustomGiftValueContainer(
                                     text: giftValuesList[1].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(1);
-                                    }, index: 1,
+                                    },
+                                    index: 1,
                                   ),
                                   CustomGiftValueContainer(
-                                    text:giftValuesList[2].value,
+                                    text: giftValuesList[2].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(2);
-                                    }, index: 2,
+                                    },
+                                    index: 2,
                                   ),
                                   CustomGiftValueContainer(
                                     text: giftValuesList[3].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(3);
-                                    }, index: 3,
+                                    },
+                                    index: 3,
                                   ),
                                 ],
                               ),
@@ -107,10 +111,12 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                             horizontal: 24, vertical: 31),
                         child: AddAmountTextFormField(
                           giftCategoryModel: giftCategoryModel,
+                          controller: BlocProvider.of<GiftCubit>(context)
+                              .giftValueTextEditingController,
                         ),
                       ),
                       const Spacer(),
-                       const AllAmountContainer(),
+                      const AllAmountContainer(),
                     ],
                   ),
                 ),

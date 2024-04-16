@@ -19,13 +19,13 @@ class GiftCubit extends Cubit<GiftState> {
 
 
 
-  late TextEditingController textEditingController = TextEditingController();
+  late TextEditingController giftValueTextEditingController = TextEditingController();
 
    textStates() {
-    if (textEditingController.text.isNotEmpty) {
+    if (giftValueTextEditingController.text.isNotEmpty) {
       selected = false;
-      emit(AddedTextInTextEditingController(textEditingController));
-      return textEditingController.text;
+      emit(AddedTextInTextEditingController(giftValueTextEditingController));
+      return giftValueTextEditingController.text;
     } else if (selected == true) {
       emit(SelectGiftValueContainer());
       return giftValuesList[itemIndex].value;
