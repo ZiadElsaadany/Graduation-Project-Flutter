@@ -21,6 +21,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
+
+        // check token here
         GoRouter.of(context).pushReplacement(AppRouter.kFirstOnBoarding);
       },
     );

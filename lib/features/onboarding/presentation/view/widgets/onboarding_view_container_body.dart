@@ -1,9 +1,11 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view/widgets/smooth_page_indicator.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -92,18 +94,23 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            BlocProvider.of<OnBoardingCubit>(context)
-                                .getCurrentPageViewIndex(
-                                    ++BlocProvider.of<OnBoardingCubit>(context)
-                                        .currentPage);
-                            BlocProvider.of<OnBoardingCubit>(context)
-                                .pageController
-                                .animateToPage(
-                                  BlocProvider.of<OnBoardingCubit>(context)
-                                      .currentPage,
-                                  curve: Curves.decelerate,
-                                  duration: const Duration(seconds: 1),
-                                );
+
+                        if(   BlocProvider.of<OnBoardingCubit>(context).currentPage <2 ) {
+                          BlocProvider.of<OnBoardingCubit>(context)
+                              .getCurrentPageViewIndex(
+                              ++BlocProvider.of<OnBoardingCubit>(context)
+                                  .currentPage);
+                          BlocProvider.of<OnBoardingCubit>(context)
+                              .pageController
+                              .animateToPage(
+                              BlocProvider.of<OnBoardingCubit>(context)
+                                  .currentPage,
+                              curve: Curves.decelerate,
+                              duration:
+                              const Duration(milliseconds: 300));
+                        }else{
+                          GoRouter.of(context).pushReplacement(AppRouter.kLogin);
+                        }
                           },
                           child: const CircleAvatar(
                               backgroundColor: AppColors.white,
