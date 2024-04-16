@@ -2,8 +2,8 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/utls/styles.dart';
-import '../../../data/models/gift_category_model.dart';
+import '../utls/styles.dart';
+import '../../features/gift_donation/data/models/gift_category_model.dart';
 
 class CustomGiftValueContainer extends StatelessWidget {
   const CustomGiftValueContainer({

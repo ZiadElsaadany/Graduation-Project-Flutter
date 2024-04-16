@@ -1,5 +1,6 @@
+import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/add_amount_text_form_field.dart';
-import 'package:aoun_tu/features/gift_donation/presentation/view/widget/custom_gift_value_container.dart';
+import 'package:aoun_tu/core/shared_widgets/custom_gift_value_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/whole_amount_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter/material.dart';
@@ -58,28 +59,28 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                     .spaceEvenly,
                                 children: [
                                   CustomGiftValueContainer(
-                                    text: cubit.values[0],
+                                    text: giftValuesList[0].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(0);
                                     }, index: 0,
                                   ),
                                   CustomGiftValueContainer(
-                                    text: cubit.values[1],
+                                    text: giftValuesList[1].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(1);
                                     }, index: 1,
                                   ),
                                   CustomGiftValueContainer(
-                                    text: cubit.values[2],
+                                    text:giftValuesList[2].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(2);
                                     }, index: 2,
                                   ),
                                   CustomGiftValueContainer(
-                                    text: cubit.values[3],
+                                    text: giftValuesList[3].value,
                                     giftCategoryModel: giftCategoryModel,
                                     onTap: () {
                                       cubit.selectedItemIndex(3);

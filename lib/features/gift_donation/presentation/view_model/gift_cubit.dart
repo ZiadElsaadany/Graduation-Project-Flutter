@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
@@ -16,18 +17,18 @@ class GiftCubit extends Cubit<GiftState> {
     emit(SelectGiftValueContainer());
   }
 
-  List<String> values = [' 50 ', '100', '150', '200'];
+
 
   late TextEditingController textEditingController = TextEditingController();
 
-  String textStates() {
+   textStates() {
     if (textEditingController.text.isNotEmpty) {
       selected = false;
       emit(AddedTextInTextEditingController(textEditingController));
       return textEditingController.text;
     } else if (selected == true) {
       emit(SelectGiftValueContainer());
-      return values[itemIndex];
+      return giftValuesList[itemIndex].value;
     } else {
       return '0.0';
     }

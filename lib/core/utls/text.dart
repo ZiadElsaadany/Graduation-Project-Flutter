@@ -178,4 +178,7 @@ abstract class AppText {
   static const String theWholeAmount="المبلغ الكلي";
   static const String payment="الدفع";
   static const String confirmedSuccessful="تم التحقق بنجاح";
+
+
+  static const String selectTheDonationAmount='حدد مبلغ التبرع';
 }
