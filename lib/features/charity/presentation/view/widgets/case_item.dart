@@ -1,4 +1,5 @@
 import 'package:aoun_tu/core/utls/spacing.dart';
+import 'package:aoun_tu/features/charity/presentation/view/widgets/custom_linear_progress_indicator_with_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,7 @@ class CaseItem extends StatelessWidget {
       required this.index,
       required this.image,
       required this.title});
+
   final int index;
   final String title;
   final String image;
@@ -70,7 +72,7 @@ class CaseItem extends StatelessWidget {
             ],
           ),
           verticalSpace(18),
-
+          const CustomLinearProgressWithValue(),
           verticalSpace(24),
           const Divider(
             thickness: 1,
