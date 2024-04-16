@@ -94,32 +94,36 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-
-                        if(   BlocProvider.of<OnBoardingCubit>(context).currentPage <2 ) {
-                          BlocProvider.of<OnBoardingCubit>(context)
-                              .getCurrentPageViewIndex(
-                              ++BlocProvider.of<OnBoardingCubit>(context)
-                                  .currentPage);
-                          BlocProvider.of<OnBoardingCubit>(context)
-                              .pageController
-                              .animateToPage(
+                            if (BlocProvider.of<OnBoardingCubit>(context)
+                                    .currentPage <
+                                2) {
                               BlocProvider.of<OnBoardingCubit>(context)
-                                  .currentPage,
-                              curve: Curves.decelerate,
-                              duration:
-                              const Duration(milliseconds: 300));
-                        }else{
-                          GoRouter.of(context).pushReplacement(AppRouter.kLogin);
-                        }
+                                  .getCurrentPageViewIndex(
+                                      ++BlocProvider.of<OnBoardingCubit>(
+                                              context)
+                                          .currentPage);
+                              BlocProvider.of<OnBoardingCubit>(context)
+                                  .pageController
+                                  .animateToPage(
+                                    BlocProvider.of<OnBoardingCubit>(context)
+                                        .currentPage,
+                                    curve: Curves.decelerate,
+                                    duration: const Duration(seconds: 1),
+                                  );
+                            } else {
+                              GoRouter.of(context)
+                                  .pushReplacement(AppRouter.kLogin);
+                            }
                           },
                           child: const CircleAvatar(
-                              backgroundColor: AppColors.white,
-                              child: Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                color: AppColors.mainColor,
-                                size: 20,
-                                weight: 100,
-                              )),
+                            backgroundColor: AppColors.white,
+                            child: Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: AppColors.mainColor,
+                              size: 20,
+                              weight: 100,
+                            ),
+                          ),
                         )
                       ],
                     )
