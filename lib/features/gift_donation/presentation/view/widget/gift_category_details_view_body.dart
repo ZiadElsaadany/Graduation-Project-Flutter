@@ -1,5 +1,5 @@
 import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
-import 'package:aoun_tu/core/shared_widgets/add_amount_text_form_field.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/widget/add_amount_text_form_field.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/custom_gift_value_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/whole_amount_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';

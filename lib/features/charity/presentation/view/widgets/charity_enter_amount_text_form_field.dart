@@ -1,32 +1,30 @@
-import 'package:aoun_tu/features/gift_donation/data/models/gift_category_model.dart';
-import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
+import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/utls/styles.dart';
+import '../../../../../core/utls/text.dart';
 
-import '../utls/colors.dart';
-import '../utls/styles.dart';
-import '../utls/text.dart';
 
-class AddAmountTextFormField extends StatelessWidget {
-  const AddAmountTextFormField({Key? key, required this.giftCategoryModel, required this.controller})
+class CharityEnterDonationAmountTextFormField extends StatelessWidget {
+  const CharityEnterDonationAmountTextFormField({Key? key, required this.controller})
       : super(key: key);
-  final GiftCategoryModel giftCategoryModel;
   final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     final yellowTextStyle =
-        AppStyles.textStyle22bold.copyWith(color: AppColors.yellow);
+    AppStyles.textStyle22bold.copyWith(color: AppColors.yellow);
 
     return BlocBuilder<GiftCubit, GiftState>(
       builder: (context, state) {
         return TextFormField(
           controller: controller,
-          cursorColor: giftCategoryModel.color,
+          cursorColor: AppColors.mainColor,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             suffixIcon: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 17, vertical: 14),
+                const EdgeInsets.symmetric(horizontal: 17, vertical: 14),
                 child: Text(
                   AppText.lE,
                   style: AppStyles.textStyle14.copyWith(color: AppColors.grey),
@@ -45,7 +43,7 @@ class AddAmountTextFormField extends StatelessWidget {
   OutlineInputBorder outLineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(color: giftCategoryModel.color!),
+      borderSide: const BorderSide(color:  AppColors.mainColor),
     );
   }
 }
