@@ -3,6 +3,7 @@ import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../injection_container.dart';
 import '../../data/on_boarding_data.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -16,7 +17,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (c) => OnBoardingCubit(),
+      create: (c) => serviceLocator<OnBoardingCubit>(),
       child: const Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
