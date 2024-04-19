@@ -1,10 +1,10 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/gift_categories_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-
 import '../../../../posts/presentation/view/posts_screen.dart';
 import '../home_screen.dart';
 
@@ -17,11 +17,12 @@ class NavBarView extends StatefulWidget {
 
 class _NavBarViewState extends State<NavBarView> {
   final _controller = PersistentTabController();
+
   List<Widget> _buildScreens() {
     return [
       const HomeScreen(),
       const PostsScreen(),
-      Container(),
+      const GiftCategoriesView(),
       Container(),
     ];
   }

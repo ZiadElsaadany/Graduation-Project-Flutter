@@ -1,4 +1,4 @@
-import 'package:aoun_tu/features/home/presentation/view/widgets/home_app_bar.dart';
+import 'package:aoun_tu/shared/view/widgets/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'post_list.dart';

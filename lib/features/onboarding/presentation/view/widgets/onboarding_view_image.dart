@@ -17,8 +17,8 @@ class OnBoardingViewImage extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         FadeInDown(
-          duration: Duration(
-            milliseconds: 700
+          duration: const Duration(
+            seconds: 1
           ),
           child: AspectRatio(
             aspectRatio: 2/1,

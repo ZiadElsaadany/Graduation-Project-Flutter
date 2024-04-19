@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
+import '../../../../../core/utls/routers.dart';
 import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -10,6 +12,7 @@ import 'case_statistic_info.dart';
 
 class CaseInfo extends StatelessWidget {
   const CaseInfo({super.key, required this.title});
+
   final String title;
 
   @override
@@ -78,7 +81,10 @@ class CaseInfo extends StatelessWidget {
         const CaseStatisticalInfo(),
         verticalSpace(28),
         AppButton(
-          onTap: () {},
+          onTap: () {
+            GoRouter.of(context)
+                .push(AppRouter.kCampaignDonation, extra: {'title': title});
+          },
           title: AppText.donateNow,
           color: AppColors.yellow,
           height: 50,

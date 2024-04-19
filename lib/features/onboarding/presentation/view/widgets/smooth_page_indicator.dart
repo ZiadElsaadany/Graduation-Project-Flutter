@@ -13,12 +13,11 @@ class CustomSmoothPAgeIndicator extends StatefulWidget {
 }
 
 class _CustomSmoothPAgeIndicatorState extends State<CustomSmoothPAgeIndicator> {
-
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
       controller: BlocProvider.of<OnBoardingCubit>(context).pageController,
-      count: BlocProvider.of<OnBoardingCubit>(context).onBoardingData.length,
+      count: 3,
       effect: ExpandingDotsEffect(
         dotColor: AppColors.white.withOpacity(0.4),
         activeDotColor: AppColors.white,
@@ -27,10 +26,6 @@ class _CustomSmoothPAgeIndicatorState extends State<CustomSmoothPAgeIndicator> {
         offset: 40,
         spacing: 6,
       ),
-      // onDotClicked: (index) => BlocProvider.of<OnBoardingCubit>(context)
-      //     .pageController
-      //     .animateToPage(index,
-      //         duration: const Duration(seconds: 1 ), curve: Curves.easeIn),
     );
   }
 }

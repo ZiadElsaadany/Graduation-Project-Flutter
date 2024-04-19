@@ -68,5 +68,17 @@ static const String backGround = "assets/images/background.png";
   static const String instagramIcon = "assets/icons/instagram.svg";
   static const String phoneOfficeIcon = "assets/icons/phone_office.svg";
   static const String whatsApp = "assets/icons/whats_app.svg";
+
+
+  static const String handWater = "assets/images/mdi_hand-water.png";
+  static const String handLove = "assets/images/mdi_love.png";
+  static const String loveFill = "assets/images/mingcute_love-fill.png";
+  static const String foodGrains = "assets/images/fluent_food-grains-20-filled.png";
+  static const String  solidHousing= "assets/images/fa6-solid_house-chimney.png";
+  static const String  tShert= "assets/images/t-shert.png";
+  static const String  gifts= "assets/images/gifts3.png";
+  static const String  giftBackGround= "assets/images/gift_back_ground.svg";
+  static const String  halfGiftBackGround= "assets/images/half_gift_back_ground.svg";
+  static const String  logoBlue= "assets/images/logo_blue.svg";
 }
 

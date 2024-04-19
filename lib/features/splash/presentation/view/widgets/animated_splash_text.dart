@@ -12,10 +12,11 @@ class AnimatedTextSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: AnimatedTextKit(
-             isRepeatingAnimation: false,
-
+      isRepeatingAnimation: false,
       animatedTexts: [
-        FlickerAnimatedText(speed: const Duration(seconds: 3),AppText.appName,
+        FlickerAnimatedText(
+            speed: const Duration(seconds:2 ),
+            AppText.appName,
             textStyle: AppStyles.textStyle27.copyWith(color: AppColors.white))
       ],
     ));
