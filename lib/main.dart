@@ -1,4 +1,5 @@
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
+import 'package:aoun_tu/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +12,7 @@ void main() {
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
+  setup();
 
   runApp(const AounApp());
 }
