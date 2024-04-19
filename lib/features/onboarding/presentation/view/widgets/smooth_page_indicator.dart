@@ -1,4 +1,3 @@
-import 'package:aoun_tu/features/onboarding/data/on_boarding_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -14,12 +13,11 @@ class CustomSmoothPAgeIndicator extends StatefulWidget {
 }
 
 class _CustomSmoothPAgeIndicatorState extends State<CustomSmoothPAgeIndicator> {
-
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
       controller: BlocProvider.of<OnBoardingCubit>(context).pageController,
-      count:pages.length,
+      count: 3,
       effect: ExpandingDotsEffect(
         dotColor: AppColors.white.withOpacity(0.4),
         activeDotColor: AppColors.white,
@@ -28,10 +26,6 @@ class _CustomSmoothPAgeIndicatorState extends State<CustomSmoothPAgeIndicator> {
         offset: 40,
         spacing: 6,
       ),
-      // onDotClicked: (index) => BlocProvider.of<OnBoardingCubit>(context)
-      //     .pageController
-      //     .animateToPage(index,
-      //         duration: const Duration(seconds: 1 ), curve: Curves.easeIn),
     );
   }
 }
