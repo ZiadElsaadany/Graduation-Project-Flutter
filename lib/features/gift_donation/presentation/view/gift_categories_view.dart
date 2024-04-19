@@ -9,7 +9,7 @@ class GiftCategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Directionality(
+    return  Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: AppColors.white,
