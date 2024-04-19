@@ -21,7 +21,8 @@ class GiftDataDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: 24, vertical: MediaQuery.of(context).size.height * 0.03),
+          horizontal: 24,
+          vertical: MediaQuery.of(context).size.height * 0.03),
       child: ListView(
         children: [
           const GiftDataDetailsHeaderText(
@@ -95,7 +96,8 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 ),
                 Text(
                   AppText.thisPhoneWillBeSentToTheRecipient,
-                  style: AppStyles.textStyle12.copyWith(color: AppColors.text1),
+                  style:
+                      AppStyles.textStyle12.copyWith(color: AppColors.text1),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.034,
@@ -120,7 +122,8 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                                 .pinCodeController
                                 .text ==
                             '') {
-                          GoRouter.of(context).pushReplacement(AppRouter.kConfirmCode);
+                          GoRouter.of(context)
+                              .pushReplacement(AppRouter.kConfirmCode);
                         }
                       },
                     );
