@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
@@ -41,14 +40,7 @@ class GridViewItem extends StatelessWidget {
                   scale: 1,
                   height: 47,
                   width: 44,
-                )
-                    .animate()
-                    .fadeIn(
-                        duration: 1000.ms,
-                        delay: 500.ms,
-                        curve: Curves.easeOut)
-                    .slideY(begin: 2, end: 0)
-                    .shake(hz: 3),
+                ),
               ],
             ),
           ),
