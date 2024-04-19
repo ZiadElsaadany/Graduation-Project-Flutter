@@ -23,6 +23,9 @@ abstract class AppColors {
 
   static const Color c7c7c7 = Color(0xffC7C7C7);
 
+  static const Color frame = Color(0XFFD3CFCF);
+  static const Color greyComment = Color(0XFFF5F5F5);
+
   static OutlineInputBorder outlineInputBorder(
       {required Color borderColor, int radius = 10}) {
     return OutlineInputBorder(

@@ -10,7 +10,7 @@ class CustomPinCodeTextField extends StatelessWidget {
   CustomPinCodeTextField({Key? key}) : super(key: key);
   final formKey = GlobalKey<FormState>();
   final StreamController<ErrorAnimationType> errorController =
-      StreamController<ErrorAnimationType>();
+  StreamController<ErrorAnimationType>();
   late final String code;
 
   @override

@@ -11,6 +11,7 @@ import 'package:aoun_tu/features/inKind_donations/presentations/views/food_donat
 import 'package:aoun_tu/features/inKind_donations/presentations/views/in_kind_donations_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/medicines_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/other_donation_view.dart';
+import 'package:aoun_tu/features/posts/presentation/add_post_view.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
@@ -44,6 +45,7 @@ abstract class AppRouter {
   static const String kGiftDataDetailsView = "/giftDataDetailsView";
   static const String kConfirmCode = "/confirmCodeView";
   static const String kCampaignDonation = "/campaignDonation";
+  static const String kAddPost = "/kAddPost";
 
   static final router = GoRouter(
     routes: [
@@ -146,6 +148,9 @@ abstract class AppRouter {
       GoRoute(
         path: kConfirmCode,
         builder: (context, state) => const ConfirmCodeView(),
+      ),   GoRoute(
+        path: kAddPost,
+        builder: (context, state) => const AddPostView(),
       ),
       GoRoute(
         path: kCampaignDonation,

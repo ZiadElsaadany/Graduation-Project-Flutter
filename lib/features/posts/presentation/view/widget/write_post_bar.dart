@@ -1,5 +1,7 @@
+import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
@@ -12,7 +14,9 @@ class WritePostBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kAddPost);
+      },
       child: Padding(
         padding:
             EdgeInsets.only(top: 18.h, bottom: 18.h, left: 16.w, right: 16.w),

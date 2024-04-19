@@ -32,7 +32,7 @@ class CommentField extends StatelessWidget {
                 focusedBorder: Constants.outlineInputBorder(
                     radius: 15, borderColor: Colors.transparent),
                 filled: true,
-                fillColor: AppColors.mainColorCommentField),
+                fillColor: AppColors.greyComment),
           ),
         ),
         SizedBox(

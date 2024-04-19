@@ -132,6 +132,7 @@ abstract class AppText {
   static const String charityAddress =
       "القاهره,4 شارع الاهرام- ميدان النفوره- المقطم";
   static const String socialMedia = "وسائل التواصل";
+  static const String createNewPost = "انشاء منشور جديد";
 
 
   static const String theHousing = "السكن";
@@ -181,4 +182,5 @@ abstract class AppText {
 
 
   static const String selectTheDonationAmount='حدد مبلغ التبرع';
+  static const String addComment='اضافة تعليق';
 }

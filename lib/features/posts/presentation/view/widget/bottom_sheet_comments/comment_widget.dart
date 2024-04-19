@@ -33,7 +33,7 @@ class CommentWidget extends StatelessWidget {
                 content: 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيله'),
             Comment(
                 avatar: 'null',
-                userName: 'سلسبيل الشيخ',
+                userName: 'سلسبيل اسلام',
                 content: 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيله'),
 
           ],

@@ -1,3 +1,4 @@
+import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,6 +44,25 @@ abstract class Constants {
             width: 1
         )
 
+    );
+  }
+
+
+  static  appBar(
+  {
+  required String title
+}
+      ) {
+    return AppBar(
+      elevation: 0,
+      foregroundColor: AppColors.mainColor,
+      backgroundColor: AppColors.white,
+      centerTitle: true,
+      title:Text(title,
+      style: AppStyles.textStyle15.copyWith(
+        fontWeight: FontWeight.bold
+      ),
+      ) ,
     );
   }
 }
