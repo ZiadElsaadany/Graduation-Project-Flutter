@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';

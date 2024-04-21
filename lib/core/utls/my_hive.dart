@@ -3,9 +3,11 @@ import 'package:hive_flutter/adapters.dart';
 class AppHive{
 
 
- static String tokenBox = "tokenBox" ;
+ static String tokenAndOnBoardingBox = "tokenAndOnBoardingBox" ;
  static String tokenKey = "token" ;
+ static String onBoardingKey = "token" ;
  static String ? tokenValue ;
+ static String ? onBoardingValue ;
 
   Future<void> openBox(  {
  required String boxName

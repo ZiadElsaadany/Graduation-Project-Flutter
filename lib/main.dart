@@ -15,7 +15,9 @@ void main() async{
   setup();
 
   await Hive.initFlutter();
-await   AppHive().getFromBox(boxName:AppHive.tokenBox, key: AppHive.tokenKey);
+  // Hive.registerAdapter(UserAdapter());
+AppHive.tokenValue= await   AppHive().getFromBox(boxName:AppHive.tokenAndOnBoardingBox, key: AppHive.tokenKey);
+AppHive.onBoardingValue =await   AppHive().getFromBox(boxName:AppHive.tokenAndOnBoardingBox, key: AppHive.onBoardingKey);
   runApp(const AounApp());
 }
 

@@ -46,6 +46,7 @@ abstract class AppRouter {
   static const String kConfirmCode = "/confirmCodeView";
   static const String kCampaignDonation = "/campaignDonation";
   static const String kAddPost = "/kAddPost";
+  static const String kHome = "/kHome";
 
   static final router = GoRouter(
     routes: [
@@ -58,7 +59,7 @@ abstract class AppRouter {
         builder: (context, state) => const NavBarView(),
       ),
       GoRoute(
-        path: '/home',
+        path: kHome,
         builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(

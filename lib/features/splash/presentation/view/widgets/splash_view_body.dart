@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';
+import 'package:aoun_tu/core/utls/my_hive.dart';
 import 'package:aoun_tu/features/splash/presentation/view/widgets/animated_splash_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,7 +24,15 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       () {
 
         // check token here
-        GoRouter.of(context).pushReplacement(AppRouter.kFirstOnBoarding);
+
+        if( AppHive.onBoardingValue==null ) {
+          GoRouter.of(context).pushReplacement(AppRouter.kFirstOnBoarding);
+        } else if(AppHive.tokenValue==null) {
+          GoRouter.of(context).pushReplacement(AppRouter.kLogin) ;
+        }else{
+          GoRouter.of(context).pushReplacement(AppRouter.kHome) ;
+        }
+
       },
     );
   }
