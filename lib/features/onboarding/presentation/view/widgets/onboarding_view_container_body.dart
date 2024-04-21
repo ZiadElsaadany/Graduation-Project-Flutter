@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utls/colors.dart';
+import '../../../../../core/utls/loggers.dart';
+import '../../../../../core/utls/my_hive.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
 
@@ -111,6 +113,9 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                                     duration: const Duration(seconds: 1),
                                   );
                             } else {
+                                AppHive().putToBox(key: AppHive.onBoardingKey, value: true.toString(),
+                                    boxName: AppHive.tokenAndOnBoardingBox);
+                                AppLogger.log(AppHive().getFromBox(boxName: AppHive.tokenAndOnBoardingBox, key: AppHive.onBoardingKey));
                               GoRouter.of(context)
                                   .pushReplacement(AppRouter.kLogin);
                             }

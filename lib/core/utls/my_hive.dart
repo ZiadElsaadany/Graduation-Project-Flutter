@@ -5,7 +5,7 @@ class AppHive{
 
  static String tokenAndOnBoardingBox = "tokenAndOnBoardingBox" ;
  static String tokenKey = "token" ;
- static String onBoardingKey = "token" ;
+ static String onBoardingKey = "onBoardingKey" ;
  static String ? tokenValue ;
  static String ? onBoardingValue ;
 
@@ -45,6 +45,9 @@ return   getBox(boxName: boxName).get(key);
 
   static  changeTokenValue(token )  {
     tokenValue = token;
+  }
+  static  changeOnBoardingValue(v )  {
+    tokenValue = v;
   }
 
 }
