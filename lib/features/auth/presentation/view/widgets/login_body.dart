@@ -1,4 +1,6 @@
 import 'package:aoun_tu/core/utls/colors.dart';
+import 'package:aoun_tu/core/utls/loggers.dart';
+import 'package:aoun_tu/core/utls/my_hive.dart';
 import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/auth/presentation/view/widgets/button.dart';
@@ -73,6 +75,9 @@ class _LoginBodyState extends State<LoginBody> {
                     if(state is LoginFailureState) {
                       showToast(title: state.message, color: AppColors.red);
                     }else if(state is LoginSuccessState){
+                      AppHive.changeTokenValue(state.loginModel.token);
+AppLogger.log(AppHive.tokenValue);
+                      GoRouter.of(context).push(AppRouter.kNavBar);
                       showToast(title: "Login Successfully", color: AppColors.green);
                     }
 
@@ -85,7 +90,6 @@ class _LoginBodyState extends State<LoginBody> {
                     : CustomButton(
 
                       onPressed: () {
-                        // GoRouter.of(context).push(AppRouter.kNavBar);
                         if (cubit.progressCounter == 1 && emailController.text
                             .trim()
                             .isEmpty) {
@@ -104,6 +108,7 @@ class _LoginBodyState extends State<LoginBody> {
                           cubit.plusProgressCounter();
                         } else {
                           //login here
+
                           BlocProvider.of<LoginApiCubit>(context,listen: false).login(email: emailController.text.trim(), password:passController.text.trim());
                         }
                       },

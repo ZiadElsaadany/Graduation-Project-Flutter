@@ -41,4 +41,10 @@ class AppHive{
 return   getBox(boxName: boxName).get(key);
   }
 
+
+
+  static  changeTokenValue(token )  {
+    tokenValue = token;
+  }
+
 }
