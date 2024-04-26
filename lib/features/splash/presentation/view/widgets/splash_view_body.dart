@@ -30,7 +30,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         } else if(AppHive.getToken()==null) {
           GoRouter.of(context).pushReplacement(AppRouter.kLogin) ;
         }else{
-          GoRouter.of(context).pushReplacement(AppRouter.kHome) ;
+          GoRouter.of(context).pushReplacement(AppRouter.kNavBar) ;
         }
 
       },
