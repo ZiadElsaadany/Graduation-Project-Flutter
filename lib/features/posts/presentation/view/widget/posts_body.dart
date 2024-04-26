@@ -9,19 +9,22 @@ class PostsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
-      child: SafeArea(
-        child: Column(
-          children: [
-            HomeAppBar(),
-            Divider(
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child:HomeAppBar()
+          ),
+          SliverToBoxAdapter(
+            child: Divider(
               thickness: 1,
             ),
-            WritePostBar(),
-            PostsList(),
-          ],
-        ),
+          ),
+         SliverToBoxAdapter(
+           child:  WritePostBar(),
+         ),
+          PostsList(),
+        ],
       ),
     );
   }

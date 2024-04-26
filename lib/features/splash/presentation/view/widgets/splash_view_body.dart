@@ -25,9 +25,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
         // check token here
 
-        if( AppHive.onBoardingValue==null ) {
+        if( AppHive.onBoarding()==null ) {
           GoRouter.of(context).pushReplacement(AppRouter.kFirstOnBoarding);
-        } else if(AppHive.tokenValue==null) {
+        } else if(AppHive.getToken()==null) {
           GoRouter.of(context).pushReplacement(AppRouter.kLogin) ;
         }else{
           GoRouter.of(context).pushReplacement(AppRouter.kHome) ;

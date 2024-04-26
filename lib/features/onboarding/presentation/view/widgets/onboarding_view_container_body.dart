@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:aoun_tu/core/utls/loggers.dart';
 import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view/widgets/smooth_page_indicator.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
@@ -6,8 +7,8 @@ import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_s
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../../../../../core/utls/colors.dart';
-import '../../../../../core/utls/loggers.dart';
 import '../../../../../core/utls/my_hive.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
@@ -59,11 +60,22 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.017,
                         ),
-                        Text(
-                          AppText.skip,
-                          style: AppStyles.textStyle17.copyWith(
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold),
+                        GestureDetector(
+                          onTap: ( ) async{
+                        await    Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.onBoardingKey, true);
+
+                            AppLogger.log(AppHive.onBoarding().toString());
+                           if(context.mounted){
+                             GoRouter.of(context)
+                                 .pushReplacement(AppRouter.kLogin);
+                           }
+                          } ,
+                          child: Text(
+                            AppText.skip,
+                            style: AppStyles.textStyle17.copyWith(
+                                color: AppColors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,
@@ -113,9 +125,8 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                                     duration: const Duration(seconds: 1),
                                   );
                             } else {
-                                AppHive().putToBox(key: AppHive.onBoardingKey, value: true.toString(),
-                                    boxName: AppHive.tokenAndOnBoardingBox);
-                                AppLogger.log(AppHive().getFromBox(boxName: AppHive.tokenAndOnBoardingBox, key: AppHive.onBoardingKey));
+                              Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.onBoardingKey, true);
+
                               GoRouter.of(context)
                                   .pushReplacement(AppRouter.kLogin);
                             }

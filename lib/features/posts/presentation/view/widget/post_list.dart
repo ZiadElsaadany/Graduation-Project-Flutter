@@ -7,11 +7,8 @@ class PostsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        padding: EdgeInsets.zero,
+    return SliverList.builder(
         itemCount: 8,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsetsDirectional.only(bottom: 18),

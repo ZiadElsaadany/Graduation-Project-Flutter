@@ -6,7 +6,7 @@
 // "gender": "Male",
 // "role": "ROLE_USER"
 
-class UserModel {
+class UserModel  {
   final String userId;
   final String name ;
   final String email ;

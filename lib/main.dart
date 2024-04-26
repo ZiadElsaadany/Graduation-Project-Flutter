@@ -3,10 +3,16 @@ import 'package:aoun_tu/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'core/utls/loggers.dart';
 import 'core/utls/routers.dart';
 import 'package:flutter/services.dart';
 
 void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await  Hive.openBox(AppHive.tokenAndOnBoardingBox);
+  AppLogger.log(AppHive.onBoarding().toString());
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -14,11 +20,8 @@ void main() async{
   ));
   setup();
 
-  await Hive.initFlutter();
-  // Hive.registerAdapter(UserAdapter());
-AppHive.tokenValue= await   AppHive().getFromBox(boxName:AppHive.tokenAndOnBoardingBox, key: AppHive.tokenKey);
-AppHive.onBoardingValue =await   AppHive().getFromBox(boxName:AppHive.tokenAndOnBoardingBox, key: AppHive.onBoardingKey);
-  runApp(const AounApp());
+
+runApp(const AounApp());
 }
 
 class AounApp extends StatelessWidget {

@@ -6,8 +6,6 @@ class AppHive{
  static String tokenAndOnBoardingBox = "tokenAndOnBoardingBox" ;
  static String tokenKey = "token" ;
  static String onBoardingKey = "onBoardingKey" ;
- static String ? tokenValue ;
- static String ? onBoardingValue ;
 
   Future<void> openBox(  {
  required String boxName
@@ -41,13 +39,11 @@ class AppHive{
 return   getBox(boxName: boxName).get(key);
   }
 
-
-
-  static  changeTokenValue(token )  {
-    tokenValue = token;
+ static String ?  getToken ( ){
+    return Hive.box(tokenAndOnBoardingBox).get(tokenKey);
   }
-  static  changeOnBoardingValue(v )  {
-    tokenValue = v;
+ static bool ? onBoarding ( ){
+    return Hive.box(tokenAndOnBoardingBox).get(onBoardingKey);
   }
 
 }

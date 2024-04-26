@@ -13,6 +13,7 @@ import 'package:aoun_tu/features/auth/presentation/view_model/login/login_cubit.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../../core/utls/toast.dart';
 import '../../view_model/login/login_api_cubit.dart';
@@ -75,8 +76,6 @@ class _LoginBodyState extends State<LoginBody> {
                     if(state is LoginFailureState) {
                       showToast(title: state.message, color: AppColors.red);
                     }else if(state is LoginSuccessState){
-                      AppHive.changeTokenValue(state.loginModel.token);
-AppLogger.log(AppHive.tokenValue);
                       GoRouter.of(context).push(AppRouter.kNavBar);
                       showToast(title: "Login Successfully", color: AppColors.green);
                     }
@@ -108,6 +107,8 @@ AppLogger.log(AppHive.tokenValue);
                           cubit.plusProgressCounter();
                         } else {
                           //login here
+
+
 
                           BlocProvider.of<LoginApiCubit>(context,listen: false).login(email: emailController.text.trim(), password:passController.text.trim());
                         }

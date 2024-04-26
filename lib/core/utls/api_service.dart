@@ -9,7 +9,7 @@ class ApiService {
       BaseOptions(
         baseUrl: _baseUrl,
         headers: {
-          "authorization":AppHive.tokenValue ,
+          "authorization":AppHive.getToken() ,
           "accept": "*/*"
         },
       ),
