@@ -1,19 +1,27 @@
 import 'package:aoun_tu/core/utls/my_hive.dart';
+import 'package:aoun_tu/features/posts/data/repos/posts_repo_implementation.dart';
+import 'package:aoun_tu/features/posts/presentation/controller/get_posts_controller/get_posts_cubit.dart';
 import 'package:aoun_tu/injection_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'core/utls/loggers.dart';
 import 'core/utls/routers.dart';
 import 'package:flutter/services.dart';
 
+import 'features/posts/presentation/controller/like_controller/like_cubit.dart';
+
 void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+
   await Hive.initFlutter();
   await  Hive.openBox(AppHive.tokenAndOnBoardingBox);
-  AppLogger.log(AppHive.onBoarding().toString());
 
+  AppLogger.print(AppHive.getToken().toString());
+  // Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.tokenKey, null);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
@@ -21,7 +29,12 @@ void main() async{
   setup();
 
 
-runApp(const AounApp());
+runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (c)=> GetPostsCubit(postsRepo: serviceLocator<PostsRepoImplementation>())),
+      BlocProvider(create: (c)=> LikeCubit(postsRepo: serviceLocator<PostsRepoImplementation>())),
+    ],
+    child: const AounApp()));
 }
 
 class AounApp extends StatelessWidget {
@@ -42,5 +55,30 @@ class AounApp extends StatelessWidget {
         );
       },
     );
+  }
+}
+class MyBlocObserver extends BlocObserver {
+  @override
+  void onCreate(BlocBase bloc) {
+    super.onCreate(bloc);
+    print('onCreate -- ${bloc.runtimeType}');
+  }
+
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    super.onChange(bloc, change);
+    print('onChange -- ${bloc.runtimeType}, $change');
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    print('onError -- ${bloc.runtimeType}, $error');
+    super.onError(bloc, error, stackTrace);
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    super.onClose(bloc);
+    print('onClose -- ${bloc.runtimeType}');
   }
 }

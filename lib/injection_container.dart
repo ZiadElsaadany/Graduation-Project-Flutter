@@ -1,4 +1,5 @@
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
+import 'package:aoun_tu/features/posts/data/repos/posts_repo_implementation.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/utls/api_service.dart';
@@ -15,6 +16,10 @@ void setup() {
   ) ;
   serviceLocator.registerSingleton<AuthRepoImplementation>(
     AuthRepoImplementation(
+        apiService:      serviceLocator<ApiService>()
+    ),
+  ); serviceLocator.registerSingleton<PostsRepoImplementation>(
+    PostsRepoImplementation(
         apiService:      serviceLocator<ApiService>()
     ),
   );

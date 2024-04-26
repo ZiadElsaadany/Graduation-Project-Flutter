@@ -44,15 +44,17 @@ class GridViewItem extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SvgPicture.asset(
-                AppImages.giftBackGround,
-                height: MediaQuery.of(context).size.height * 0.06,
-              ),
-            ],
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SvgPicture.asset(
+                  AppImages.giftBackGround,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                ),
+              ],
+            ),
           ),
         ],
       ),

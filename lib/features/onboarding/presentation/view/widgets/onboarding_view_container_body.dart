@@ -64,7 +64,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                           onTap: ( ) async{
                         await    Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.onBoardingKey, true);
 
-                            AppLogger.log(AppHive.onBoarding().toString());
+                            AppLogger.print(AppHive.onBoarding().toString());
                            if(context.mounted){
                              GoRouter.of(context)
                                  .pushReplacement(AppRouter.kLogin);

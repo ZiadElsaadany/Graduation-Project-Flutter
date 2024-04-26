@@ -1,3 +1,4 @@
+import 'package:aoun_tu/core/widgets/view_image_from_internet.dart';
 import 'package:aoun_tu/features/charity/presentation/view/campaign_donation_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/case_details_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
@@ -11,7 +12,7 @@ import 'package:aoun_tu/features/inKind_donations/presentations/views/food_donat
 import 'package:aoun_tu/features/inKind_donations/presentations/views/in_kind_donations_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/medicines_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/other_donation_view.dart';
-import 'package:aoun_tu/features/posts/presentation/add_post_view.dart';
+import 'package:aoun_tu/features/posts/presentation/view/add_post_view.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
@@ -47,12 +48,16 @@ abstract class AppRouter {
   static const String kCampaignDonation = "/campaignDonation";
   static const String kAddPost = "/kAddPost";
   static const String kHome = "/kHome";
+  static const String kViewImageFromInternet = "/kViewImageFromInternet";
 
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: kSplash,
         builder: (context, state) => const SplashView(),
+      ),GoRoute(
+        path: kViewImageFromInternet,
+        builder: (context, state) =>  ViewImageFromInternet(image: state.extra as String),
       ),
       GoRoute(
         path: kNavBar,

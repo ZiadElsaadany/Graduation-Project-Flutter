@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 
 class AppLogger {
-  static log ( message) {
+  static print ( message) {
     if(!kReleaseMode){
-      print(message.toString());
+      log(message.toString());
     }
   }
 }
