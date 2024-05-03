@@ -1,4 +1,4 @@
-import 'package:aoun_tu/features/charity/presentation/view/view_model/charity_donation_values_cubit.dart';
+import 'package:aoun_tu/features/charity/presentation/view_model/charity_donation_values_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utls/colors.dart';
@@ -28,8 +28,9 @@ class TotalAmountWidget extends StatelessWidget {
               vertical: 16,
             ),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.mainColor),),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: AppColors.mainColor),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -40,9 +41,11 @@ class TotalAmountWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    BlocBuilder<CharityDonationValuesCubit, CharityDonationValuesState>(
+                    BlocBuilder<CharityDonationValuesCubit,
+                        CharityDonationValuesState>(
                       builder: (context, state) {
-                        var cubit = BlocProvider.of<CharityDonationValuesCubit>(context);
+                        var cubit = BlocProvider.of<CharityDonationValuesCubit>(
+                            context);
                         return Text(
                           cubit.textStates(),
                           style: AppStyles.font18Bold
@@ -56,7 +59,7 @@ class TotalAmountWidget extends StatelessWidget {
                     Text(
                       AppText.lE,
                       style:
-                      AppStyles.textStyle14.copyWith(color: AppColors.grey),
+                          AppStyles.textStyle14.copyWith(color: AppColors.grey),
                     ),
                   ],
                 )
@@ -70,7 +73,7 @@ class TotalAmountWidget extends StatelessWidget {
             title: AppText.payment,
             height: MediaQuery.of(context).size.height * 0.06,
             textStyle: AppStyles.font16WhiteBold,
-            onTap: (){},
+            onTap: () {},
           ),
           const SizedBox(
             height: 25,

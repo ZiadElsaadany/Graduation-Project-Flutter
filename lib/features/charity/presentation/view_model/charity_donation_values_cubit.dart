@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
-import '../../../data/charity_donation_values.dart';
+import '../../data/charity_donation_values.dart';
 
 part 'charity_donation_values_state.dart';
 
@@ -18,14 +18,14 @@ class CharityDonationValuesCubit extends Cubit<CharityDonationValuesState> {
     emit(SelectCharityDonationValueState());
   }
 
-
-
-  late TextEditingController charityDonationValueTextEditingController = TextEditingController();
+  late TextEditingController charityDonationValueTextEditingController =
+      TextEditingController();
 
   textStates() {
     if (charityDonationValueTextEditingController.text.isNotEmpty) {
       selected = false;
-      emit(AddedTextInTextEditingController(charityDonationValueTextEditingController));
+      emit(AddedTextInTextEditingController(
+          charityDonationValueTextEditingController));
       return charityDonationValueTextEditingController.text;
     } else if (selected == true) {
       emit(SelectCharityDonationValueState());

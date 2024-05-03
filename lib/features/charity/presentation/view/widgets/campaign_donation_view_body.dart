@@ -1,7 +1,7 @@
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/charity/data/charity_donation_values.dart';
-import 'package:aoun_tu/features/charity/presentation/view/view_model/charity_donation_values_cubit.dart';
+import 'package:aoun_tu/features/charity/presentation/view_model/charity_donation_values_cubit.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_donation_value_container.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_enter_amount_text_form_field.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/custom_linear_progress_indicator_with_value.dart';
@@ -87,20 +87,20 @@ class _CampaignDonationViewBodyState extends State<CampaignDonationViewBody> {
                     );
                   },
                 ),
-
               ],
             ),
           ),
           Form(
             key: _formKey,
-            child:  Column(
+            child: Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 24, vertical: 31),
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 31),
                   child: CharityEnterDonationAmountTextFormField(),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.1935,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1935,
+                ),
                 const TotalAmountWidget(),
               ],
             ),
