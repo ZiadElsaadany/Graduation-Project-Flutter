@@ -35,7 +35,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                     child: Text(
                       title,
                       style: AppStyles.textStyle20.copyWith(
-                          fontSize: constraints.maxHeight * 0.09,
+                          fontSize: constraints.maxHeight * 0.06,
                           color: AppColors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -45,14 +45,12 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                   height: constraints.maxHeight * 0.03,
                 ),
                 FadeInLeft(
-                  child: Flexible(
-                    child: Text(
-                      description,
-                      style: AppStyles.textStyle14.copyWith(
-                          color: AppColors.white,
-                          fontSize: constraints.maxHeight * 0.071),
-                      textAlign: TextAlign.center,
-                    ),
+                  child: Text(
+                    description,
+                    style: AppStyles.textStyle14.copyWith(
+                        color: AppColors.white,
+                        fontSize: constraints.maxHeight * 0.049),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],
@@ -71,7 +69,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                             ),
                             const CustomSmoothPAgeIndicator(),
                             SizedBox(
-                              height: constraints.maxHeight * 0.017,
+                              height: constraints.maxHeight * 0.013,
                             ),
                             GestureDetector(
                               onTap: () async {
@@ -89,7 +87,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                                 child: Text(
                                   AppText.skip,
                                   style: AppStyles.textStyle17.copyWith(
-                                      fontSize: constraints.maxHeight * 0.07,
+                                      fontSize: constraints.maxHeight * 0.05,
                                       color: AppColors.white,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -107,8 +105,8 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                               height: constraints.maxHeight * 0.25,
                             ),
                             SizedBox(
-                              width: constraints.maxWidth * 0.172,
-                              height: constraints.maxHeight * 0.25,
+                              width: constraints.maxWidth * 0.13,
+                              height: constraints.maxHeight * 0.185,
                               child: CircularProgressIndicator(
                                 value: 1.0,
                                 valueColor: AlwaysStoppedAnimation<Color>(
@@ -116,8 +114,8 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              width: constraints.maxWidth * 0.172,
-                              height: constraints.maxHeight * 0.25,
+                              width: constraints.maxWidth * 0.13,
+                              height: constraints.maxHeight * 0.185,
                               child: CircularProgressIndicator(
                                 value:
                                     (BlocProvider.of<OnBoardingCubit>(context)
@@ -157,10 +155,11 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                               },
                               child: CircleAvatar(
                                 backgroundColor: AppColors.white,
+                                maxRadius: constraints.maxHeight * 0.07,
                                 child: Icon(
                                   Icons.arrow_forward_ios_rounded,
                                   color: AppColors.mainColor,
-                                  size: constraints.maxHeight * 0.12,
+                                  size: constraints.maxHeight * 0.06,
                                 ),
                               ),
                             ),

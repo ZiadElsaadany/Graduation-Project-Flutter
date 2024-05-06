@@ -17,7 +17,9 @@ class AnimatedTextSplash extends StatelessWidget {
           FlickerAnimatedText(
             speed: const Duration(seconds: 2),
             AppText.appName,
-            textStyle: AppStyles.textStyle27.copyWith(color: AppColors.white,fontSize: MediaQuery.of(context).size.height*0.05),
+            textStyle: AppStyles.textStyle27.copyWith(
+                color: AppColors.white,
+                fontSize: MediaQuery.of(context).size.height * 0.03),
           ),
         ],
       ),
