@@ -24,10 +24,11 @@ class CustomGiftValueContainer extends StatelessWidget {
     return BlocBuilder<GiftCubit, GiftState>(
       builder: (context, state) {
         var cubit = BlocProvider.of<GiftCubit>(context);
+        final size=MediaQuery.of(context).size;
         return GestureDetector(
           onTap: onTap,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 20),
+            padding:  EdgeInsets.symmetric(horizontal: size.width*0.038, vertical: size.height*0.02),
             decoration: BoxDecoration(
                 color: (cubit.itemIndex == index && cubit.selected == true)
                     ? giftCategoryModel.color!
@@ -35,6 +36,7 @@ class CustomGiftValueContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: giftCategoryModel.color!)),
             child: Text(
+              textAlign: TextAlign.center,
               text,
               style: (cubit.itemIndex == index && cubit.selected == true)
                   ? AppStyles.textStyle17.copyWith(color: AppColors.white)

@@ -19,44 +19,49 @@ class GridViewItem extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 22),
-            child: Column(
-              children: [
-                Text(
-                  text,
-                  style: AppStyles.textStyle15bold
-                      .copyWith(color: AppColors.white),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding:
+                     EdgeInsets.symmetric(horizontal: constraints.maxWidth*0.05, vertical: constraints.maxHeight*0.07),
+                child: Column(
+                  children: [
+                    Text(
+                      text,
+                      style: AppStyles.textStyle15bold
+                          .copyWith(color: AppColors.white),
+                    ),
+                     SizedBox(
+                      height: constraints.maxHeight*0.07,
+                    ),
+                    Image.asset(
+                      image,
+                      scale: 1,
+                      height: constraints.maxHeight*0.3,
+                      width: constraints.maxWidth*0.3,
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 12,
+              ),
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SvgPicture.asset(
+                      AppImages.giftBackGround,
+                      height: constraints.maxHeight*0.4,
+                    ),
+                  ],
                 ),
-                Image.asset(
-                  image,
-                  scale: 1,
-                  height: 47,
-                  width: 44,
-                ),
-              ],
-            ),
-          ),
-          Flexible(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SvgPicture.asset(
-                  AppImages.giftBackGround,
-                  height: MediaQuery.of(context).size.height * 0.06,
-                ),
-              ],
-            ),
-          ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
