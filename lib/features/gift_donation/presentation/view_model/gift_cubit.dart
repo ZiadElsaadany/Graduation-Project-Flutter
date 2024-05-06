@@ -1,5 +1,5 @@
 import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
@@ -8,12 +8,13 @@ part 'gift_state.dart';
 class GiftCubit extends Cubit<GiftState> {
   GiftCubit() : super(GiftInitial());
 
-  late int itemIndex = 0;
-  late bool selected = false;
-
+  int get itemIndex => _itemIndex;
+  int _itemIndex = 0;
+  bool get selected => _selected;
+  bool _selected = false;
   selectedItemIndex(int index) {
-    itemIndex = index;
-    selected = true;
+    _itemIndex = index;
+    _selected = true;
     emit(SelectGiftValueContainer());
   }
 
@@ -23,10 +24,10 @@ class GiftCubit extends Cubit<GiftState> {
 
    textStates() {
     if (giftValueTextEditingController.text.isNotEmpty) {
-      selected = false;
+      _selected = false;
       emit(AddedTextInTextEditingController(giftValueTextEditingController));
       return giftValueTextEditingController.text;
-    } else if (selected == true) {
+    } else if (_selected == true) {
       emit(SelectGiftValueContainer());
       return giftValuesList[itemIndex].value;
     } else {

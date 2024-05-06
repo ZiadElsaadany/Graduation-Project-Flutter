@@ -60,15 +60,13 @@ class GiftCategoriesBody extends StatelessWidget {
                     AppText.chooseCategoryToDonate,
                     style: AppStyles.textStyle16,
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
                 ],
               ),
             ),
             SliverPadding(
               padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.05,
+                vertical: MediaQuery.of(context).size.height * 0.05,
               ),
               sliver: SliverGrid.count(
                 crossAxisCount: 2,

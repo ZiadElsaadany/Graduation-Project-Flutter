@@ -12,9 +12,10 @@ class CategoryDetailsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
+      padding:  EdgeInsets.symmetric(
+        horizontal: size.width*0.02,
       ),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -24,29 +25,30 @@ class CategoryDetailsHeader extends StatelessWidget {
         children: [
           Column(
             children: [
-              const SizedBox(
-                height: 5,
+               SizedBox(
+                height: size.width*0.01,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding:  EdgeInsets.symmetric(horizontal: size.width*0.02,),
                     child: Text(
                       giftCategoryModel.title!,
                       style:
-                          AppStyles.font18Bold.copyWith(color: AppColors.white),
+                      AppStyles.font18Bold.copyWith(color: AppColors.white),
                     ),
                   ),
                   Image.asset(
                     AppImages.gifts,
-                    height: MediaQuery.of(context).size.height * 0.12,
-                    width: MediaQuery.of(context).size.width * 0.4,
+                    fit: BoxFit.contain,
+                    height: size.height * 0.12,
+                    width: size.width * 0.4,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 5,
+               SizedBox(
+                height: size.height*0.01,
               ),
             ],
           ),

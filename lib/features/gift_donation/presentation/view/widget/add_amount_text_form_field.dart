@@ -22,7 +22,9 @@ class AddAmountTextFormField extends StatelessWidget {
         return TextFormField(
           controller: cubit.giftValueTextEditingController,
           cursorColor: giftCategoryModel.color,
-          keyboardType: TextInputType.number,
+          keyboardType: const TextInputType.numberWithOptions(
+            decimal: true,
+          ),
           decoration: InputDecoration(
             suffixIcon: Padding(
                 padding:
