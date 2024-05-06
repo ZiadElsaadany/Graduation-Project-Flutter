@@ -38,7 +38,7 @@ class OnBoardingViewBody extends StatelessWidget {
         Expanded(
             flex: 50, child: OnBoardingViewImage(image: _pages[index].image)),
         Expanded(
-          flex: 45,
+          flex: 43,
           child: OnBoardingViewContainer(
             title: _pages[index].title,
             description: _pages[index].description,

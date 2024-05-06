@@ -1,6 +1,7 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppStyles {
@@ -34,7 +35,7 @@ static final textStyle13bold = GoogleFonts.almarai(
     fontWeight: FontWeight.w600,
   );
   static final textStyle20 = GoogleFonts.almarai(
-    fontSize: 20,
+    fontSize: 20.h,
     fontWeight: FontWeight.normal,
   );
   static final textStyle22bold = GoogleFonts.almarai(
