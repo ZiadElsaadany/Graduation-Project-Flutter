@@ -8,3 +8,4 @@ class GiftCategoryModel {
   GiftCategoryModel(this.title, this.image, this.color);
 }
 
+
