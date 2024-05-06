@@ -140,7 +140,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                               weight: 100,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     )
                   ],

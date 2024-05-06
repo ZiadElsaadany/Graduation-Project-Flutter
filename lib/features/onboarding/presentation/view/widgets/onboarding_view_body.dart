@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding_view_container.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding_view_image.dart';
-import 'package:flutter/material.dart';
-
 import '../../../../../core/utls/images.dart';
 import '../../../../../core/utls/text.dart';
 import '../../../data/on_boarding_data.dart';
