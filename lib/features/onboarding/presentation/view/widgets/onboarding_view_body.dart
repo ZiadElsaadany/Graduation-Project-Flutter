@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding_view_container.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view/widgets/onboarding_view_image.dart';
-import 'package:flutter/material.dart';
-
 import '../../../../../core/utls/images.dart';
 import '../../../../../core/utls/text.dart';
 import '../../../data/on_boarding_data.dart';
@@ -39,7 +38,7 @@ class OnBoardingViewBody extends StatelessWidget {
         Expanded(
             flex: 50, child: OnBoardingViewImage(image: _pages[index].image)),
         Expanded(
-          flex: 45,
+          flex: 43,
           child: OnBoardingViewContainer(
             title: _pages[index].title,
             description: _pages[index].description,
