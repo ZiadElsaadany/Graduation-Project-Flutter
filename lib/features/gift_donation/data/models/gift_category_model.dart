@@ -17,8 +17,8 @@ class GiftCategoryModel {
       this.statusCode,
       this.isSuccessful});
 
-  factory GiftCategoryModel.fromJson(String jsonString) {
-    final Map<String, dynamic> json = jsonDecode(jsonString);
+  factory GiftCategoryModel.fromJson(dynamic jsonDynamic) {
+    final Map<String, dynamic> json = jsonDecode(jsonDynamic);
     return GiftCategoryModel(
       message: json['message'] as String,
       categories:
