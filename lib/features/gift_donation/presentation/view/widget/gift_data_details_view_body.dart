@@ -70,24 +70,9 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.034,
                 ),
-                const GiftDataDetailsHeaderText(
-                  text: AppText.enterSenderData,
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                GiftDataSRTextFormField(
-                  hintText: AppText.enterSenderName,
-                  labelText: AppText.senderName,
-                  controller: BlocProvider.of<GiftCubit>(context)
-                      .senderNameTextController,
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
                 GiftDataSRTextFormField(
                   hintText: AppText.enterSenderPhone,
-                  labelText: AppText.senderPhone,
+                  labelText: AppText.confirmSenderPhone,
                   controller: BlocProvider.of<GiftCubit>(context)
                       .senderPhoneTextController,
                 ),

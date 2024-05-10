@@ -156,7 +156,7 @@ abstract class AppText {
   static const String hideTheValueOfTheGiftFromRecipient="اخفاء قيمة الهدية للمستلم";
   static const String enterSenderData="ادخل بيانات مرسل الهدية";
   static const String senderName="اسم المرسل";
-  static const String senderPhone="هاتف المرسل";
+  static const String confirmSenderPhone="تأكيد هاتف المرسل";
   static const String enterSenderName="ادخل اسم المرسل";
   static const String enterSenderPhone="ادخل رقم هاتف المرسل";
   static const String thisPhoneWillBeSentToTheRecipient="سيتم ارسال هذا الرقم الي مستلم الهدية";
