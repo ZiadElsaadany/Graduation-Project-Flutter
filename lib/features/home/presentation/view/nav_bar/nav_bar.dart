@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../../../../posts/presentation/view/posts_screen.dart';
+import '../../../../settings/presentation/views/settings_screen.dart';
 import '../home_screen.dart';
 
 class NavBarView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _NavBarViewState extends State<NavBarView> {
       const HomeScreen(),
       const PostsScreen(),
       const GiftCategoriesView(),
-      Container(),
+      SettingsScreen(),
     ];
   }
 

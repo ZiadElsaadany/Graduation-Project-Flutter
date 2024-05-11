@@ -46,4 +46,9 @@ return   getBox(boxName: boxName).get(key);
     return Hive.box(tokenAndOnBoardingBox).get(onBoardingKey);
   }
 
+ static  Future<void> removeToken( )  async {
+  await    Hive.box(tokenAndOnBoardingBox).put(tokenKey, null);
+
+  }
+
 }
