@@ -12,19 +12,20 @@ abstract class AppColors {
   static const Color yellow = Color(0xFFF9A825);
   static const Color grey = Color(0xFF504F4F);
   static const Color yellow2 = Color(0xffEECB15);
-  static const Color darkBlue = Color(0XFF07293D);
-  static const Color darkGrey = Color(0XFF3D3D3D);
+  static const Color darkBlue = Color(0xFF07293D);
+  static const Color darkGrey = Color(0xFF3D3D3D);
   static const Color green = Color(0XFF32AA2F);
   static const Color grey2 = Color(0xFFF3F3F4);
   static const Color grey3 = Color(0xFFDEDEDE);
   static const Color lightGrey2 = Color(0xffB4D2FF);
 
-  static const Color red = Colors.red;
+  static const Color red = Color(0xffBC1E1E);
 
   static const Color c7c7c7 = Color(0xffC7C7C7);
 
-  static const Color frame = Color(0XFFD3CFCF);
-  static const Color greyComment = Color(0XFFF5F5F5);
+  static const Color frame = Color(0xFFD3CFCF);
+  static const Color greyComment = Color(0xFFF5F5F5);
+  static const Color settingListTileColor = Color(0xff9E9E9E);
 
   static OutlineInputBorder outlineInputBorder(
       {required Color borderColor, int radius = 10}) {

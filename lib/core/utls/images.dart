@@ -80,5 +80,6 @@ static const String backGround = "assets/images/background.png";
   static const String  giftBackGround= "assets/images/gift_back_ground.svg";
   static const String  halfGiftBackGround= "assets/images/half_gift_back_ground.svg";
   static const String  logoBlue= "assets/images/logo_blue.svg";
+  static const String  logoutImage= "assets/icons/logout_icon.svg";
 }
 
