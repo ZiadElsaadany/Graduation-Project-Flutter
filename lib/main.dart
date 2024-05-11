@@ -20,7 +20,7 @@ void main() async{
   await Hive.initFlutter();
   await  Hive.openBox(AppHive.tokenAndOnBoardingBox);
 
-  AppLogger.print(AppHive.getToken().toString());
+  AppLogger.print("token: "+AppHive.getToken().toString());
   // Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.tokenKey, null);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,

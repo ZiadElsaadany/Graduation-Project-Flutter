@@ -105,7 +105,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                               height: constraints.maxHeight * 0.25,
                             ),
                             SizedBox(
-                              width: constraints.maxWidth * 0.13,
+                              width: constraints.maxWidth * 0.17,
                               height: constraints.maxHeight * 0.185,
                               child: CircularProgressIndicator(
                                 value: 1.0,
@@ -114,7 +114,7 @@ class OnBoardingViewContainerBody extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              width: constraints.maxWidth * 0.13,
+                              width: constraints.maxWidth * 0.17,
                               height: constraints.maxHeight * 0.185,
                               child: CircularProgressIndicator(
                                 value:

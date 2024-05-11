@@ -22,9 +22,11 @@ class PostsRepoImplementation implements PostsRepo{
 
     try {
       var response =await  apiService.get(endpoint: "${AppApis.getPostsEndPoint}?page=$page");
-      AppLogger.print(response.toString());
+      AppLogger.print("response: "+response.toString());
       return right(List<PostModel>.from((response["data"] as List).map((e) => PostModel.fromJson(e))));
     }on DioException catch(e) {
+      AppLogger.print(e.toString());
+      AppLogger.print(e.response?.statusCode.toString());
       return left(ServerFailure.fromDioException(e));
     }
 
@@ -39,9 +41,10 @@ class PostsRepoImplementation implements PostsRepo{
     try {
       var response =await  apiService.post(
           endpoint: "${AppApis.getPostsEndPoint}?postId=$postId");
-      AppLogger.print(response.toString());
+      AppLogger.print("Like Response: $response");
       return right(null);
     }on DioException catch(e) {
+      AppLogger.print(e.toString());
       return left(ServerFailure.fromDioException(e));
     }
 

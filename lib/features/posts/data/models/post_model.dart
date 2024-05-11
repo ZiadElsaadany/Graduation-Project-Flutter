@@ -23,11 +23,11 @@ class PostModel extends Equatable {
   final String createdSince;
   final List<String> images;
   final int userId;
-  final bool isUserLike;
+   bool isUserLike;
   final String userName;
   final String userImage;
-  final int numberOfLikes;
-  final int numberOfComments;
+   int numberOfLikes;
+   int numberOfComments;
   PostModel(
       {required this.userId,
       required this.images,

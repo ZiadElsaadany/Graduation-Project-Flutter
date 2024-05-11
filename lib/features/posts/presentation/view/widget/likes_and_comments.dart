@@ -30,13 +30,9 @@ class _LikesAndCommentsState extends State<LikesAndComments> {
     return    BlocConsumer<LikeCubit, LikeStates>(
   listener: (context, state) {
    if(state is LikeFailure){
-     showToast(title: state.errorMessage, color: AppColors.red);
-     widget.posts[widget.index]=widget.posts[widget.index].copyWith(
-         numberOfLikes: widget.posts[widget.index].numberOfLikes-1
-     );
-     widget.posts[widget.index] =   widget.posts[widget.index].copyWith(
-         isUserLike: !widget.posts[widget.index].isUserLike
-     );
+     // showToast(title: state.errorMessage, color: AppColors.red);
+     widget.posts[widget.index].numberOfLikes= widget.posts[widget.index].numberOfLikes-1;
+     widget.posts[widget.index].isUserLike =  !widget.posts[widget.index].isUserLike;
    }
   },
   builder: (context, state) {
@@ -46,21 +42,13 @@ class _LikesAndCommentsState extends State<LikesAndComments> {
           children: [
             GestureDetector(
               onTap: () {
-
                 cubit.like(postId: widget.posts[widget.index].postId);
-
             setState(() {
-              widget.posts[widget.index] =   widget.posts[widget.index].copyWith(
-                  isUserLike: !widget.posts[widget.index].isUserLike
-              );
+              widget.posts[widget.index].isUserLike =  !widget.posts[widget.index].isUserLike;
               if(!widget.posts[widget.index].isUserLike ==false){
-                widget.posts[widget.index]=widget.posts[widget.index].copyWith(
-                  numberOfLikes: widget.posts[widget.index].numberOfLikes+1
-                );
+                widget.posts[widget.index].numberOfLikes=widget.posts[widget.index].numberOfLikes+1;
               }else{
-                widget.posts[widget.index]=widget.posts[widget.index].copyWith(
-                    numberOfLikes: widget.posts[widget.index].numberOfLikes-1
-                );
+                widget.posts[widget.index].numberOfLikes=widget.posts[widget.index].numberOfLikes-1;
               }
             });
               },
