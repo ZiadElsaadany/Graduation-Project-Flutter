@@ -1,28 +1,19 @@
-import 'dart:convert';
-import 'dart:ui';
-
 class GiftCategoryModel {
-  final String? image;
-  final Color? color;
-  final String? message;
-  final List<String>? categories;
-  final int? statusCode;
-  final bool? isSuccessful;
+  final String message;
+  final List<String> categories;
+  final int statusCode;
+  final bool isSuccessful;
 
   GiftCategoryModel(
-      {this.image,
-      this.color,
-      this.message,
-      this.categories,
-      this.statusCode,
-      this.isSuccessful});
+      {required this.message,
+      required this.categories,
+      required this.statusCode,
+      required this.isSuccessful});
 
-  factory GiftCategoryModel.fromJson(dynamic jsonDynamic) {
-    final Map<String, dynamic> json = jsonDecode(jsonDynamic);
+  factory GiftCategoryModel.fromJson(Map<String, dynamic> json) {
     return GiftCategoryModel(
       message: json['message'] as String,
-      categories:
-          (json['data'] as List<String>).toList(),
+      categories: List<String>.from(json["data"]),
       statusCode: json['statusCode'] as int,
       isSuccessful: json['isSuccessful'] as bool,
     );

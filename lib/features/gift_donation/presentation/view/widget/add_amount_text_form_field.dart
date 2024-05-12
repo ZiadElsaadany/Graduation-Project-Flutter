@@ -1,4 +1,3 @@
-import 'package:aoun_tu/features/gift_donation/data/models/gift_category_model.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,9 +7,8 @@ import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
 
 class AddAmountTextFormField extends StatelessWidget {
-  const AddAmountTextFormField({Key? key, required this.giftCategoryModel, })
+  const AddAmountTextFormField({Key? key,  })
       : super(key: key);
-  final GiftCategoryModel giftCategoryModel;
   @override
   Widget build(BuildContext context) {
     final yellowTextStyle =
@@ -21,7 +19,7 @@ class AddAmountTextFormField extends StatelessWidget {
         var cubit=BlocProvider.of<GiftCubit>(context);
         return TextFormField(
           controller: cubit.giftValueTextEditingController,
-          cursorColor: giftCategoryModel.color,
+          cursorColor:Colors.deepOrangeAccent,
           keyboardType: const TextInputType.numberWithOptions(
             decimal: true,
           ),
@@ -47,7 +45,7 @@ class AddAmountTextFormField extends StatelessWidget {
   OutlineInputBorder outLineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(color: giftCategoryModel.color!),
+      borderSide: BorderSide(color:Colors.deepOrangeAccent),
     );
   }
 }

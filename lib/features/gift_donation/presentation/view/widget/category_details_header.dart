@@ -3,12 +3,12 @@ import 'package:aoun_tu/core/utls/images.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../data/models/gift_category_model.dart';
 
 class CategoryDetailsHeader extends StatelessWidget {
-  const CategoryDetailsHeader({Key? key, required this.giftCategoryModel})
+  const CategoryDetailsHeader({Key? key, required this.title, required this.color})
       : super(key: key);
-  final GiftCategoryModel giftCategoryModel;
+  final String title;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CategoryDetailsHeader extends StatelessWidget {
       ),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: giftCategoryModel.color),
+          color: color),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -33,8 +33,7 @@ class CategoryDetailsHeader extends StatelessWidget {
                 children: [
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: size.width*0.02,),
-                    child: Text(
-                      giftCategoryModel.title!,
+                    child: Text(title,
                       style:
                       AppStyles.font18Bold.copyWith(color: AppColors.white),
                     ),

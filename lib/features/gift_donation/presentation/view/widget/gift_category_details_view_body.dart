@@ -9,12 +9,10 @@ import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/category_details_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../data/models/gift_category_model.dart';
 
 class GiftCategoryDetailsViewBody extends StatelessWidget {
-  GiftCategoryDetailsViewBody({Key? key, required this.giftCategoryModel})
+  const GiftCategoryDetailsViewBody({Key? key,})
       : super(key: key);
-  final GiftCategoryModel giftCategoryModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +30,7 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CategoryDetailsHeader(
-                          giftCategoryModel: giftCategoryModel,
-                        ),
+                        const CategoryDetailsHeader(title: '', color: Colors.black38,),
                         Column(
                           children: [
                             SizedBox(
@@ -52,7 +48,6 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                               children: [
                                 CustomGiftValueContainer(
                                   text: giftValuesList[0].value,
-                                  giftCategoryModel: giftCategoryModel,
                                   onTap: () {
                                     cubit.selectedItemIndex(0);
                                   },
@@ -60,7 +55,6 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                 ),
                                 CustomGiftValueContainer(
                                   text: giftValuesList[1].value,
-                                  giftCategoryModel: giftCategoryModel,
                                   onTap: () {
                                     cubit.selectedItemIndex(1);
                                   },
@@ -68,7 +62,6 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                 ),
                                 CustomGiftValueContainer(
                                   text: giftValuesList[2].value,
-                                  giftCategoryModel: giftCategoryModel,
                                   onTap: () {
                                     cubit.selectedItemIndex(2);
                                   },
@@ -76,7 +69,6 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                 ),
                                 CustomGiftValueContainer(
                                   text: giftValuesList[3].value,
-                                  giftCategoryModel: giftCategoryModel,
                                   onTap: () {
                                     cubit.selectedItemIndex(3);
                                   },
@@ -87,9 +79,7 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                             Padding(
                               padding:  EdgeInsets.symmetric(
                                   vertical: size.height*0.03),
-                              child: AddAmountTextFormField(
-                                giftCategoryModel: giftCategoryModel,
-                              ),
+                              child: AddAmountTextFormField(),
                             ),
                           ],
                         ),

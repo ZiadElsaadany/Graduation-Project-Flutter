@@ -7,11 +7,11 @@ class GiftApiCubit extends Cubit<GiftApiStates> {
 
   GiftApiCubit(this.giftDonationRepo) : super(InitialGiftApiState());
 
-  Future<void> giftCategory() async {
+  Future giftCategory() async {
     emit(LoadingGiftApiState());
     var result = await giftDonationRepo.getGiftCategoriesData();
-    result.fold((failure) => emit(FailureGiftApiState(failure.msg)), (success) {
-      emit(SuccessGiftApiState(success));
+    result.fold((l) => emit(FailureGiftApiState(l.msg)), (r) {
+      emit(SuccessGiftApiState(r));
     });
   }
 }

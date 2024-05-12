@@ -142,9 +142,7 @@ abstract class AppRouter {
       GoRoute(
         path: kGiftCategoryDetailsView,
         builder: (context, state) {
-          Map<String, dynamic> args = state.extra as Map<String, dynamic>;
-          return GiftCategoryDetailsView(
-              giftCategoryModel: args['giftCategoryModel']!);
+          return const GiftCategoryDetailsView();
         },
       ),
       GoRoute(

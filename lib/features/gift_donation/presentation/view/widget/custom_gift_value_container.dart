@@ -3,19 +3,16 @@ import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utls/styles.dart';
-import '../../../data/models/gift_category_model.dart';
 
 class CustomGiftValueContainer extends StatelessWidget {
   const CustomGiftValueContainer({
     Key? key,
     required this.text,
-    required this.giftCategoryModel,
     required this.onTap,
     required this.index,
   }) : super(key: key);
 
   final String text;
-  final GiftCategoryModel giftCategoryModel;
   final Function() onTap;
   final int index;
 
@@ -31,10 +28,10 @@ class CustomGiftValueContainer extends StatelessWidget {
             padding:  EdgeInsets.symmetric(horizontal: size.width*0.038, vertical: size.height*0.02),
             decoration: BoxDecoration(
                 color: (cubit.itemIndex == index && cubit.selected == true)
-                    ? giftCategoryModel.color!
+                    ? Colors.teal
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: giftCategoryModel.color!)),
+                border: Border.all(color: Colors.teal)),
             child: Text(
               textAlign: TextAlign.center,
               text,

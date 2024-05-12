@@ -15,7 +15,7 @@ class GiftDonationRepoImpl implements GiftDonationRepo {
   Future<Either<Failure, GiftCategoryModel>> getGiftCategoriesData() async {
     try {
       var response = apiService.get(endpoint: AppApis.giftCategoryEndPoint);
-      return right(GiftCategoryModel.fromJson(response));
+      return right(GiftCategoryModel.fromJson(response as Map<String, dynamic>));
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));
     }
