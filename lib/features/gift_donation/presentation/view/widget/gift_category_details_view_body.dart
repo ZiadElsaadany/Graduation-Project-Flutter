@@ -59,6 +59,7 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                       context
                                           .read<GiftCubit>()
                                           .selectedItemIndex(index);
+                                      cubit.enteredAmount='';
                                     },
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
@@ -67,10 +68,10 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                                       // Add some spacing between items
                                       child: CustomGiftValueContainer(
                                         text: cubit.giftValuesList[index].value,
-                                        color: cubit.selectedIndex == index
+                                        color: cubit.selectedIndex == index &&cubit.enteredAmount.isEmpty
                                             ? color
                                             : AppColors.white,
-                                        textColor: cubit.selectedIndex == index
+                                        textColor: cubit.selectedIndex == index &&cubit.enteredAmount.isEmpty
                                             ? Colors.white
                                             : AppColors.black,
                                         borderColor: color,
@@ -93,8 +94,7 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            if (cubit.isSelected ||
-                (cubit.giftValueTextEditingController.text.isNotEmpty))
+            if (cubit.isSelected || cubit.enteredAmount.isNotEmpty)
               AllAmountContainer(
                 index: context.read<GiftCubit>().selectedIndex,
               )

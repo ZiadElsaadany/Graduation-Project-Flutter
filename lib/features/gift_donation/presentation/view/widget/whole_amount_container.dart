@@ -44,7 +44,12 @@ class AllAmountContainer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(cubit.giftValuesList[index].value,style: AppStyles.almarai19YellowBold,),
+                    if(cubit.isSelected==true&&cubit.enteredAmount.isEmpty)
+                    Text(
+                      cubit.giftValuesList[index].value,style: AppStyles.almarai19YellowBold,),
+                    if(cubit.enteredAmount.isNotEmpty&&cubit.isSelected==false)
+                    Text(
+                      cubit.enteredAmount,style: AppStyles.almarai19YellowBold,),
                     const SizedBox(
                       width: 5,
                     ),

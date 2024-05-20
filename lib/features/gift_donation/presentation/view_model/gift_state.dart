@@ -8,9 +8,16 @@ class GiftInitial extends GiftState {}
 class SelectGiftValueContainer extends GiftState {
   final int selectedIndex;
 
-  SelectGiftValueContainer(this.selectedIndex,);
+  SelectGiftValueContainer(
+    this.selectedIndex,
+  );
 }
 
+class GiftAmountEnteredState extends GiftState {
+  final String enteredAmount;
+
+  GiftAmountEnteredState(this.enteredAmount);
+}
 
 class AddedTextInTextEditingController extends GiftState {
   late final TextEditingController textEditingController;
