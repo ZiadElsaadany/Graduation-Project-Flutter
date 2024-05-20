@@ -1,18 +1,24 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../../data/models/gift_values_model.dart';
 part 'gift_state.dart';
 
 class GiftCubit extends Cubit<GiftState> {
   GiftCubit() : super(GiftInitial());
 
-  int get itemIndex => _itemIndex;
-  int _itemIndex = 0;
-  bool get selected => _selected;
-  bool _selected = false;
+  List<GiftValuesModel> giftValuesList = [
+    GiftValuesModel('50'),
+    GiftValuesModel('100'),
+    GiftValuesModel('150'),
+    GiftValuesModel('200'),
+  ];
+  int selectedIndex = -1;
+  late bool isSelected;
   selectedItemIndex(int index) {
-    _itemIndex = index;
-    _selected = true;
-    emit(SelectGiftValueContainer());
+    selectedIndex = index;
+    isSelected = true;
+    emit(SelectGiftValueContainer(selectedIndex));
   }
 
 

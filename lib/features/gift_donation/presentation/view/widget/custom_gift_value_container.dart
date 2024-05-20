@@ -4,13 +4,14 @@ import '../../../../../core/utls/styles.dart';
 class CustomGiftValueContainer extends StatelessWidget {
   const CustomGiftValueContainer({
     Key? key,
-    required this.text, required this.color, required this.textColor,
+    required this.text, required this.color, required this.textColor, required this.borderColor,
 
   }) : super(key: key);
 
   final String text;
   final Color color;
   final Color textColor;
+  final Color borderColor;
 
 
   @override
@@ -21,7 +22,7 @@ class CustomGiftValueContainer extends StatelessWidget {
           decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.teal)),
+              border: Border.all(color: borderColor)),
           child: Text(
             textAlign: TextAlign.center,
             text,

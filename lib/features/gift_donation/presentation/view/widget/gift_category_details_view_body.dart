@@ -1,9 +1,8 @@
-import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
+import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/add_amount_text_form_field.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/custom_gift_value_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/whole_amount_container.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
@@ -21,12 +20,6 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<GiftValuesModel> giftValuesList = [
-      GiftValuesModel('50'),
-      GiftValuesModel('100'),
-      GiftValuesModel('150'),
-      GiftValuesModel('200'),
-    ];
     return BlocBuilder<GiftCubit, GiftState>(
       builder: (context, state) {
         var cubit = BlocProvider.of<GiftCubit>(context);
@@ -59,18 +52,29 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                               height: size.height * 0.094,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
-                                itemCount: giftValuesList.length,
+                                itemCount: cubit.giftValuesList.length,
                                 itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                         size.width * 0.05,
-                                      vertical: size.height*0.012
-                                   ),
-                                    // Add some spacing between items
-                                    child: CustomGiftValueContainer(
-                                      text: giftValuesList[index].value,
-                                      color: color, textColor: Colors.white,
+                                  return GestureDetector(
+                                    onTap: () {
+                                      context
+                                          .read<GiftCubit>()
+                                          .selectedItemIndex(index);
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.05,
+                                          vertical: size.height * 0.012),
+                                      // Add some spacing between items
+                                      child: CustomGiftValueContainer(
+                                        text: cubit.giftValuesList[index].value,
+                                        color: cubit.selectedIndex == index
+                                            ? color
+                                            : AppColors.white,
+                                        textColor: cubit.selectedIndex == index
+                                            ? Colors.white
+                                            : AppColors.black,
+                                        borderColor: color,
+                                      ),
                                     ),
                                   );
                                 },
@@ -89,9 +93,9 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            if (cubit.selected ||
-                (cubit.giftValueTextEditingController.text.isNotEmpty))
-              const AllAmountContainer()
+            // if (cubit.isSelected ||
+            //     (cubit.giftValueTextEditingController.text.isNotEmpty))
+            const AllAmountContainer()
           ],
         );
       },
