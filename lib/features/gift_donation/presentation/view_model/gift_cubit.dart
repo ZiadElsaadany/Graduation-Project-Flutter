@@ -14,7 +14,7 @@ class GiftCubit extends Cubit<GiftState> {
     GiftValuesModel('200'),
   ];
   int selectedIndex = -1;
-  late bool isSelected;
+  bool isSelected=false;
   selectedItemIndex(int index) {
     selectedIndex = index;
     isSelected = true;

@@ -93,9 +93,11 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            // if (cubit.isSelected ||
-            //     (cubit.giftValueTextEditingController.text.isNotEmpty))
-            const AllAmountContainer()
+            if (cubit.isSelected ||
+                (cubit.giftValueTextEditingController.text.isNotEmpty))
+              AllAmountContainer(
+                index: context.read<GiftCubit>().selectedIndex,
+              )
           ],
         );
       },
