@@ -83,7 +83,7 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   vertical: size.height * 0.03),
-                              child: AddAmountTextFormField(),
+                              child: AddAmountTextFormField(color: color,),
                             ),
                           ],
                         ),
