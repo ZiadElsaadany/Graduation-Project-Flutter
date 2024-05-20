@@ -44,15 +44,15 @@ class AllAmountContainer extends StatelessWidget {
                   children: [
                     BlocBuilder<GiftCubit, GiftState>(
                       builder: (context, state) {
-                        var cubit = BlocProvider.of<GiftCubit>(context);
                         return Text(
-                          cubit.textStates(),
+                          ''
+
                               // (cubit.textEditingController.text.isNotEmpty)
                               //     ? cubit.textEditingController.text
                               //     :(cubit.selected)
                               //     ? cubit.values[cubit.itemIndex]: "",
-                          style: AppStyles.font18Bold
-                              .copyWith(color: AppColors.yellow),
+                          // style: AppStyles.font18Bold
+                          //     .copyWith(color: AppColors.yellow),
                         );
                       },
                     ),

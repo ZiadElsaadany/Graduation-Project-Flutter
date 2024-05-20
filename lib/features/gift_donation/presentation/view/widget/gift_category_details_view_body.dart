@@ -11,74 +11,74 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/category
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GiftCategoryDetailsViewBody extends StatelessWidget {
-  const GiftCategoryDetailsViewBody({Key? key,})
-      : super(key: key);
+  const GiftCategoryDetailsViewBody({
+    Key? key,
+    required this.color,
+    required this.text,
+  }) : super(key: key);
+  final Color color;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
+    List<GiftValuesModel> giftValuesList = [
+      GiftValuesModel('50'),
+      GiftValuesModel('100'),
+      GiftValuesModel('150'),
+      GiftValuesModel('200'),
+    ];
     return BlocBuilder<GiftCubit, GiftState>(
       builder: (context, state) {
         var cubit = BlocProvider.of<GiftCubit>(context);
-        final size=MediaQuery.of(context).size;
+        final size = MediaQuery.of(context).size;
         return Column(
           children: [
             Expanded(
               child: ListView(
                 children: [
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: size.width*0.03,vertical: size.height*0.035),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.03,
+                        vertical: size.height * 0.035),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const CategoryDetailsHeader(title: '', color: Colors.black38,),
+                        CategoryDetailsHeader(
+                          title: text,
+                          color: color,
+                        ),
                         Column(
                           children: [
-                            SizedBox(
-                                height: size.height*0.03
-                            ),
+                            SizedBox(height: size.height * 0.03),
                             Text(
                               AppText.determinateTheGiftValue,
                               style: AppStyles.textStyle20,
                             ),
+                            SizedBox(height: size.height * 0.02),
                             SizedBox(
-                                height: size.height*0.02
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                CustomGiftValueContainer(
-                                  text: giftValuesList[0].value,
-                                  onTap: () {
-                                    cubit.selectedItemIndex(0);
-                                  },
-                                  index: 0,
-                                ),
-                                CustomGiftValueContainer(
-                                  text: giftValuesList[1].value,
-                                  onTap: () {
-                                    cubit.selectedItemIndex(1);
-                                  },
-                                  index: 1,
-                                ),
-                                CustomGiftValueContainer(
-                                  text: giftValuesList[2].value,
-                                  onTap: () {
-                                    cubit.selectedItemIndex(2);
-                                  },
-                                  index: 2,
-                                ),
-                                CustomGiftValueContainer(
-                                  text: giftValuesList[3].value,
-                                  onTap: () {
-                                    cubit.selectedItemIndex(3);
-                                  },
-                                  index: 3,
-                                ),
-                              ],
+                              height: size.height * 0.094,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: giftValuesList.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal:
+                                         size.width * 0.05,
+                                      vertical: size.height*0.012
+                                   ),
+                                    // Add some spacing between items
+                                    child: CustomGiftValueContainer(
+                                      text: giftValuesList[index].value,
+                                      color: color, textColor: Colors.white,
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
                             Padding(
-                              padding:  EdgeInsets.symmetric(
-                                  vertical: size.height*0.03),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: size.height * 0.03),
                               child: AddAmountTextFormField(),
                             ),
                           ],
@@ -89,8 +89,9 @@ class GiftCategoryDetailsViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            if(cubit.selected|| (cubit.giftValueTextEditingController.text.isNotEmpty))
-             const AllAmountContainer()
+            if (cubit.selected ||
+                (cubit.giftValueTextEditingController.text.isNotEmpty))
+              const AllAmountContainer()
           ],
         );
       },

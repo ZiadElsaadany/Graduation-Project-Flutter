@@ -1,14 +1,15 @@
 class GiftCategoryModel {
-  final String message;
+  final String? message;
   final List<String> categories;
-  final int statusCode;
-  final bool isSuccessful;
+  final int? statusCode;
+  final bool? isSuccessful;
 
-  GiftCategoryModel(
-      {required this.message,
-      required this.categories,
-      required this.statusCode,
-      required this.isSuccessful});
+  GiftCategoryModel({
+    this.message,
+    required this.categories,
+    this.statusCode,
+    this.isSuccessful,
+  });
 
   factory GiftCategoryModel.fromJson(Map<String, dynamic> json) {
     return GiftCategoryModel(

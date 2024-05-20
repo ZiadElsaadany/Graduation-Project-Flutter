@@ -1,8 +1,5 @@
-import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
-
 part 'gift_state.dart';
 
 class GiftCubit extends Cubit<GiftState> {
@@ -22,18 +19,7 @@ class GiftCubit extends Cubit<GiftState> {
 
   late TextEditingController giftValueTextEditingController = TextEditingController();
 
-   textStates() {
-    if (giftValueTextEditingController.text.isNotEmpty) {
-      _selected = false;
-      emit(AddedTextInTextEditingController(giftValueTextEditingController));
-      return giftValueTextEditingController.text;
-    } else if (_selected == true) {
-      emit(SelectGiftValueContainer());
-      return giftValuesList[itemIndex].value;
-    } else {
-      return '0.0';
-    }
-  }
+
 
   late bool checkBoxSelected = false;
 

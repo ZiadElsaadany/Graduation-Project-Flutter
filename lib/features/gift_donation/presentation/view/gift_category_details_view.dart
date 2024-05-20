@@ -3,7 +3,7 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/donate_a
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_category_details_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:go_router/go_router.dart';
 import '../../../../core/utls/colors.dart';
 import '../view_model/gift_cubit.dart';
 
@@ -12,6 +12,11 @@ class GiftCategoryDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Object>? extraList = GoRouterState.of(context).extra! as List<Object>?;
+    final Color categoryColor = extraList?[0] as Color;
+    final String categoryName = extraList?[1] as String;
+    print("color :-----> $categoryColor");
+    print("text :-----> $categoryName");
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -22,7 +27,7 @@ class GiftCategoryDetailsView extends StatelessWidget {
         ),
         body: BlocProvider.value(
           value:  GiftCubit(),
-          child: const GiftCategoryDetailsViewBody(),
+          child: GiftCategoryDetailsViewBody(color:categoryColor , text: categoryName,),
         ),
       ),
     );

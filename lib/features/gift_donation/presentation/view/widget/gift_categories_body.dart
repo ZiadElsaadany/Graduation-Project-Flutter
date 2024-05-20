@@ -1,17 +1,18 @@
+import 'dart:core';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/grid_view_item.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_api_cubit.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_api_states.dart';
 import 'package:aoun_tu/shared/view/widgets/home_app_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import '../../../../../core/utls/images.dart';
 import '../../../../../core/utls/routers.dart';
 
 class GiftCategoriesBody extends StatefulWidget {
-  GiftCategoriesBody({Key? key}) : super(key: key);
+  const GiftCategoriesBody({Key? key}) : super(key: key);
 
   @override
   State<GiftCategoriesBody> createState() => _GiftCategoriesBodyState();
@@ -35,12 +36,13 @@ class _GiftCategoriesBodyState extends State<GiftCategoriesBody> {
     AppImages.solidHousing,
     AppImages.tShert,
   ];
+
   @override
   void initState() {
-
     super.initState();
     BlocProvider.of<GiftApiCubit>(context).giftCategory();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -77,7 +79,7 @@ class _GiftCategoriesBodyState extends State<GiftCategoriesBody> {
                     ),
                   );
                 } else if (state is SuccessGiftApiState) {
-                  final categories = state.giftCategoryModel.categories ;
+                  final categories = state.giftCategoryModel.categories;
                   return SliverGrid.count(
                     crossAxisCount: 2,
                     mainAxisSpacing: MediaQuery.of(context).size.height * 0.03,
@@ -88,14 +90,16 @@ class _GiftCategoriesBodyState extends State<GiftCategoriesBody> {
                         return GestureDetector(
                           onTap: () {
                             GoRouter.of(context).push(
-                              AppRouter.kGiftCategoryDetailsView,
-                            );
+                                AppRouter.kGiftCategoryDetailsView,
+                                extra: [
+                                  _categoryColor[index],
+                                  categories[index]
+                                ]);
                           },
                           child: GridViewItem(
                             color: _categoryColor[index],
                             image: _categoryImage[index],
-                            text:
-                               categories[index] ,
+                            text: categories[index],
                           ),
                         );
                       },
@@ -112,4 +116,3 @@ class _GiftCategoriesBodyState extends State<GiftCategoriesBody> {
     );
   }
 }
-
