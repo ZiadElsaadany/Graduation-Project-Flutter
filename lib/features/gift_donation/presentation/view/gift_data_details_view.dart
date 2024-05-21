@@ -1,10 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/donate_as_gift_app_bar.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/gift_data_details_view_body.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../view_model/gift_cubit.dart';
 
 class GiftDataDetailsView extends StatelessWidget {

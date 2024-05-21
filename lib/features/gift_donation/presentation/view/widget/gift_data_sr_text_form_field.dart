@@ -1,5 +1,8 @@
 import 'package:aoun_tu/core/utls/styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../../../../core/utls/colors.dart';
 
@@ -12,6 +15,8 @@ class GiftDataSRTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: 1,
+      autocorrect: false,
       controller: controller,
       style: AppStyles.textStyle13bold.copyWith(color: AppColors.text1),
       textAlign: TextAlign.center,
@@ -34,3 +39,5 @@ class GiftDataSRTextFormField extends StatelessWidget {
     );
   }
 }
+
+

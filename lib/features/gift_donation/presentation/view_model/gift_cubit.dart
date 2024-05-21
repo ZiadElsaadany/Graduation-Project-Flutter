@@ -18,13 +18,14 @@ class GiftCubit extends Cubit<GiftState> {
   int selectedIndex = -1;
   bool isSelected = false;
   String enteredAmount = '';
-
+  //logic for containers in list view --> color selected one
   selectedItemIndex(int index) {
     selectedIndex = index;
     isSelected = true;
     emit(SelectGiftValueContainer(selectedIndex));
   }
 
+  //enter another amount text field amount value
   void enterAmount(String value) {
     enteredAmount = value;
     emit(GiftAmountEnteredState(enteredAmount));
@@ -37,12 +38,5 @@ class GiftCubit extends Cubit<GiftState> {
     emit(CheckBoxSelectedState());
   }
 
-  late TextEditingController recipientNameTextController =
-      TextEditingController();
-  late TextEditingController recipientPhoneTextController =
-      TextEditingController();
-  late TextEditingController senderNameTextController = TextEditingController();
-  late TextEditingController senderPhoneTextController =
-      TextEditingController();
-  late TextEditingController pinCodeController = TextEditingController();
+
 }

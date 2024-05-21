@@ -14,4 +14,5 @@ class AppApis {
       '/api/v1/donation-case?categoryId=$categoryId';
 
   static const String giftCategoryEndPoint = '/api/v1/gift-donation/category';
+  static String giftDonationEndPoint = '/api/v1/gift-donation';
 }
