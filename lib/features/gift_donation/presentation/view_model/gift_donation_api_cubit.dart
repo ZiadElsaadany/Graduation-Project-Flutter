@@ -8,12 +8,12 @@ class GiftDonationApiCubit extends Cubit<GiftDonationApiState> {
 
   GiftDonationApiCubit(this.giftDonationRepo) : super(GiftDonationApiInitial());
 
-  Future postDonationData(
-      String endpoint, int userId, Map<String, dynamic> data) async {
+  Future postDonationData() async {
     emit(GiftDonationApiLoading());
     var result =
-        await giftDonationRepo.postGiftDonationData(endpoint, userId, data);
+        await giftDonationRepo.postGiftDonationData();
     result.fold((l) => emit(GiftDonationApiFailure(l.msg)),
         (r) => emit(GiftDonationApiSuccess(r)));
+
   }
 }

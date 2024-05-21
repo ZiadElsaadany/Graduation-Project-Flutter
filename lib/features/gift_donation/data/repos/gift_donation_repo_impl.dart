@@ -10,12 +10,19 @@ import 'gift_donation_repo.dart';
 class GiftDonationRepoImpl implements GiftDonationRepo {
   final ApiService apiService;
   final DonationRequestBodyModel donationRequestBodyModel =
-      DonationRequestBodyModel();
+      DonationRequestBodyModel(
+        amount: 100,
+        giftDonationType: 'توفيرمياه',
+        message: "",
+        receiverName: 'nouur',
+        receiverPhone: '01064454429',
+        senderPhone: '01064454429'
+      );
 
   GiftDonationRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, GiftCategoryModel>> getGiftCategoriesData() async {
+  Future<Either<Failure,GiftCategoryModel>> getGiftCategoriesData() async {
     try {
       var response =
           await apiService.get(endpoint: AppApis.giftCategoryEndPoint);
@@ -27,11 +34,10 @@ class GiftDonationRepoImpl implements GiftDonationRepo {
   }
 
   @override
-  Future<Either<Failure, dynamic>> postGiftDonationData(
-      String endpoint, int userId, Map<String, dynamic> data) async {
+  Future<Either<Failure, GiftDonationApiResponseModel>> postGiftDonationData() async {
     try {
       var response = await apiService.post(
-          endpoint: "${AppApis.giftDonationEndPoint}?userId=$userId",
+          endpoint: "${AppApis.giftDonationEndPoint}?userId=4",
           data: donationRequestBodyModel.toJson());
       return right(GiftDonationApiResponseModel.fromJson(response));
     } on DioException catch (e) {
