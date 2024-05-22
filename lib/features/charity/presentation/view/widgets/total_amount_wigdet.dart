@@ -80,3 +80,4 @@ class TotalAmountWidget extends StatelessWidget {
     );
   }
 }
+

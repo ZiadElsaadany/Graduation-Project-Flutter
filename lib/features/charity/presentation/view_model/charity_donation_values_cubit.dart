@@ -14,6 +14,8 @@ class CharityDonationValuesCubit extends Cubit<CharityDonationValuesState> {
     CharityDonationValues('200'),
   ];
 
+
+
   int selectedIndex = -1;
   bool isSelected = false;
   String enteredAmount = '';
