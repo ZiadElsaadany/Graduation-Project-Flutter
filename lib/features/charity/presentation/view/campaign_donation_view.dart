@@ -2,7 +2,10 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/campaign_donation_view_body.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/custom_logo_and_title_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../view_model/charity_donation_values_cubit.dart';
 
 class CampaignDonationView extends StatelessWidget {
   const CampaignDonationView({Key? key, required this.title}) : super(key: key);
@@ -16,11 +19,16 @@ class CampaignDonationView extends StatelessWidget {
         backgroundColor: AppColors.white,
         appBar: CustomLogoAndTitleAppBar(
           title: title,
-          onActionPress: () {}, onBackPress: () { GoRouter.of(context).pop(); },
+          onActionPress: () {}, onBackPress: () {
+          GoRouter.of(context).pop();
+        },
         ),
-        body: const Column(
+        body:  Column(
           children: [
-            CampaignDonationViewBody(),
+            BlocProvider(
+              create: (context) => CharityDonationValuesCubit(),
+              child: const CampaignDonationViewBody(),
+            ),
           ],
         ),
       ),

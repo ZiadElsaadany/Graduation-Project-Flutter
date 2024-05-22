@@ -15,8 +15,6 @@ class GiftCategoryDetailsView extends StatelessWidget {
     final List<Object>? extraList = GoRouterState.of(context).extra! as List<Object>?;
     final Color categoryColor = extraList?[0] as Color;
     final String categoryName = extraList?[1] as String;
-    print("color :-----> $categoryColor");
-    print("text :-----> $categoryName");
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(

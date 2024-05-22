@@ -1,39 +1,38 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 
-import '../../data/charity_donation_values.dart';
-
+import '../../data/models/charity_donation_values.dart';
 part 'charity_donation_values_state.dart';
 
 class CharityDonationValuesCubit extends Cubit<CharityDonationValuesState> {
   CharityDonationValuesCubit() : super(CharityDonationValuesInitial());
 
-  late int charityItemIndex = 0;
-  late bool selected = false;
+  List<CharityDonationValues> charityDonationValuesList = [
+    CharityDonationValues('50'),
+    CharityDonationValues('100'),
+    CharityDonationValues('150'),
+    CharityDonationValues('200'),
+  ];
 
+  int selectedIndex = -1;
+  bool isSelected = false;
+  String enteredAmount = '';
+  //logic for containers in list view --> color selected one
   selectedItemIndex(int index) {
-    charityItemIndex = index;
-    selected = true;
-    emit(SelectCharityDonationValueState());
+    selectedIndex = index;
+    isSelected = true;
+    emit(SelectDonationValueContainer(selectedIndex));
+  }
+
+  //enter another amount text field amount value
+  void enterAmount(String value) {
+    enteredAmount = value;
+    emit(AnotherAmountEnteredState(enteredAmount));
   }
 
   late TextEditingController charityDonationValueTextEditingController =
       TextEditingController();
 
-  textStates() {
-    if (charityDonationValueTextEditingController.text.isNotEmpty) {
-      selected = false;
-      emit(AddedTextInTextEditingController(
-          charityDonationValueTextEditingController));
-      return charityDonationValueTextEditingController.text;
-    } else if (selected == true) {
-      emit(SelectCharityDonationValueState());
-      return charityDonationValuesList[charityItemIndex].value;
-    } else {
-      return '0.0';
-    }
-  }
 
   late bool checkBoxSelected = false;
 
