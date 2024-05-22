@@ -18,10 +18,12 @@ class CampaignDonationViewBody extends StatelessWidget {
       builder: (context, state) {
         var cubit = BlocProvider.of<CharityDonationValuesCubit>(context);
         final size = MediaQuery.of(context).size;
-        return Column(
-          children: [
-            Expanded(
-              child: ListView(
+        return Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ListView(
+                shrinkWrap: true,
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(
@@ -41,8 +43,8 @@ class CampaignDonationViewBody extends StatelessWidget {
                           AppText.selectTheDonationAmount,
                           style: AppStyles.textStyle16,
                         ),
-                        const SizedBox(
-                          height: 25,
+                         SizedBox(
+                          height: size.height * 0.035,
                         ),
                         SizedBox(
                           height: size.height * 0.094,
@@ -80,18 +82,19 @@ class CampaignDonationViewBody extends StatelessWidget {
                             },
                           ),
                         ),
+                        SizedBox(height: size.height * 0.03,),
                         const CharityEnterDonationAmountTextFormField(),
                       ],
                     ),
                   ),
                 ],
               ),
-            ),
-            if (cubit.isSelected || cubit.enteredAmount.isNotEmpty)
-              TotalAmountWidget(
-                index: context.read<CharityDonationValuesCubit>().selectedIndex,
-              ),
-          ],
+              if (cubit.isSelected || cubit.enteredAmount.isNotEmpty)
+                TotalAmountWidget(
+                  index: context.read<CharityDonationValuesCubit>().selectedIndex,
+                ),
+            ],
+          ),
         );
       },
     );
