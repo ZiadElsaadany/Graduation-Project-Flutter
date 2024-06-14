@@ -24,6 +24,7 @@ import '../../features/gift_donation/presentation/view/gift_category_details_vie
 import '../../features/gift_donation/presentation/view/gift_data_details_view.dart';
 import '../../features/onboarding/presentation/view/onboarding_screen.dart';
 import '../../features/home/presentation/view/nav_bar/nav_bar.dart';
+import '../../features/settings/presentation/views/personal_info_view.dart';
 
 abstract class AppRouter {
   static const kSplash = '/';
@@ -49,15 +50,18 @@ abstract class AppRouter {
   static const String kAddPost = "/kAddPost";
   static const String kHome = "/kHome";
   static const String kViewImageFromInternet = "/kViewImageFromInternet";
+  static const String kPersonalInfoView = "/kPersonalInfoView";
 
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: kSplash,
         builder: (context, state) => const SplashView(),
-      ),GoRoute(
+      ),
+      GoRoute(
         path: kViewImageFromInternet,
-        builder: (context, state) =>  ViewImageFromInternet(image: state.extra as String),
+        builder: (context, state) =>
+            ViewImageFromInternet(image: state.extra as String),
       ),
       GoRoute(
         path: kNavBar,
@@ -116,6 +120,10 @@ abstract class AppRouter {
         builder: (context, state) => const DonationSuccessView(),
       ),
       GoRoute(
+        path: kPersonalInfoView,
+        builder: (context, state) => const PersonalInfoView(),
+      ),
+      GoRoute(
         path: kDonationField,
         builder: (context, state) {
           Map<String, String> args = state.extra as Map<String, String>;
@@ -154,7 +162,8 @@ abstract class AppRouter {
       GoRoute(
         path: kConfirmCode,
         builder: (context, state) => const ConfirmCodeView(),
-      ),   GoRoute(
+      ),
+      GoRoute(
         path: kAddPost,
         builder: (context, state) => const AddPostView(),
       ),
@@ -162,7 +171,7 @@ abstract class AppRouter {
         path: kCampaignDonation,
         builder: (context, state) {
           Map<String, String> args = state.extra as Map<String, String>;
-          return  CampaignDonationView(
+          return CampaignDonationView(
             title: args['title']!,
           );
         },

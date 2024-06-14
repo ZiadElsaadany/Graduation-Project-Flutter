@@ -12,15 +12,14 @@ import 'package:flutter/services.dart';
 
 import 'features/posts/presentation/controller/like_controller/like_cubit.dart';
 
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
 
   await Hive.initFlutter();
-  await  Hive.openBox(AppHive.tokenAndOnBoardingBox);
-
-  AppLogger.print("token: "+AppHive.getToken().toString());
+  await Hive.openBox(AppHive.tokenAndOnBoardingBox);
+  await Hive.openBox(AppHive.userBox);
+  AppLogger.print("token: ${AppHive.getToken()}");
   // Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.tokenKey, null);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -28,13 +27,14 @@ void main() async{
   ));
   setup();
 
-
-runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (c)=> GetPostsCubit(postsRepo: serviceLocator<PostsRepoImplementation>())),
-      BlocProvider(create: (c)=> LikeCubit(postsRepo: serviceLocator<PostsRepoImplementation>())),
-    ],
-    child: const AounApp()));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(
+        create: (c) => GetPostsCubit(
+            postsRepo: serviceLocator<PostsRepoImplementation>())),
+    BlocProvider(
+        create: (c) =>
+            LikeCubit(postsRepo: serviceLocator<PostsRepoImplementation>())),
+  ], child: const AounApp()));
 }
 
 class AounApp extends StatelessWidget {
@@ -57,6 +57,7 @@ class AounApp extends StatelessWidget {
     );
   }
 }
+
 class MyBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase bloc) {

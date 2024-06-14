@@ -34,108 +34,86 @@ class _LoginBodyState extends State<LoginBody> {
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<LoginCubit>(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: CustomScrollView(
         slivers: [
-          const SliverPadding(padding: EdgeInsets.only(
-              top: 103
-          )),
+          const SliverPadding(padding: EdgeInsets.only(top: 103)),
           const SliverToBoxAdapter(
             child: AuthLogoWidget(),
           ),
-          const SliverPadding(padding: EdgeInsets.only(
-              bottom: 45
-          )),
+          const SliverPadding(padding: EdgeInsets.only(bottom: 45)),
           const SliverToBoxAdapter(
             child: WelcomeToWidget(),
           ),
-          const SliverPadding(padding: EdgeInsets.only(
-              bottom: 35
-          )),
+          const SliverPadding(padding: EdgeInsets.only(bottom: 35)),
           const SliverToBoxAdapter(
             child: ProgressWidgetToLogin(number: 2),
           ),
-          const SliverPadding(padding: EdgeInsets.only(
-              bottom: 45
-          )),
-
+          const SliverPadding(padding: EdgeInsets.only(bottom: 45)),
           PasswordOrEmailFields(
               emailController: emailController, passController: passController),
-          const SliverPadding(padding: EdgeInsets.only(
-              bottom: 45
-          )),
-
+          const SliverPadding(padding: EdgeInsets.only(bottom: 45)),
           SliverToBoxAdapter(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BlocConsumer<LoginApiCubit, LoginApiStates>(
                   listener: (context, state) {
-
-                    if(state is LoginFailureState) {
+                    if (state is LoginFailureState) {
                       showToast(title: state.message, color: AppColors.red);
-                    }else if(state is LoginSuccessState){
+                    } else if (state is LoginSuccessState) {
                       GoRouter.of(context).push(AppRouter.kNavBar);
-                      showToast(title: "Login Successfully", color: AppColors.green);
+                      showToast(
+                          title: "Login Successfully", color: AppColors.green);
                     }
-
                   },
                   builder: (context, state) {
-                    return state is LoginLoadingState ?
-                    const CircularProgressIndicator(
-                      color: AppColors.mainColor,
-                    )
-                    : CustomButton(
+                    return state is LoginLoadingState
+                        ? const CircularProgressIndicator(
+                            color: AppColors.mainColor,
+                          )
+                        : CustomButton(
+                            onPressed: () {
+                              if (cubit.progressCounter == 1 &&
+                                  emailController.text.trim().isEmpty) {
+                                showToast(
+                                    color: AppColors.red,
+                                    title: "Email is Required");
+                              } else if (cubit.progressCounter == 2 &&
+                                  passController.text.trim().isEmpty) {
+                                showToast(
+                                    color: AppColors.red,
+                                    title: "Password is Required");
+                              } else if (cubit.progressCounter == 1) {
+                                cubit.plusProgressCounter();
+                              } else {
+                                //login here
 
-                      onPressed: () {
-                        if (cubit.progressCounter == 1 && emailController.text
-                            .trim()
-                            .isEmpty) {
-                          showToast(
-                              color: AppColors.red,
-                              title: "Email is Required"
+                                BlocProvider.of<LoginApiCubit>(context,
+                                        listen: false)
+                                    .login(
+                                        email: emailController.text.trim(),
+                                        password: passController.text.trim());
+                              }
+                            },
+                            color: AppColors.mainColor,
+                            txt: AppText.next,
                           );
-                        } else if (cubit.progressCounter == 2 && passController.text
-                            .trim()
-                            .isEmpty) {
-                          showToast(
-                              color: AppColors.red,
-                              title: "Password is Required"
-                          );
-                        } else if (cubit.progressCounter == 1) {
-                          cubit.plusProgressCounter();
-                        } else {
-                          //login here
-
-
-
-                          BlocProvider.of<LoginApiCubit>(context,listen: false).login(email: emailController.text.trim(), password:passController.text.trim());
-                        }
-                      },
-                      color: AppColors.mainColor,
-                      txt: AppText.next,
-                    );
                   },
                 ),
               ],
             ),
           ),
-          const SliverPadding(padding: EdgeInsets.only(
-              bottom: 45
-          )),
+          const SliverPadding(padding: EdgeInsets.only(bottom: 45)),
           const SliverToBoxAdapter(
             child: HaventAccountRowWidget(
-
               loginOrRegister: LoginOrRegister.LOGIN,
-              underLineText: AppText.makeAccount, text: AppText.haventAccount,),
+              underLineText: AppText.makeAccount,
+              text: AppText.haventAccount,
+            ),
           ),
-
-
         ],
       ),
     );
   }
 }
-
-

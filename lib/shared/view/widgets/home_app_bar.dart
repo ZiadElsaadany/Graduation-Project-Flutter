@@ -1,9 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../core/utls/colors.dart';
 import '../../../core/utls/images.dart';
+import '../../../core/utls/my_hive.dart';
 import '../../../core/utls/spacing.dart';
 import '../../../core/utls/styles.dart';
 import '../../../core/utls/text.dart';
@@ -37,10 +40,13 @@ class HomeAppBar extends StatelessWidget {
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(17.5),
-            child: Image.asset(
-              AppImages.profileImageFromAsset,
+            child: CachedNetworkImage(
               width: 35,
               height: 35,
+              fit: BoxFit.cover,
+              imageUrl: Hive.box(AppHive.userBox).get(AppHive.imageKey),
+              placeholder: (context, url) => const CircleAvatar(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
         ],
