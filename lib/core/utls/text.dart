@@ -193,4 +193,10 @@ abstract class AppText {
   static const String requiredField = "هذا الحقل مطلوب";
   static const String invalidEmail = "البريد الالكتروني غير صالح";
   static const String invalidPhone = "رقم الهاتف غير صالح";
+  static const String editPassword = "تعديل كلمة المرور";
+  static const String oldPassword = "كلمة المرور القديمة";
+  static const String newPassword = "كلمة المرور الجديدة";
+  static const String comfirmNewPassword = "تاكيد كلمة المرور الجديدة";
+  static const String passwordDoesnotMatch = "الباسورد غير متطابق";
+  static const String passwordChangeSuccessfully = "تم تغيير كلمة المرور بنجاح";
 }

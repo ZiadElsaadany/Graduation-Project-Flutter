@@ -18,36 +18,35 @@ class ApiService {
   }
   Future<dynamic> get({
     required String endpoint,
-
   }) async {
     dio.options.headers.addAll({
-      "Authorization":"Bearer ${AppHive.getToken()}" ,
-
-    } );
+      "Authorization": "Bearer ${AppHive.getToken()}",
+    });
     var response = await dio.get(endpoint);
     return response.data;
   }
 
   Future<dynamic> post(
-      {required String endpoint,  Map<String, dynamic> ?data}) async {
+      {required String endpoint,
+      Map<String, dynamic>? data,
+      Map<String, dynamic>? formData}) async {
     dio.options.headers.addAll({
-      "Authorization":"Bearer ${AppHive.getToken()}" ,
-
-    } );
+      "Authorization": "Bearer ${AppHive.getToken()}",
+    });
     var response = await dio.post(
       endpoint,
-      queryParameters:data,
+      queryParameters: data,
+      data: formData,
     );
     return response.data;
   }
 
-  Future<dynamic> postFormData({required String endpoint,required dynamic data}) async {
+  Future<dynamic> postFormData(
+      {required String endpoint, required dynamic data}) async {
     FormData formData = FormData.fromMap(data);
     // data.addAll(m);
     AppLogger.print(dio.options.headers.toString());
-    dio.options.headers.addAll({
-      "Content-Type": "multipart/form-data"
-    } );
+    dio.options.headers.addAll({"Content-Type": "multipart/form-data"});
     var response = await dio.post(
       endpoint,
       data: formData,

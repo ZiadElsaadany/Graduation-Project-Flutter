@@ -23,7 +23,9 @@ class SettingsScreen extends StatelessWidget {
         SettingModel(
             title: "تعديل كلمة المرور",
             image: AppImages.passwordEditIcon,
-            onTap: () {}),
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kEditPasswordView);
+            }),
         SettingModel(
             title: "المساعدة والدعم",
             image: AppImages.technicalSupportIcon,

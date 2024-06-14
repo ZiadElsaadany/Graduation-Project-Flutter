@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../view_model/personal_info/personal_info_cubit.dart';
-import '../view_model/personal_info/personal_info_cubit.dart';
 import 'widgets/personal_info_body.dart';
 
 class PersonalInfoView extends StatelessWidget {

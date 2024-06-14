@@ -4,10 +4,10 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
-import '../../../../../core/utls/text.dart';
 
-class PersonalInfoAppBar extends StatelessWidget {
-  const PersonalInfoAppBar({super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key, required this.text});
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class PersonalInfoAppBar extends StatelessWidget {
             ),
             horizontalSpace(74),
             Text(
-              AppText.personalInfo,
+              text,
               style: AppStyles.font16BlueBold,
             ),
           ],

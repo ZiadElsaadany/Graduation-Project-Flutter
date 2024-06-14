@@ -5,6 +5,7 @@ class AppApis {
   static const String likeEndPoint = "/api/v1/like";
   static const String charityEndPoint = '/api/v1/charity';
   static const String homeCampainsEndPoint = '/api/v1/campaign/1';
+  static const String editPasswordEndPoint = '/api/v1/user/change-password';
   static String campaignsInCharity(int charityId) =>
       '/api/v1/campaign/$charityId';
   static String categoriesInCharity(int charityId) =>

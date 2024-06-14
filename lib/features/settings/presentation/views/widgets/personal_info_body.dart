@@ -9,8 +9,8 @@ import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/text.dart';
 import '../../../../../core/utls/validator.dart';
 import '../../view_model/personal_info/personal_info_cubit.dart';
-import 'personal_info_app_bar.dart';
-import 'personal_info_text_form_field.dart';
+import 'custom_app_bar.dart';
+import 'setting_text_form_field.dart';
 
 class PersonalInfoBody extends StatelessWidget {
   const PersonalInfoBody({super.key});
@@ -30,13 +30,15 @@ class PersonalInfoBody extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: [
-                    const PersonalInfoAppBar(),
+                    const CustomAppBar(
+                      text: AppText.personalInfo,
+                    ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: Column(
                         children: [
                           verticalSpace(24),
-                          PersonalInfoTextFormField(
+                          SettingTextFormField(
                             lable: AppText.phoneNumber,
                             initialValue:
                                 Hive.box(AppHive.userBox).get(AppHive.phoneKey),
@@ -47,7 +49,7 @@ class PersonalInfoBody extends StatelessWidget {
                             },
                           ),
                           verticalSpace(40),
-                          PersonalInfoTextFormField(
+                          SettingTextFormField(
                             lable: AppText.email,
                             initialValue:
                                 Hive.box(AppHive.userBox).get(AppHive.emailKey),
@@ -57,6 +59,7 @@ class PersonalInfoBody extends StatelessWidget {
                               return Validator.validateEmail(value);
                             },
                           ),
+                          verticalSpace(160),
                         ],
                       ),
                     ),

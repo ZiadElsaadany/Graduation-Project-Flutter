@@ -17,6 +17,7 @@ import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
 
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
 import 'package:aoun_tu/features/auth/presentation/view/register/register_screen.dart';
+import 'package:aoun_tu/features/settings/presentation/views/edit_password_view.dart';
 import 'package:aoun_tu/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/gift_donation/presentation/view/confirm_code_view.dart';
@@ -51,12 +52,16 @@ abstract class AppRouter {
   static const String kHome = "/kHome";
   static const String kViewImageFromInternet = "/kViewImageFromInternet";
   static const String kPersonalInfoView = "/kPersonalInfoView";
-
+  static const String kEditPasswordView = "/kEditPasswordView";
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: kSplash,
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: kEditPasswordView,
+        builder: (context, state) => const EditPasswordView(),
       ),
       GoRoute(
         path: kViewImageFromInternet,

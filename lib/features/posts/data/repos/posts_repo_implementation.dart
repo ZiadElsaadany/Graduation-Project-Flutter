@@ -8,49 +8,34 @@ import '../../../../core/utls/api_service.dart';
 import '../../../../core/utls/app_apis.dart';
 import '../../../../core/utls/loggers.dart';
 
-class PostsRepoImplementation implements PostsRepo{
-  final ApiService apiService ;
-  PostsRepoImplementation(
-  {
-    required this.apiService
-}
-      );
+class PostsRepoImplementation implements PostsRepo {
+  final ApiService apiService;
+  PostsRepoImplementation({required this.apiService});
   @override
-  Future<Either<Failure, List<PostModel>>> getPosts({
-    int page = 0
-}) async{
-
+  Future<Either<Failure, List<PostModel>>> getPosts({int page = 0}) async {
     try {
-      var response =await  apiService.get(endpoint: "${AppApis.getPostsEndPoint}?page=$page");
-      AppLogger.print("response: "+response.toString());
-      return right(List<PostModel>.from((response["data"] as List).map((e) => PostModel.fromJson(e))));
-    }on DioException catch(e) {
+      var response = await apiService.get(
+          endpoint: "${AppApis.getPostsEndPoint}?page=$page");
+      AppLogger.print("response: $response");
+      return right(List<PostModel>.from(
+          (response["data"] as List).map((e) => PostModel.fromJson(e))));
+    } on DioException catch (e) {
       AppLogger.print(e.toString());
       AppLogger.print(e.response?.statusCode.toString());
       return left(ServerFailure.fromDioException(e));
     }
-
-
-
-
   }
 
   @override
-  Future<Either<Failure, void>> like({required int postId}) async{
-
+  Future<Either<Failure, void>> like({required int postId}) async {
     try {
-      var response =await  apiService.post(
-          endpoint: "${AppApis.getPostsEndPoint}?postId=$postId");
+      var response = await apiService.post(
+          endpoint: "${AppApis.likeEndPoint}?postId=$postId");
       AppLogger.print("Like Response: $response");
       return right(null);
-    }on DioException catch(e) {
+    } on DioException catch (e) {
       AppLogger.print(e.toString());
       return left(ServerFailure.fromDioException(e));
     }
-
-
-
-
   }
-
 }
