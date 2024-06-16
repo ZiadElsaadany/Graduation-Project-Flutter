@@ -159,4 +159,9 @@ static final textStyle13bold = GoogleFonts.almarai(
     fontWeight: FontWeight.w400,
     textStyle: const TextStyle(color: AppColors.text3),
   );
+  static final almarai19YellowBold = GoogleFonts.almarai(
+    fontSize: 19,
+    fontWeight: FontWeight.bold,
+    textStyle: const TextStyle(color: AppColors.yellow),
+  );
 }

@@ -9,10 +9,12 @@ import '../../../../../core/utls/text.dart';
 import '../../../../home/presentation/view/widgets/app_button.dart';
 
 class AllAmountContainer extends StatelessWidget {
-  const AllAmountContainer({Key? key}) : super(key: key);
+  const AllAmountContainer({Key? key, required this.index}) : super(key: key);
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    final cubit=BlocProvider.of<GiftCubit>(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 31),
       decoration: BoxDecoration(
@@ -42,20 +44,12 @@ class AllAmountContainer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    BlocBuilder<GiftCubit, GiftState>(
-                      builder: (context, state) {
-                        var cubit = BlocProvider.of<GiftCubit>(context);
-                        return Text(
-                          cubit.textStates(),
-                              // (cubit.textEditingController.text.isNotEmpty)
-                              //     ? cubit.textEditingController.text
-                              //     :(cubit.selected)
-                              //     ? cubit.values[cubit.itemIndex]: "",
-                          style: AppStyles.font18Bold
-                              .copyWith(color: AppColors.yellow),
-                        );
-                      },
-                    ),
+                    if(cubit.isSelected==true&&cubit.enteredAmount.isEmpty)
+                    Text(
+                      cubit.giftValuesList[index].value,style: AppStyles.almarai19YellowBold,),
+                    if(cubit.enteredAmount.isNotEmpty&&cubit.isSelected==false)
+                    Text(
+                      cubit.enteredAmount,style: AppStyles.almarai19YellowBold,),
                     const SizedBox(
                       width: 5,
                     ),

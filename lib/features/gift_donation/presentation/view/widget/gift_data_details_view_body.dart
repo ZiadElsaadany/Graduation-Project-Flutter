@@ -1,4 +1,3 @@
-import 'package:aoun_tu/core/utls/routers.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/gift_donation/presentation/view/widget/confirm_code_custom_button.dart';
@@ -9,13 +8,22 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/message_
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:aoun_tu/features/home/presentation/view/widgets/app_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-
 import '../../../../../core/utls/colors.dart';
 
-class GiftDataDetailsViewBody extends StatelessWidget {
+class GiftDataDetailsViewBody extends StatefulWidget {
   const GiftDataDetailsViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<GiftDataDetailsViewBody> createState() => _GiftDataDetailsViewBodyState();
+}
+
+class _GiftDataDetailsViewBodyState extends State<GiftDataDetailsViewBody> {
+  final TextEditingController recipientNameTextController = TextEditingController();
+  final TextEditingController recipientPhoneTextController = TextEditingController();
+  final TextEditingController senderPhoneTextController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +45,7 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 GiftDataSRTextFormField(
                   hintText: AppText.enterRecipientName,
                   labelText: AppText.recipientName,
-                  controller: BlocProvider.of<GiftCubit>(context)
-                      .recipientNameTextController,
+                  controller: recipientNameTextController,
                 ),
                 const SizedBox(
                   height: 24,
@@ -46,8 +53,8 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 GiftDataSRTextFormField(
                   hintText: AppText.enterRecipientPhone,
                   labelText: AppText.recipientPhone,
-                  controller: BlocProvider.of<GiftCubit>(context)
-                      .recipientPhoneTextController,
+                  controller:recipientPhoneTextController,
+
                 ),
                 const SizedBox(
                   height: 24,
@@ -70,26 +77,10 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.034,
                 ),
-                const GiftDataDetailsHeaderText(
-                  text: AppText.enterSenderData,
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                GiftDataSRTextFormField(
-                  hintText: AppText.enterSenderName,
-                  labelText: AppText.senderName,
-                  controller: BlocProvider.of<GiftCubit>(context)
-                      .senderNameTextController,
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
                 GiftDataSRTextFormField(
                   hintText: AppText.enterSenderPhone,
-                  labelText: AppText.senderPhone,
-                  controller: BlocProvider.of<GiftCubit>(context)
-                      .senderPhoneTextController,
+                  labelText: AppText.confirmSenderPhone,
+                  controller:senderPhoneTextController,
                 ),
                 const SizedBox(
                   height: 8,
@@ -105,26 +96,11 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                 BlocBuilder<GiftCubit, GiftState>(
                   builder: (context, state) {
                     return ConfirmCodeCustomButton(
-                      title: BlocProvider.of<GiftCubit>(context)
-                                  .pinCodeController
-                                  .text ==
-                              '22335'
-                          ? AppText.confirmedSuccessful
-                          : AppText.askConfirmCode,
-                      color: BlocProvider.of<GiftCubit>(context)
-                                  .pinCodeController
-                                  .text ==
-                              '22335'
-                          ? AppColors.green
-                          : AppColors.yellow,
+                      title: AppText.phoneConfirm,
+                      color:
+                           AppColors.yellow,
                       onTap: () {
-                        if (BlocProvider.of<GiftCubit>(context)
-                                .pinCodeController
-                                .text ==
-                            '') {
-                          GoRouter.of(context)
-                              .pushReplacement(AppRouter.kConfirmCode);
-                        }
+
                       },
                     );
                   },
@@ -136,12 +112,7 @@ class GiftDataDetailsViewBody extends StatelessWidget {
                   title: AppText.next,
                   textStyle:
                       AppStyles.textStyle17.copyWith(color: AppColors.white),
-                  color: BlocProvider.of<GiftCubit>(context)
-                              .pinCodeController
-                              .text ==
-                          '22335'
-                      ? AppColors.mainColor
-                      : AppColors.frame,
+                  color: AppColors.frame,
                   height: MediaQuery.of(context).size.height * 0.055,
                 ),
               ],
@@ -149,6 +120,23 @@ class GiftDataDetailsViewBody extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+class PhoneNumberFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    final newText = newValue.text.replaceAll(RegExp(r'\D'), ''); // Remove non-digits
+    if (newText.length > 10) return newValue; // Limit to 10 digits
+
+    final buffer = StringBuffer();
+    for (int i = 0; i < newText.length; i++) {
+      if (i == 3 || i == 6) buffer.write(' '); // Add spaces after 3rd and 6th digits
+      buffer.write(newText[i]);
+    }
+
+    return TextEditingValue(
+      text: buffer.toString(),
     );
   }
 }

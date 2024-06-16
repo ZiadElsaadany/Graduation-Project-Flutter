@@ -1,112 +1,102 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
-import 'package:aoun_tu/features/charity/data/charity_donation_values.dart';
 import 'package:aoun_tu/features/charity/presentation/view_model/charity_donation_values_cubit.dart';
-import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_donation_value_container.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_enter_amount_text_form_field.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/custom_linear_progress_indicator_with_value.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/total_amount_wigdet.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/utls/colors.dart';
+import 'charity_donation_value_container.dart';
 
-class CampaignDonationViewBody extends StatefulWidget {
+class CampaignDonationViewBody extends StatelessWidget {
   const CampaignDonationViewBody({Key? key}) : super(key: key);
 
   @override
-  State<CampaignDonationViewBody> createState() =>
-      _CampaignDonationViewBodyState();
-}
-
-class _CampaignDonationViewBodyState extends State<CampaignDonationViewBody> {
-  final _formKey = GlobalKey<FormState>();
-
-  @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: CharityDonationValuesCubit(),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(24),
-                  child: CustomLinearProgressWithValue(),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Text(
-                  AppText.selectTheDonationAmount,
-                  style: AppStyles.textStyle16,
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                BlocBuilder<CharityDonationValuesCubit,
-                    CharityDonationValuesState>(
-                  builder: (context, state) {
-                    var cubit =
-                        BlocProvider.of<CharityDonationValuesCubit>(context);
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return BlocBuilder<CharityDonationValuesCubit, CharityDonationValuesState>(
+      builder: (context, state) {
+        var cubit = BlocProvider.of<CharityDonationValuesCubit>(context);
+        final size = MediaQuery.of(context).size;
+        return Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ListView(
+                shrinkWrap: true,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.03,
+                        vertical: size.height * 0.035),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CharityDonationValuesContainer(
-                          text: charityDonationValuesList[0].value,
-                          onTap: () {
-                            cubit.selectedItemIndex(0);
-                          },
-                          index: 0,
+                        const Padding(
+                          padding: EdgeInsets.all(24),
+                          child: CustomLinearProgressWithValue(),
                         ),
-                        CharityDonationValuesContainer(
-                          text: charityDonationValuesList[1].value,
-                          onTap: () {
-                            cubit.selectedItemIndex(1);
-                          },
-                          index: 1,
+                        const SizedBox(
+                          height: 25,
                         ),
-                        CharityDonationValuesContainer(
-                          text: charityDonationValuesList[2].value,
-                          onTap: () {
-                            cubit.selectedItemIndex(2);
-                          },
-                          index: 2,
+                        Text(
+                          AppText.selectTheDonationAmount,
+                          style: AppStyles.textStyle16,
                         ),
-                        CharityDonationValuesContainer(
-                          text: charityDonationValuesList[3].value,
-                          onTap: () {
-                            cubit.selectedItemIndex(3);
-                          },
-                          index: 3,
+                         SizedBox(
+                          height: size.height * 0.035,
                         ),
+                        SizedBox(
+                          height: size.height * 0.094,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: cubit.charityDonationValuesList.length,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  context
+                                      .read<CharityDonationValuesCubit>()
+                                      .selectedItemIndex(index);
+                                  cubit.enteredAmount = '';
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: size.width * 0.05,
+                                      vertical: size.height * 0.012),
+                                  // Add some spacing between items
+                                  child: CharityDonationValuesContainer(
+                                    text: cubit
+                                        .charityDonationValuesList[index].value,
+                                    color: cubit.selectedIndex == index &&
+                                            cubit.enteredAmount.isEmpty
+                                        ? AppColors.mainColor
+                                        : AppColors.white,
+                                    textColor: cubit.selectedIndex == index &&
+                                            cubit.enteredAmount.isEmpty
+                                        ? Colors.white
+                                        : AppColors.black,
+                                    borderColor: AppColors.mainColor,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(height: size.height * 0.03,),
+                        const CharityEnterDonationAmountTextFormField(),
                       ],
-                    );
-                  },
+                    ),
+                  ),
+                ],
+              ),
+              if (cubit.isSelected || cubit.enteredAmount.isNotEmpty)
+                TotalAmountWidget(
+                  index: context.read<CharityDonationValuesCubit>().selectedIndex,
                 ),
-              ],
-            ),
+            ],
           ),
-          Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 31),
-                  child: CharityEnterDonationAmountTextFormField(),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1935,
-                ),
-                const TotalAmountWidget(),
-              ],
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

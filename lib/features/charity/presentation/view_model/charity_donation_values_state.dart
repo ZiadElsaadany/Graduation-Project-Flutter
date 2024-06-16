@@ -4,12 +4,17 @@ part of 'charity_donation_values_cubit.dart';
 sealed class CharityDonationValuesState {}
 
 class CharityDonationValuesInitial extends CharityDonationValuesState {}
-class SelectCharityDonationValueState extends CharityDonationValuesState {}
+class SelectDonationValueContainer extends CharityDonationValuesState {
+  final int index;
 
-class AddedTextInTextEditingController extends CharityDonationValuesState {
-late final TextEditingController textEditingController;
-
-AddedTextInTextEditingController(this.textEditingController);
+  SelectDonationValueContainer(this.index);
 }
+class AnotherAmountEnteredState extends CharityDonationValuesState {
+  final String amount;
+
+  AnotherAmountEnteredState(this.amount);
+}
+
+
 class CheckBoxSelectedState extends CharityDonationValuesState {}
 

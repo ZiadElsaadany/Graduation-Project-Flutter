@@ -6,7 +6,7 @@ import '../../../../../core/utls/styles.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem(
-      {Key? key, required this.color, required this.text, required this.image})
+      {Key? key, required this.color, required this.image, required this.text})
       : super(key: key);
   final Color color;
   final String text;

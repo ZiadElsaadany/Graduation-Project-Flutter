@@ -1,38 +1,34 @@
-import 'package:aoun_tu/features/gift_donation/data/models/gift_values_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
+
+import '../../data/models/gift_values_model.dart';
 
 part 'gift_state.dart';
 
 class GiftCubit extends Cubit<GiftState> {
   GiftCubit() : super(GiftInitial());
 
-  int get itemIndex => _itemIndex;
-  int _itemIndex = 0;
-  bool get selected => _selected;
-  bool _selected = false;
+  //this code used in donate as gift screen
+  List<GiftValuesModel> giftValuesList = [
+    GiftValuesModel('50'),
+    GiftValuesModel('100'),
+    GiftValuesModel('150'),
+    GiftValuesModel('200'),
+  ];
+  int selectedIndex = -1;
+  bool isSelected = false;
+  String enteredAmount = '';
+  //logic for containers in list view --> color selected one
   selectedItemIndex(int index) {
-    _itemIndex = index;
-    _selected = true;
-    emit(SelectGiftValueContainer());
+    selectedIndex = index;
+    isSelected = true;
+    emit(SelectGiftValueContainer(selectedIndex));
   }
 
-
-
-  late TextEditingController giftValueTextEditingController = TextEditingController();
-
-   textStates() {
-    if (giftValueTextEditingController.text.isNotEmpty) {
-      _selected = false;
-      emit(AddedTextInTextEditingController(giftValueTextEditingController));
-      return giftValueTextEditingController.text;
-    } else if (_selected == true) {
-      emit(SelectGiftValueContainer());
-      return giftValuesList[itemIndex].value;
-    } else {
-      return '0.0';
-    }
+  //enter another amount text field amount value
+  void enterAmount(String value) {
+    enteredAmount = value;
+    emit(GiftAmountEnteredState(enteredAmount));
   }
 
   late bool checkBoxSelected = false;
@@ -42,13 +38,5 @@ class GiftCubit extends Cubit<GiftState> {
     emit(CheckBoxSelectedState());
   }
 
-  late TextEditingController recipientNameTextController =
-      TextEditingController();
-  late TextEditingController recipientPhoneTextController =
-      TextEditingController();
-  late TextEditingController senderNameTextController = TextEditingController();
-  late TextEditingController senderPhoneTextController =
-      TextEditingController();
-  late TextEditingController pinCodeController =
-      TextEditingController();
+
 }

@@ -14,13 +14,11 @@ import 'package:aoun_tu/features/inKind_donations/presentations/views/medicines_
 import 'package:aoun_tu/features/inKind_donations/presentations/views/other_donation_view.dart';
 import 'package:aoun_tu/features/posts/presentation/view/add_post_view.dart';
 import 'package:aoun_tu/features/posts/presentation/view/posts_screen.dart';
-
 import 'package:aoun_tu/features/auth/presentation/view/login/login_screen.dart';
 import 'package:aoun_tu/features/auth/presentation/view/register/register_screen.dart';
 import 'package:aoun_tu/features/settings/presentation/views/edit_password_view.dart';
 import 'package:aoun_tu/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
-import '../../features/gift_donation/presentation/view/confirm_code_view.dart';
 import '../../features/gift_donation/presentation/view/gift_category_details_view.dart';
 import '../../features/gift_donation/presentation/view/gift_data_details_view.dart';
 import '../../features/onboarding/presentation/view/onboarding_screen.dart';
@@ -46,7 +44,6 @@ abstract class AppRouter {
   static const String kDonationSuccess = "/donationSuccess";
   static const String kGiftCategoryDetailsView = "/giftCategoryDetailsView";
   static const String kGiftDataDetailsView = "/giftDataDetailsView";
-  static const String kConfirmCode = "/confirmCodeView";
   static const String kCampaignDonation = "/campaignDonation";
   static const String kAddPost = "/kAddPost";
   static const String kHome = "/kHome";
@@ -155,20 +152,22 @@ abstract class AppRouter {
       GoRoute(
         path: kGiftCategoryDetailsView,
         builder: (context, state) {
-          Map<String, dynamic> args = state.extra as Map<String, dynamic>;
-          return GiftCategoryDetailsView(
-              giftCategoryModel: args['giftCategoryModel']!);
+          return const GiftCategoryDetailsView();
         },
       ),
       GoRoute(
         path: kGiftDataDetailsView,
         builder: (context, state) => const GiftDataDetailsView(),
       ),
+<<<<<<< HEAD
       GoRoute(
         path: kConfirmCode,
         builder: (context, state) => const ConfirmCodeView(),
       ),
       GoRoute(
+=======
+       GoRoute(
+>>>>>>> debug/gift/donation
         path: kAddPost,
         builder: (context, state) => const AddPostView(),
       ),

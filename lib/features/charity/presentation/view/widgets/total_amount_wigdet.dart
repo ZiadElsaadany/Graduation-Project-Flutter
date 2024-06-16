@@ -7,10 +7,13 @@ import '../../../../../core/utls/text.dart';
 import '../../../../home/presentation/view/widgets/app_button.dart';
 
 class TotalAmountWidget extends StatelessWidget {
-  const TotalAmountWidget({Key? key}) : super(key: key);
+  const TotalAmountWidget({Key? key, required this.index}) : super(key: key);
+  final int index;
+
 
   @override
   Widget build(BuildContext context) {
+    final cubit=BlocProvider.of<CharityDonationValuesCubit>(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 31),
       decoration: BoxDecoration(
@@ -41,25 +44,19 @@ class TotalAmountWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    BlocBuilder<CharityDonationValuesCubit,
-                        CharityDonationValuesState>(
-                      builder: (context, state) {
-                        var cubit = BlocProvider.of<CharityDonationValuesCubit>(
-                            context);
-                        return Text(
-                          cubit.textStates(),
-                          style: AppStyles.font18Bold
-                              .copyWith(color: AppColors.yellow),
-                        );
-                      },
-                    ),
+                    if(cubit.isSelected==true&&cubit.enteredAmount.isEmpty)
+                      Text(
+                        cubit.charityDonationValuesList[index].value,style: AppStyles.almarai19YellowBold,),
+                    if(cubit.enteredAmount.isNotEmpty&&cubit.isSelected==false)
+                      Text(
+                        cubit.enteredAmount,style: AppStyles.almarai19YellowBold,),
                     const SizedBox(
                       width: 5,
                     ),
                     Text(
                       AppText.lE,
                       style:
-                          AppStyles.textStyle14.copyWith(color: AppColors.grey),
+                      AppStyles.textStyle14.copyWith(color: AppColors.grey),
                     ),
                   ],
                 )
@@ -83,3 +80,4 @@ class TotalAmountWidget extends StatelessWidget {
     );
   }
 }
+

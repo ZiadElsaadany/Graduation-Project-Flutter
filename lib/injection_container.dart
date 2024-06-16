@@ -1,3 +1,4 @@
+import 'package:aoun_tu/features/gift_donation/data/repos/gift_donation_repo_impl.dart';
 import 'package:aoun_tu/features/onboarding/presentation/view_model/onboarding_cubit.dart';
 import 'package:aoun_tu/features/posts/data/repos/posts_repo_implementation.dart';
 import 'package:get_it/get_it.dart';
@@ -11,16 +12,14 @@ void setup() {
   serviceLocator.registerLazySingleton(
     () => OnBoardingCubit(),
   );
-  serviceLocator.registerSingleton<ApiService>(
-      ApiService()
-  ) ;
+  serviceLocator.registerSingleton<ApiService>(ApiService());
   serviceLocator.registerSingleton<AuthRepoImplementation>(
-    AuthRepoImplementation(
-        apiService:      serviceLocator<ApiService>()
-    ),
-  ); serviceLocator.registerSingleton<PostsRepoImplementation>(
-    PostsRepoImplementation(
-        apiService:      serviceLocator<ApiService>()
-    ),
+    AuthRepoImplementation(apiService: serviceLocator<ApiService>()),
+  );
+  serviceLocator.registerSingleton<PostsRepoImplementation>(
+    PostsRepoImplementation(apiService: serviceLocator<ApiService>()),
+  );
+  serviceLocator.registerSingleton<GiftDonationRepoImpl>(
+    GiftDonationRepoImpl(serviceLocator<ApiService>()),
   );
 }
