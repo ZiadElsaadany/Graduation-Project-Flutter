@@ -196,6 +196,7 @@ class AllAmountContainer extends StatelessWidget {
             title: AppText.donateNow,
             height: MediaQuery.of(context).size.height * 0.06,
             textStyle: AppStyles.font16WhiteBold,
+
           ),
           const SizedBox(
             height: 25,
