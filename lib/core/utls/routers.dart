@@ -53,7 +53,7 @@ abstract class AppRouter {
   static const String kPersonalInfoView = "/kPersonalInfoView";
   static const String kEditPasswordView = "/kEditPasswordView";
   static const String kCreditCardScreen = "/kCreditCardScreen";
-  static const String kThankYou = "/kThankYou";
+  static const String kThankYouScreen = "/kThankYou";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -181,7 +181,7 @@ abstract class AppRouter {
         builder: (context, state) => const CreditCardScreen(),
       ),
       GoRoute(
-        path: kThankYou,
+        path: kThankYouScreen,
         builder: (context, state) => const ThankYouScreen(),
       ),
     ],
