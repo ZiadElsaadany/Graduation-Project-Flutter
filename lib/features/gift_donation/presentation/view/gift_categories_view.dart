@@ -15,7 +15,7 @@ class GiftCategoriesView extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: BlocProvider.value(
         value: GiftApiCubit(serviceLocator<GiftDonationRepoImpl>()),
-        child: Scaffold(
+        child: const Scaffold(
           backgroundColor: AppColors.white,
           body: GiftCategoriesBody(),
         ),

@@ -159,15 +159,7 @@ abstract class AppRouter {
         path: kGiftDataDetailsView,
         builder: (context, state) => const GiftDataDetailsView(),
       ),
-<<<<<<< HEAD
       GoRoute(
-        path: kConfirmCode,
-        builder: (context, state) => const ConfirmCodeView(),
-      ),
-      GoRoute(
-=======
-       GoRoute(
->>>>>>> debug/gift/donation
         path: kAddPost,
         builder: (context, state) => const AddPostView(),
       ),

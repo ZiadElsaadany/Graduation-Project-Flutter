@@ -8,7 +8,6 @@ import 'package:aoun_tu/features/gift_donation/presentation/view/widget/message_
 import 'package:aoun_tu/features/gift_donation/presentation/view_model/gift_cubit.dart';
 import 'package:aoun_tu/features/home/presentation/view/widgets/app_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utls/colors.dart';
 
@@ -120,23 +119,6 @@ class _GiftDataDetailsViewBodyState extends State<GiftDataDetailsViewBody> {
           ),
         ],
       ),
-    );
-  }
-}
-class PhoneNumberFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
-    final newText = newValue.text.replaceAll(RegExp(r'\D'), ''); // Remove non-digits
-    if (newText.length > 10) return newValue; // Limit to 10 digits
-
-    final buffer = StringBuffer();
-    for (int i = 0; i < newText.length; i++) {
-      if (i == 3 || i == 6) buffer.write(' '); // Add spaces after 3rd and 6th digits
-      buffer.write(newText[i]);
-    }
-
-    return TextEditingValue(
-      text: buffer.toString(),
     );
   }
 }
