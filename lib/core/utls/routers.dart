@@ -4,6 +4,7 @@ import 'package:aoun_tu/features/charity/presentation/view/case_details_view.dar
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
+import 'package:aoun_tu/features/credit_card/credit_card_screen.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/clothes_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/donation_success_view.dart';
@@ -50,6 +51,7 @@ abstract class AppRouter {
   static const String kViewImageFromInternet = "/kViewImageFromInternet";
   static const String kPersonalInfoView = "/kPersonalInfoView";
   static const String kEditPasswordView = "/kEditPasswordView";
+  static const String kCreditCardScreen = "/kCreditCardScreen";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -171,6 +173,10 @@ abstract class AppRouter {
             title: args['title']!,
           );
         },
+      ),
+      GoRoute(
+        path: kCreditCardScreen,
+        builder: (context, state) => const CreditCardScreen(),
       ),
     ],
   );
