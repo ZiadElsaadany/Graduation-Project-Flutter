@@ -200,8 +200,8 @@ abstract class AppText {
   static const String passwordDoesnotMatch = "الباسورد غير متطابق";
   static const String passwordChangeSuccessfully = "تم تغيير كلمة المرور بنجاح";
   static const String enterCreditCardData = "ادخل معلومات بطاقة الائتمان";
-  static const String expiryData = "تاريخ الانتهاء";
   static const String enterCreditCardNumber = "ادخل رقم البطاقة";
   static const String creditCardHolderName = "اسم حامل البطاقة";
-  static const String agreeToTermsAndConditions = "اوافق علي الشروط والأحكام";
+  static const String agreeTo = "أوافق على ";
+  static const String cvvNumber = "رقم CVV";
 }
