@@ -44,7 +44,7 @@ class CreditCardScreenBody extends StatelessWidget {
                 style:
                     AppStyles.textStyle15bold.copyWith(color: AppColors.text1),
               ),
-              CreditTextField(hintText: 'hintText', labelText: 'labelText')
+              CreditTextField(hintText: AppText.backToHome, labelText: 'labelText')
             ],
           ),
         ),
