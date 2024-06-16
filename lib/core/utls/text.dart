@@ -134,53 +134,69 @@ abstract class AppText {
   static const String socialMedia = "وسائل التواصل";
   static const String createNewPost = "انشاء منشور جديد";
 
-
   static const String theHousing = "السكن";
-  static const String chooseCategoryToDonate='اختر احدي الفئات وتبرع بها كهدية';
-  static const String waterSupply="توفير مياه";
-  static const String charity="صدقة";
-  static const String feedThePoor="اطعام مسكين";
-  static const String payAffection="دفع بلاء";
-  static const String housing0="سكن";
-  static const String garment="كساء";
-  static const String determinateTheGiftValue="حدد قيمة الهدية";
-  static const String addAnotherAmount="اضافة مبلغ اخر..";
-  static const String giftDetails="تفاصيل الهدية";
-  static const String donateAsGift="تبرع كهدية";
-  static const String enterTheGiftRecipientInfo="ادخل بيانات مستلم الهدية";
-  static const String recipientName="اسم المستلم";
-  static const String enterRecipientName="ادخل اسم المستلم";
-  static const String recipientPhone="هاتف المستلم";
-  static const String enterRecipientPhone="ادخل رقم هاتف مستلم الهدية";
-  static const String yourMessageToTheRecipient="رسالتك لمستلم الهدية";
-  static const String hideTheValueOfTheGiftFromRecipient="اخفاء قيمة الهدية للمستلم";
-  static const String enterSenderData="ادخل بيانات مرسل الهدية";
-  static const String senderName="اسم المرسل";
-  static const String senderPhone="هاتف المرسل";
-  static const String enterSenderName="ادخل اسم المرسل";
-  static const String enterSenderPhone="ادخل رقم هاتف المرسل";
-  static const String thisPhoneWillBeSentToTheRecipient="سيتم ارسال هذا الرقم الي مستلم الهدية";
-  static const String askConfirmCode="اطلب كود التأكيد";
-  static const String confirmVerificationCode="تأكيد رمز التحقق";
-  static const String confirmVerificationCodeWasSentTo="تم ارسال رمز التحقق الي";
-  static const String resentTheCode="اعادة ارسال الرمز";
-  static const String phoneConfirm="تحقق من رقم الهاتف";
-  static const String enterCreditCardInfo="ادخل معلومات بطاقة الائتمان";
-  static const String enterCreditCardNum="ادخل رقم البطاقة";
-  static const String expiryDate="تاريخ الانتهاء";
-  static const String cvvNum="رقم CVV";
-  static const String cardHolderName="اسم حامل البطاقة";
-  static const String iAgreeTo="أوافق علي ";
-  static const String termsAndConditions="الشروط والأحكام";
-  static const String thankU="شكرا لك";
-  static const String theDonationWasSuccessful="تم التبرع بنجاح";
-  static const String weWillSendMessageToTheRecipient="سنقوم بإرسال الرسالة الي مستلم الهدية";
-  static const String lE="ج.م";
-  static const String theWholeAmount="المبلغ الكلي";
-  static const String payment="الدفع";
-  static const String confirmedSuccessful="تم التحقق بنجاح";
+  static const String chooseCategoryToDonate =
+      'اختر احدي الفئات وتبرع بها كهدية';
+  static const String waterSupply = "توفير مياه";
+  static const String charity = "صدقة";
+  static const String feedThePoor = "اطعام مسكين";
+  static const String payAffection = "دفع بلاء";
+  static const String housing0 = "سكن";
+  static const String garment = "كساء";
+  static const String determinateTheGiftValue = "حدد قيمة الهدية";
+  static const String addAnotherAmount = "اضافة مبلغ اخر..";
+  static const String giftDetails = "تفاصيل الهدية";
+  static const String donateAsGift = "تبرع كهدية";
+  static const String enterTheGiftRecipientInfo = "ادخل بيانات مستلم الهدية";
+  static const String recipientName = "اسم المستلم";
+  static const String enterRecipientName = "ادخل اسم المستلم";
+  static const String recipientPhone = "هاتف المستلم";
+  static const String enterRecipientPhone = "ادخل رقم هاتف مستلم الهدية";
+  static const String yourMessageToTheRecipient = "رسالتك لمستلم الهدية";
+  static const String hideTheValueOfTheGiftFromRecipient =
+      "اخفاء قيمة الهدية للمستلم";
+  static const String enterSenderData = "ادخل بيانات مرسل الهدية";
+  static const String senderName = "اسم المرسل";
+  static const String senderPhone = "هاتف المرسل";
+  static const String enterSenderName = "ادخل اسم المرسل";
+  static const String enterSenderPhone = "ادخل رقم هاتف المرسل";
+  static const String thisPhoneWillBeSentToTheRecipient =
+      "سيتم ارسال هذا الرقم الي مستلم الهدية";
+  static const String askConfirmCode = "اطلب كود التأكيد";
+  static const String confirmVerificationCode = "تأكيد رمز التحقق";
+  static const String confirmVerificationCodeWasSentTo =
+      "تم ارسال رمز التحقق الي";
+  static const String resentTheCode = "اعادة ارسال الرمز";
+  static const String phoneConfirm = "تحقق من رقم الهاتف";
+  static const String enterCreditCardInfo = "ادخل معلومات بطاقة الائتمان";
+  static const String enterCreditCardNum = "ادخل رقم البطاقة";
+  static const String expiryDate = "تاريخ الانتهاء";
+  static const String cvvNum = "رقم CVV";
+  static const String cardHolderName = "اسم حامل البطاقة";
+  static const String iAgreeTo = "أوافق علي ";
+  static const String termsAndConditions = "الشروط والأحكام";
+  static const String thankU = "شكرا لك";
+  static const String theDonationWasSuccessful = "تم التبرع بنجاح";
+  static const String weWillSendMessageToTheRecipient =
+      "سنقوم بإرسال الرسالة الي مستلم الهدية";
+  static const String lE = "ج.م";
+  static const String theWholeAmount = "المبلغ الكلي";
+  static const String payment = "الدفع";
+  static const String confirmedSuccessful = "تم التحقق بنجاح";
 
-
-  static const String selectTheDonationAmount='حدد مبلغ التبرع';
-  static const String addComment='اضافة تعليق';
+  static const String selectTheDonationAmount = 'حدد مبلغ التبرع';
+  static const String addComment = 'اضافة تعليق';
+  static const String personalInfo = 'المعلومات الشخصية';
+  static const String phoneNumber = 'رقم الهاتف';
+  static const String email = "البريد الالكتروني";
+  static const String saveChanges = "حفظ التغييرات";
+  static const String requiredField = "هذا الحقل مطلوب";
+  static const String invalidEmail = "البريد الالكتروني غير صالح";
+  static const String invalidPhone = "رقم الهاتف غير صالح";
+  static const String editPassword = "تعديل كلمة المرور";
+  static const String oldPassword = "كلمة المرور القديمة";
+  static const String newPassword = "كلمة المرور الجديدة";
+  static const String comfirmNewPassword = "تاكيد كلمة المرور الجديدة";
+  static const String passwordDoesnotMatch = "الباسورد غير متطابق";
+  static const String passwordChangeSuccessfully = "تم تغيير كلمة المرور بنجاح";
 }
