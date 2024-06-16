@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import '../../../../core/utls/colors.dart';
 import '../../../../core/utls/styles.dart';
 import '../../../../core/utls/text.dart';
+import '../../../home/presentation/view/widgets/app_button.dart';
 import '../widgets/credit_text_field.dart';
 import '../widgets/custom_checkbox.dart';
 
@@ -12,13 +13,13 @@ class CreditCardScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Padding(
+            padding:const EdgeInsets.symmetric(horizontal: 24),
             child: ListView(
               children: [
                 SizedBox(
@@ -82,7 +83,7 @@ class CreditCardScreenBody extends StatelessWidget {
                       child: Directionality(
                         textDirection: TextDirection.ltr,
                         child:
-                        CreditTextField(hintText: "CVV", labelText: "CVV"),
+                            CreditTextField(hintText: "CVV", labelText: "CVV"),
                       ),
                     ),
                     SizedBox(
@@ -127,6 +128,77 @@ class CreditCardScreenBody extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+        const AllAmountContainer(),
+      ],
+    );
+  }
+}
+
+class AllAmountContainer extends StatelessWidget {
+  const AllAmountContainer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 31),
+      decoration: BoxDecoration(
+        color: AppColors.mainColor.withOpacity(0.1),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.mainColor)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  AppText.theWholeAmount,
+                  style: AppStyles.font16BlueBold,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // if(cubit.isSelected==true&&cubit.enteredAmount.isEmpty)
+                    //   Text(
+                    //     cubit.giftValuesList[index].value,style: AppStyles.almarai19YellowBold,),
+                    // if(cubit.enteredAmount.isNotEmpty&&cubit.isSelected==false)
+                    //   Text(
+                    //     cubit.enteredAmount,style: AppStyles.almarai19YellowBold,),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      AppText.lE,
+                      style:
+                      AppStyles.textStyle14.copyWith(color: AppColors.grey),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          AppButton(
+            title: AppText.donateNow,
+            height: MediaQuery.of(context).size.height * 0.06,
+            textStyle: AppStyles.font16WhiteBold,
+          ),
+          const SizedBox(
+            height: 25,
           ),
         ],
       ),
