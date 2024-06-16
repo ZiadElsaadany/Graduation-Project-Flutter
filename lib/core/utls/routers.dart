@@ -4,7 +4,7 @@ import 'package:aoun_tu/features/charity/presentation/view/case_details_view.dar
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
-import 'package:aoun_tu/features/credit_card/credit_card_screen.dart';
+import 'package:aoun_tu/features/credit_card/presentation/screens/credit_card_screen.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/clothes_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/donation_success_view.dart';
