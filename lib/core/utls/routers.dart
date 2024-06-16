@@ -20,6 +20,7 @@ import 'package:aoun_tu/features/auth/presentation/view/register/register_screen
 import 'package:aoun_tu/features/settings/presentation/views/edit_password_view.dart';
 import 'package:aoun_tu/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/credit_card/presentation/screens/thank_you_screen.dart';
 import '../../features/gift_donation/presentation/view/gift_category_details_view.dart';
 import '../../features/gift_donation/presentation/view/gift_data_details_view.dart';
 import '../../features/onboarding/presentation/view/onboarding_screen.dart';
