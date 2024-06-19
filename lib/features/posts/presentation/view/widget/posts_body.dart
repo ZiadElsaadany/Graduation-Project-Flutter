@@ -71,6 +71,7 @@ class _PostsBodyState extends State<PostsBody> {
                 }else if(state is GetPostsLoading ) {
                   // loading shimmer
 
+
                   return PostsShimmer();
 
                 }else{

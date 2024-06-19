@@ -24,7 +24,7 @@ class _NavBarViewState extends State<NavBarView> {
       const HomeScreen(),
       const PostsScreen(),
       const GiftCategoriesView(),
-      SettingsScreen(),
+      const SettingsScreen(),
     ];
   }
 
