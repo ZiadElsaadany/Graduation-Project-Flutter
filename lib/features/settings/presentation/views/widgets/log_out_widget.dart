@@ -20,7 +20,7 @@ class LogOutWidget extends StatelessWidget {
         color: AppColors.red,
         onPressed: ( ) {
           showDialog(context: context, builder: (c) {
-            return ConfirmLogOutDialog();
+            return const ConfirmLogOutDialog();
           } );
         } ,child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0),

@@ -72,7 +72,7 @@ class _PostsBodyState extends State<PostsBody> {
                   // loading shimmer
 
 
-                  return PostsShimmer();
+                  return const PostsShimmer();
 
                 }else{
                   // empty widget
