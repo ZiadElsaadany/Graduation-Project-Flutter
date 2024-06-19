@@ -79,6 +79,10 @@ static final textStyle13bold = GoogleFonts.almarai(
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
+  static final textStyle24extraBold = GoogleFonts.almarai(
+    fontSize: 24,
+    fontWeight: FontWeight.w900,
+  );
 
   static final textStyle14Cairo = GoogleFonts.cairo(
     fontSize: 14,

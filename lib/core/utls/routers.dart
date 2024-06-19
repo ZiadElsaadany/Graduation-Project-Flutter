@@ -4,6 +4,7 @@ import 'package:aoun_tu/features/charity/presentation/view/case_details_view.dar
 import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
+import 'package:aoun_tu/features/credit_card/presentation/screens/credit_card_screen.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/clothes_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/donation_success_view.dart';
@@ -19,6 +20,7 @@ import 'package:aoun_tu/features/auth/presentation/view/register/register_screen
 import 'package:aoun_tu/features/settings/presentation/views/edit_password_view.dart';
 import 'package:aoun_tu/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/credit_card/presentation/screens/thank_you_screen.dart';
 import '../../features/gift_donation/presentation/view/gift_category_details_view.dart';
 import '../../features/gift_donation/presentation/view/gift_data_details_view.dart';
 import '../../features/onboarding/presentation/view/onboarding_screen.dart';
@@ -50,6 +52,8 @@ abstract class AppRouter {
   static const String kViewImageFromInternet = "/kViewImageFromInternet";
   static const String kPersonalInfoView = "/kPersonalInfoView";
   static const String kEditPasswordView = "/kEditPasswordView";
+  static const String kCreditCardScreen = "/kCreditCardScreen";
+  static const String kThankYouScreen = "/kThankYou";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -171,6 +175,14 @@ abstract class AppRouter {
             title: args['title']!,
           );
         },
+      ),
+      GoRoute(
+        path: kCreditCardScreen,
+        builder: (context, state) => const CreditCardScreen(),
+      ),
+      GoRoute(
+        path: kThankYouScreen,
+        builder: (context, state) => const ThankYouScreen(),
       ),
     ],
   );
