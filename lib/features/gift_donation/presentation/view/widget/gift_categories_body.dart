@@ -71,7 +71,7 @@ class _GiftCategoriesBodyState extends State<GiftCategoriesBody> {
               builder: (context, state) {
                 if (state is LoadingGiftApiState) {
                   return const SliverToBoxAdapter(
-                      child: CircularProgressIndicator());
+                      child: Center(child: CircularProgressIndicator()));
                 } else if (state is FailureGiftApiState) {
                   return SliverToBoxAdapter(
                     child: Center(

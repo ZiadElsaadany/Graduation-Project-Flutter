@@ -20,6 +20,9 @@ class PostsShimmer extends StatelessWidget {
           baseColor: Colors.grey.withOpacity(0.5),
           highlightColor: Colors.white,
           child: Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: 15
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: AppColors.grey.withOpacity(0.5),

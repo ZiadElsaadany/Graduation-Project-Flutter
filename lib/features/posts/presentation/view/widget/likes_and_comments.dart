@@ -69,45 +69,45 @@ class _LikesAndCommentsState extends State<LikesAndComments> {
         const SizedBox(
           width: 24,
         ),
-        Column(
-          children: [
-            InkWell(
-              onTap: () {
-                // show comments sheet
-                showModalBottomSheet(
-                    isScrollControlled: true,
-                    elevation: 0
-                    ,
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15) ,
-                            topRight:Radius.circular(15) )
-                    ),
-                    enableDrag: true,
-                    useSafeArea: true,
-                    // showDragHandle: true,
-                    backgroundColor: AppColors.white,
-                    context: context, builder: ( c )  {
-                  return CommentsSheetView();
-                } );
-
-              },
-              child: Image.asset(
-                AppImages.comment,
-                width: 30,
-                height: 30,
-              ),
-            ),
-            Text(
-              widget.posts[widget.index].numberOfComments.toString(),
-              style: AppStyles.textStyle12
-                  .copyWith(color: AppColors.mainColor),
-            ),
-          ],
-        ),
-        const SizedBox(
-          width: 24,
-        ),
+        // Column(
+        //   children: [
+        //     // InkWell(
+        //     //   onTap: () {
+        //     //     // show comments sheet
+        //     //     showModalBottomSheet(
+        //     //         isScrollControlled: true,
+        //     //         elevation: 0
+        //     //         ,
+        //     //         shape: const RoundedRectangleBorder(
+        //     //             borderRadius: BorderRadius.only(
+        //     //                 topLeft: Radius.circular(15) ,
+        //     //                 topRight:Radius.circular(15) )
+        //     //         ),
+        //     //         enableDrag: true,
+        //     //         useSafeArea: true,
+        //     //         // showDragHandle: true,
+        //     //         backgroundColor: AppColors.white,
+        //     //         context: context, builder: ( c )  {
+        //     //       return CommentsSheetView();
+        //     //     } );
+        //     //
+        //     //   },
+        //     //   child: Image.asset(
+        //     //     AppImages.comment,
+        //     //     width: 30,
+        //     //     height: 30,
+        //     //   ),
+        //     // ),
+        //     Text(
+        //       widget.posts[widget.index].numberOfComments.toString(),
+        //       style: AppStyles.textStyle12
+        //           .copyWith(color: AppColors.mainColor),
+        //     ),
+        //   ],
+        // ),
+        // const SizedBox(
+        //   width: 24,
+        // ),
         Column(
           children: [
             InkWell(
