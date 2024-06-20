@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:aoun_tu/constants.dart';
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';
@@ -6,16 +8,44 @@ import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/posts/presentation/view/widget/circle_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/utls/my_hive.dart';
 
-class AddPostView extends StatelessWidget {
+class AddPostView extends StatefulWidget {
   const AddPostView({Key? key}) : super(key: key);
 
+  @override
+  State<AddPostView> createState() => _AddPostViewState();
+}
+
+class _AddPostViewState extends State<AddPostView> {
+  List<File?> images  =
+  [
+
+
+
+  ] ;
+
+  Future<void> pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickMultiImage(
+    );
+
+
+    setState(() {
+      if (pickedFile.isNotEmpty) {
+        images.addAll( pickedFile.map((e) => File(e.path)));
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -54,9 +84,15 @@ class AddPostView extends StatelessWidget {
                 ),
                 const SizedBox(width: 8,),
 
-            Image.asset(AppImages.photos,
-            width: 30.w,
-              height: 30.h,
+
+            GestureDetector(
+              onTap:  ( ) {
+                pickImage();
+              },
+              child: Image.asset(AppImages.photos,
+              width: 30.w,
+                height: 30.h,
+              ),
             )
 
               ],
@@ -68,11 +104,10 @@ class AddPostView extends StatelessWidget {
               maxLines: 5,
               minLines: 3,
               decoration: InputDecoration(
-                hintText: '''هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء 
-لصفحة ما سيلهي القارئ عن الترك''',
+                hintText: '''اكتب منشورك هنا..''',
                 enabled: true,
                  filled: true,
-                fillColor: AppColors.greyComment, 
+                fillColor: AppColors.greyComment,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none
@@ -84,19 +119,86 @@ class AddPostView extends StatelessWidget {
                   borderSide: BorderSide.none
                 ),
               ),
-            ), 
-            const SizedBox(height: 16,),
-            Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                Image.asset("assets/images/clothes.png"),
-                const CircleAvatar(
-                    backgroundColor: AppColors.black,
-                    child: Icon(Icons.close,color: AppColors.white,)),
-              ],
             ),
+            // const SizedBox(height: 16,),
+
+     images.length == 1 ?  Center(
+       child: Stack(
+         alignment: Alignment.topLeft,
+         children: [
+           ClipRRect(
+               borderRadius: BorderRadius.circular(15),
+
+               child: Image.file(images[0]!,height: 200,),
+           ),
+           GestureDetector(
+             onTap: ()  {
+               setState(() {
+                 images.remove(images[0]);
+               });
+             },
+             child: const CircleAvatar(
+                 backgroundColor: AppColors.black,
+                 child: Icon(Icons.close,color: AppColors.white,)),
+           ),
+         ],
+       ),
+     ): images.length==2 ? Padding(
+       padding: const EdgeInsets.all(8.0),
+       child: Row(
+         children: [
+           Expanded(
+             child: Stack(
+               alignment: Alignment.topLeft,
+               children: [
+                 ClipRRect(
+
+
+                   borderRadius: BorderRadius.circular(15),
+                     child: Image.file(images[0]!)),
+                 GestureDetector(
+                   onTap: ()  {
+                     setState(() {
+                       images.remove(images[0]);
+                     });
+                   },
+                   child: const CircleAvatar(
+                       backgroundColor: AppColors.black,
+                       child: Icon(Icons.close,color: AppColors.white,)),
+                 ),
+               ],
+             ),
+           ),      const SizedBox(width: 8,),Expanded(
+             child: Stack(
+               alignment: Alignment.topLeft,
+               children: [
+                 ClipRRect(
+
+             borderRadius: BorderRadius.circular(15),
+
+           child: Image.file(images[1]!)),
+                 GestureDetector(
+                   onTap: ()  {
+                     setState(() {
+                       images.remove(images[1]);
+                     });
+                   },
+                   child: const CircleAvatar(
+                       backgroundColor: AppColors.black,
+                       child: Icon(Icons.close,color: AppColors.white,)),
+                 ),
+               ],
+             ),
+           ),
+
+         ],
+       ),
+     ):
+SizedBox()       ,
             const SizedBox(height: 16,),
-            MaterialButton(onPressed: ( ) { } ,
+            MaterialButton(onPressed: ( ) {
+
+            } ,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10
                 )
