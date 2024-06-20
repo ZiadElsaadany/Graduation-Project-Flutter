@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utls/images.dart';
-
 class CircleForImage extends StatelessWidget {
   const CircleForImage({Key? key, required this.image}) : super(key: key);
-final String image ;
+  final String image;
   @override
   Widget build(BuildContext context) {
-    return   ClipRRect(
+    return ClipRRect(
       borderRadius: BorderRadius.circular(17),
       // CachedNetworkImage(
       //   placeholder: (c,b){
@@ -35,7 +33,8 @@ final String image ;
       //   imageUrl: postModel.images[0],
       // ),
       child: CachedNetworkImage(
-     imageUrl:   image,
+        fit: BoxFit.cover,
+        imageUrl: image,
         width: 34,
         height: 34,
       ),

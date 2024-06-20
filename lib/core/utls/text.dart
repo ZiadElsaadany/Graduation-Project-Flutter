@@ -183,7 +183,7 @@ abstract class AppText {
   static const String theWholeAmount = "المبلغ الكلي";
   static const String payment = "الدفع";
   static const String confirmedSuccessful = "تم التحقق بنجاح";
-  static const String confirmSenderPhone="تأكيد هاتف المرسل";
+  static const String confirmSenderPhone = "تأكيد هاتف المرسل";
   static const String selectTheDonationAmount = 'حدد مبلغ التبرع';
   static const String addComment = 'اضافة تعليق';
   static const String personalInfo = 'المعلومات الشخصية';
@@ -204,4 +204,5 @@ abstract class AppText {
   static const String creditCardHolderName = "اسم حامل البطاقة";
   static const String agreeTo = "أوافق على ";
   static const String cvvNumber = "رقم CVV";
+  static const String profile = "الملف الشخصي";
 }

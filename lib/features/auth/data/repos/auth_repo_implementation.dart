@@ -32,6 +32,7 @@ class AuthRepoImplementation implements AuthRepo {
       Hive.box(AppHive.userBox)
           .put(AppHive.imageKey, decodedToken["userImageUrl"]);
       Hive.box(AppHive.userBox).put(AppHive.idKey, decodedToken["userId"]);
+      Hive.box(AppHive.userBox).put(AppHive.nameKey, decodedToken["sub"]);
 
       return right(LoginModel.fromJson(response));
     } on DioException catch (e) {

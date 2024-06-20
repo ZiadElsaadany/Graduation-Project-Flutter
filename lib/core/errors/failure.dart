@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
-
 
 abstract class Failure {
   String msg;
@@ -30,9 +27,8 @@ class ServerFailure extends Failure {
         return ServerFailure(
             'Request has been cancelled ,please try again later!');
       case DioExceptionType.badResponse:
-
-        return ServerFailure(
-           exception.response?.data["message"] ?? "Opps an unexpected error occurred ,please try again later!");
+        return ServerFailure(exception.response?.data["message"] ??
+            "Opps an unexpected error occurred ,please try again later!");
       default:
         return ServerFailure(
             'Opps an unexpected error occurred ,please try again later!');
