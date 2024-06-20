@@ -92,4 +92,5 @@ abstract class AppImages {
       "assets/icons/app_evaluation_icon.svg";
   static const String appShareIcon = "assets/icons/app_share_icon.svg";
   static const String thankYou = "assets/images/thanks.png";
+  static const String empty = "assets/images/empty.png";
 }

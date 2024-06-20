@@ -19,64 +19,65 @@ class PostsBody extends StatefulWidget {
 }
 
 class _PostsBodyState extends State<PostsBody> {
+  List<PostModel> posts = [];
 
-
-  List<PostModel> posts = [  ];
-
-@override
+  @override
   void initState() {
     super.initState();
     BlocProvider.of<GetPostsCubit>(context).getPosts(page: 0);
   }
+
   @override
   Widget build(BuildContext context) {
-    var cubit  =  BlocProvider.of<GetPostsCubit>(context);
+    var cubit = BlocProvider.of<GetPostsCubit>(context);
     return SafeArea(
-      child:RefreshIndicator(
-        onRefresh: ()async {
-        await  BlocProvider.of<GetPostsCubit>(context).getPosts(page: 0);
-
+      child: RefreshIndicator(
+        onRefresh: () async {
+          await BlocProvider.of<GetPostsCubit>(context).getPosts(page: 0);
         },
         child: CustomScrollView(
           slivers: [
-          const SliverToBoxAdapter(
-            child:  HomeAppBar() ,
-          ),
-           const SliverToBoxAdapter(
-             child:  Divider(
-               thickness: 1,
-             ),
-           ),
-           const SliverToBoxAdapter(
-             child:  WritePostBar(),
-           ),
+            const SliverToBoxAdapter(
+              child: HomeAppBar(),
+            ),
+            const SliverToBoxAdapter(
+              child: Divider(
+                thickness: 1,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: WritePostBar(),
+            ),
             BlocConsumer<GetPostsCubit, GetPostsStates>(
               listener: (context, state) {
-                if(state is GetPostsSuccess ) {
+                if (state is GetPostsSuccess) {
                   posts.addAll(state.posts);
                   posts = posts.toSet().toList();
                 }
               },
               builder: (context, state) {
-
-                if(state is GetPostsFailure ) {
-                  return  SliverToBoxAdapter(child: FailureWidgetFromApi(
+                if (state is GetPostsFailure) {
+                  return SliverToBoxAdapter(
+                      child: FailureWidgetFromApi(
                     errorText: state.errorMessage,
                     onPressed: () {
-                      cubit.getPosts(page:0);
+                      cubit.getPosts(page: 0);
                     },
-                  ) );
-                }else if(posts.isNotEmpty ){
-                  return      PostsList(posts: posts,);
-                }else if(state is GetPostsLoading ) {
+                  ));
+                } else if (posts.isNotEmpty) {
+                  return PostsList(
+                    posts: posts,
+                  );
+                } else if (state is GetPostsLoading) {
                   // loading shimmer
 
-                  return PostsShimmer();
-
-                }else{
+                  return const PostsShimmer();
+                } else {
                   // empty widget
 
-                  return const SliverToBoxAdapter(child: SizedBox(),);
+                  return const SliverToBoxAdapter(
+                    child: SizedBox(),
+                  );
                 }
               },
             )
