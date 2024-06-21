@@ -5,23 +5,42 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
+import 'package:aoun_tu/core/utls/toast.dart';
+import 'package:aoun_tu/features/posts/presentation/controller/create_post_controller/create_post_cubit.dart';
+import 'package:aoun_tu/features/posts/presentation/controller/create_post_controller/create_post_states.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/utls/my_hive.dart';
+import '../../../../injection_container.dart';
+import '../../data/repos/posts_repo_implementation.dart';
 
-class AddPostView extends StatefulWidget {
+class AddPostView extends StatelessWidget {
   const AddPostView({Key? key}) : super(key: key);
 
   @override
-  State<AddPostView> createState() => _AddPostViewState();
+  Widget build(BuildContext context) {
+    return BlocProvider.value(
+      value: CreatePostCubit(
+          postsRepo: serviceLocator<PostsRepoImplementation>()),
+      child: AddPostViewBody(),
+    );
+  }
 }
 
-class _AddPostViewState extends State<AddPostView> {
-  List<File?> images = [];
+class AddPostViewBody extends StatefulWidget {
+  const AddPostViewBody({super.key});
+
+  @override
+  State<AddPostViewBody> createState() => _AddPostViewBodyState();
+}
+
+class _AddPostViewBodyState extends State<AddPostViewBody> {
+  List<File> images = [];
 
   Future<void> pickImage() async {
     final picker = ImagePicker();
@@ -36,8 +55,10 @@ class _AddPostViewState extends State<AddPostView> {
     });
   }
 
+  TextEditingController postController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<CreatePostCubit>(context);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -62,7 +83,7 @@ class _AddPostViewState extends State<AddPostView> {
                       imageUrl: Hive.box(AppHive.userBox).get(AppHive.imageKey),
                       placeholder: (context, url) => const CircleAvatar(),
                       errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                      const Icon(Icons.error),
                     ),
                   ),
                   const SizedBox(
@@ -96,6 +117,7 @@ class _AddPostViewState extends State<AddPostView> {
               ),
 
               TextFormField(
+                controller: postController,
                 maxLines: 5,
                 minLines: 3,
                 decoration: InputDecoration(
@@ -118,104 +140,106 @@ class _AddPostViewState extends State<AddPostView> {
 
               images.length == 1
                   ? Center(
-                      child: Stack(
-                        alignment: Alignment.topLeft,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.file(
-                              images[0]!,
-                              height: 200,
+                child: Stack(
+                  alignment: Alignment.topLeft,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.file(
+                        images[0]!,
+                        height: 200,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          images.remove(images[0]);
+                        });
+                      },
+                      child: const CircleAvatar(
+                          backgroundColor: AppColors.black,
+                          child: Icon(
+                            Icons.close,
+                            color: AppColors.white,
+                          )),
+                    ),
+                  ],
+                ),
+              )
+                  : Padding(
+                padding: const EdgeInsets.only(bottom: 8.0, right: 8, left: 8),
+                child: Wrap(
+                  children: [
+                    ...images.map((e) =>
+                        SizedBox(
+                          width: MediaQuery
+                              .sizeOf(context)
+                              .width * 0.44,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Stack(
+                              alignment: Alignment.topLeft,
+                              children: [
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.file(e!)),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      images.remove(e);
+                                    });
+                                  },
+                                  child: const CircleAvatar(
+                                      backgroundColor: AppColors.black,
+                                      child: Icon(
+                                        Icons.close,
+                                        color: AppColors.white,
+                                      )),
+                                ),
+                              ],
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                images.remove(images[0]);
-                              });
-                            },
-                            child: const CircleAvatar(
-                                backgroundColor: AppColors.black,
-                                child: Icon(
-                                  Icons.close,
-                                  color: AppColors.white,
-                                )),
-                          ),
-                        ],
-                      ),
-                    )
-                  : images.length == 2
-                      ? Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Stack(
-                                  alignment: Alignment.topLeft,
-                                  children: [
-                                    ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: Image.file(images[0]!)),
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          images.remove(images[0]);
-                                        });
-                                      },
-                                      child: const CircleAvatar(
-                                          backgroundColor: AppColors.black,
-                                          child: Icon(
-                                            Icons.close,
-                                            color: AppColors.white,
-                                          )),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Expanded(
-                                child: Stack(
-                                  alignment: Alignment.topLeft,
-                                  children: [
-                                    ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: Image.file(images[1]!)),
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          images.remove(images[1]);
-                                        });
-                                      },
-                                      child: const CircleAvatar(
-                                          backgroundColor: AppColors.black,
-                                          child: Icon(
-                                            Icons.close,
-                                            color: AppColors.white,
-                                          )),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      : const SizedBox(),
+                        ),)
+                  ],
+                ),
+              ),
+
               const SizedBox(
                 height: 16,
               ),
-              MaterialButton(
-                onPressed: () {},
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                color: AppColors.mainColor,
-                textColor: AppColors.white,
-                minWidth: double.infinity,
-                child: Text(
-                  "نشر",
-                  style: AppStyles.font16WhiteBold,
-                ),
+              BlocConsumer<CreatePostCubit, CreatePostStates>(
+                listener: (context, state) {
+                  if(state is CreatePostFailureState){
+                    showToast(title: state.errorMessage, color: AppColors.red);
+                  } else if(state is CreatePostSuccessState){
+                    showToast(title: "Post created", color: AppColors.red);
+                  }
+                },
+                builder: (context, state) {
+                  return   state is CreatePostLoadingState ? const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.mainColor,
+                    ),
+                  ): MaterialButton(
+                    onPressed: () {
+                      if(postController.text.trim().isNotEmpty && images.isNotEmpty) {
+                        cubit.createPost(postContent: postController.text.trim(), images: images );
+
+                      }else {
+                        showToast(title: "ادخل المنشور وصور", color: AppColors.red);
+                      }
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    color: AppColors.mainColor,
+                    textColor: AppColors.white,
+                    minWidth: double.infinity,
+                    child: Text(
+                      "نشر",
+                      style: AppStyles.font16WhiteBold,
+                    ),
+                  );
+                },
               )
             ],
           )),

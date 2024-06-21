@@ -14,8 +14,8 @@ class LoginApiCubit extends Cubit<LoginApiStates> {
     emit(LoginLoadingState());
 
     var result = await authRepo.login(email: email, password: password);
-    result.fold((l) => emit(LoginFailureState(message: l.msg)), (r) {
-      Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.tokenKey, r.token);
+    result.fold((l) => emit(LoginFailureState(message: l.msg)), (r) async{
+    await   Hive.box(AppHive.tokenAndOnBoardingBox).put(AppHive.tokenKey, r.token);
       emit(LoginSuccessState(loginModel: r));
     });
   }

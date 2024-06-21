@@ -24,4 +24,6 @@ class AppApis {
       '/api/v1/bookmark?userId=${Hive.box(AppHive.userBox).get(AppHive.idKey)}&postId=$postId';
   static String getBookMarkEndPoint =
       '/api/v1/bookmark/${Hive.box(AppHive.userBox).get(AppHive.idKey)}';
+  static String createPost =
+      '/api/v1/post';
 }

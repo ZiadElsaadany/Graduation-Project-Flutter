@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:aoun_tu/core/errors/failure.dart';
 import 'package:aoun_tu/features/posts/data/models/post_model.dart';
 import 'package:aoun_tu/features/posts/data/repos/post_repo.dart';
@@ -61,6 +63,29 @@ class PostsRepoImplementation implements PostsRepo {
           await apiService.post(endpoint: AppApis.bookMarkEndPoint(postId));
       AppLogger.print("Book Mark Response: $response");
       return right(null);
+    } on DioException catch (e) {
+      AppLogger.print(e.toString());
+      return left(ServerFailure.fromDioException(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, PostModel>> createPost(
+  {
+    required String text  ,
+    required List<File> images
+
+}
+
+      ) async{
+    try {
+      var response =
+      await apiService.postFormData(endpoint: AppApis.createPost, data:  {
+        "image":images,
+        "postContent":text
+      });
+      AppLogger.print("create post ------- || ------->  $response");
+      return right(PostModel.fromJson(response["data"]));
     } on DioException catch (e) {
       AppLogger.print(e.toString());
       return left(ServerFailure.fromDioException(e));
