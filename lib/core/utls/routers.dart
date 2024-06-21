@@ -25,6 +25,7 @@ import '../../features/gift_donation/presentation/view/gift_category_details_vie
 import '../../features/gift_donation/presentation/view/gift_data_details_view.dart';
 import '../../features/onboarding/presentation/view/onboarding_screen.dart';
 import '../../features/home/presentation/view/nav_bar/nav_bar.dart';
+import '../../features/profile/presentation/view/edit_profile_screen.dart';
 import '../../features/profile/presentation/view/profile_screen.dart';
 import '../../features/settings/presentation/views/personal_info_view.dart';
 
@@ -56,11 +57,16 @@ abstract class AppRouter {
   static const String kCreditCardScreen = "/kCreditCardScreen";
   static const String kThankYouScreen = "/kThankYou";
   static const String kProfileScreen = "/kProfileScreen";
+  static const String kEditProfileScreen = "/kEditProfileScreen";
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: kSplash,
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: kEditProfileScreen,
+        builder: (context, state) => const EditProfileScreen(),
       ),
       GoRoute(
         path: kProfileScreen,

@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/my_hive.dart';
+import '../../../../../core/utls/routers.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({super.key});
@@ -41,7 +43,9 @@ class ProfileImage extends StatelessWidget {
             right: 130,
             bottom: 5,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kEditProfileScreen);
+              },
               child: CircleAvatar(
                 radius: 14,
                 backgroundColor: AppColors.mainColor,
