@@ -1,4 +1,3 @@
-
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/auth/presentation/view_model/register/register_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,56 +24,48 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }
 
   bool confirmSecure = true;
-  changeConfirmSecure( ) {
-    confirmSecure= !confirmSecure;
-    emit(ChangeConfirmSecureState( ));
+  changeConfirmSecure() {
+    confirmSecure = !confirmSecure;
+    emit(ChangeConfirmSecureState());
   }
 
   List<RegisterOptionsModel> registerOptions = [
-
-    RegisterOptionsModel(title: AppText.enterYourEmailForRegister,
-    description: AppText.enterYourEmailForRegisterDescription),
-    RegisterOptionsModel(title: AppText.createPassword,
-    description: AppText.createPasswordDescription),
-    RegisterOptionsModel(title: AppText.tellYourName,
-    description: AppText.tellYourNameDescription),
-    RegisterOptionsModel(title: AppText.tellYourPhone,
-    description: AppText.tellYourPhoneDescription),
-    RegisterOptionsModel(title: AppText.tellYourGender,
-    description: AppText.tellYourGenderDescription),
-    RegisterOptionsModel(title: AppText.addProfilePhoto,
-    description: AppText.addProfileDescription),
-
-
-
+    RegisterOptionsModel(
+        title: AppText.enterYourEmailForRegister,
+        description: AppText.enterYourEmailForRegisterDescription),
+    RegisterOptionsModel(
+        title: AppText.createPassword,
+        description: AppText.createPasswordDescription),
+    RegisterOptionsModel(
+        title: AppText.tellYourName,
+        description: AppText.tellYourNameDescription),
+    RegisterOptionsModel(
+        title: AppText.tellYourPhone,
+        description: AppText.tellYourPhoneDescription),
+    RegisterOptionsModel(
+        title: AppText.tellYourGender,
+        description: AppText.tellYourGenderDescription),
+    RegisterOptionsModel(
+        title: AppText.addProfilePhoto,
+        description: AppText.addProfileDescription),
   ];
 
-  RegExp  emailRegex =
-      RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
+  RegExp emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
   RegExp passwordRegex =
-      RegExp(   r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$' );
-
+      RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$');
 
   BoyOrGirl boyOrGirl = BoyOrGirl.NONE;
-  changeBoyOrGirl (
-      BoyOrGirl boyOrGirl_
-      ) {
+  changeBoyOrGirl(BoyOrGirl boyOrGirl_) {
     boyOrGirl = boyOrGirl_;
     emit(ChangeBoyOrGirlState());
   }
 }
-enum BoyOrGirl {
-  BOY,
-  GIRL,
-  NONE
-}
+
+enum BoyOrGirl { BOY, GIRL, NONE }
 
 class RegisterOptionsModel {
   final String title;
   final String description;
 
-
-  RegisterOptionsModel( {
-    required this.title,
-    required this.description});
+  RegisterOptionsModel({required this.title, required this.description});
 }

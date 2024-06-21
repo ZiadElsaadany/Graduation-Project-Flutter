@@ -12,3 +12,13 @@ class  LikeFailure extends LikeStates {
 }
       );
 }
+
+
+class BookMarkLoading extends LikeStates {}
+
+class BookMarkSuccess extends LikeStates {}
+
+class BookMarkFailure extends LikeStates {
+  final String errorMessage;
+  BookMarkFailure({required this.errorMessage});
+}

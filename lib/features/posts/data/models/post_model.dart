@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class PostModel extends Equatable {
   // {
   // "id": 1,
@@ -23,11 +24,11 @@ class PostModel extends Equatable {
   final String createdSince;
   final List<String> images;
   final int userId;
-   bool isUserLike;
+  bool isUserLike;
   final String userName;
   final String userImage;
-   int numberOfLikes;
-   int numberOfComments;
+  int numberOfLikes;
+  int numberOfComments;
   PostModel(
       {required this.userId,
       required this.images,
@@ -84,6 +85,5 @@ class PostModel extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [postId];
 }

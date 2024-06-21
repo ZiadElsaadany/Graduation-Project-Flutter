@@ -38,4 +38,32 @@ class PostsRepoImplementation implements PostsRepo {
       return left(ServerFailure.fromDioException(e));
     }
   }
+
+  @override
+  Future<Either<Failure, List<PostModel>>> getBookMarks() async {
+    try {
+      var response =
+          await apiService.get(endpoint: AppApis.getBookMarkEndPoint);
+      AppLogger.print("response: $response");
+      return right(List<PostModel>.from(
+          (response["data"] as List).map((e) => PostModel.fromJson(e))));
+    } on DioException catch (e) {
+      AppLogger.print(e.toString());
+      AppLogger.print(e.response?.statusCode.toString());
+      return left(ServerFailure.fromDioException(e));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> bookMarkPost({required int postId}) async {
+    try {
+      var response =
+          await apiService.post(endpoint: AppApis.bookMarkEndPoint(postId));
+      AppLogger.print("Book Mark Response: $response");
+      return right(null);
+    } on DioException catch (e) {
+      AppLogger.print(e.toString());
+      return left(ServerFailure.fromDioException(e));
+    }
+  }
 }

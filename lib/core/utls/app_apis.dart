@@ -1,3 +1,6 @@
+import 'package:aoun_tu/core/utls/my_hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
 class AppApis {
   static const String loginEndPoint = "/api/v1/auth/login";
   static const String registerEndPoint = "/api/v1/auth/user/register";
@@ -16,4 +19,9 @@ class AppApis {
 
   static const String giftCategoryEndPoint = '/api/v1/gift-donation/category';
   static String giftDonationEndPoint = '/api/v1/gift-donation';
+
+  static String bookMarkEndPoint(int postId) =>
+      '/api/v1/bookmark?userId=${Hive.box(AppHive.userBox).get(AppHive.idKey)}&postId=$postId';
+  static String getBookMarkEndPoint =
+      '/api/v1/bookmark/${Hive.box(AppHive.userBox).get(AppHive.idKey)}';
 }

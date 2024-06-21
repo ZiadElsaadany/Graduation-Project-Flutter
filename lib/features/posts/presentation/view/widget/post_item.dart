@@ -110,10 +110,13 @@ class PostItem extends StatelessWidget {
         verticalSpace(9),
         Padding(
           padding: EdgeInsets.only(right: 12.w, left: 12.w),
-          child: Text(
-            posts[index].content,
-            textAlign: TextAlign.start,
-            style: AppStyles.textStyle14.copyWith(color: AppColors.grey),
+          child: Align(
+            alignment: AlignmentDirectional.topStart,
+            child: Text(
+              posts[index].content,
+              textAlign: TextAlign.start,
+              style: AppStyles.textStyle14.copyWith(color: AppColors.grey),
+            ),
           ),
         ),
         const SizedBox(

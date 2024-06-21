@@ -13,6 +13,7 @@ class GetPostsCubit extends Cubit<GetPostsStates> {
   final PostsRepo postsRepo;
   List<PostModel> myPosts = [];
   List<PostModel> myLikesPosts = [];
+  List<PostModel> myBookMarks = [];
 
   Future<void> getPosts({int page = 0}) async {
     emit(GetPostsLoading());
@@ -30,6 +31,21 @@ class GetPostsCubit extends Cubit<GetPostsStates> {
 
       myLikesPosts = r.where((element) => element.isUserLike == true).toList();
       emit(GetPostsSuccess(posts: r));
+    });
+  }
+
+  Future<void> getBookMarks() async {
+    emit(GetPostsLoading());
+
+    var result = await postsRepo.getBookMarks();
+    result.fold((l) {
+      AppLogger.print(l.msg.toString());
+      AppLogger.print(l.statusCode.toString());
+      emit(GetBookMarksFailure(errorMessage: l.msg));
+    }, (r) {
+      myBookMarks = r;
+
+      emit(GetBookMarksSuccess(posts: r));
     });
   }
 }

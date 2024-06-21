@@ -102,15 +102,38 @@ class _ProfileTabBarState extends State<ProfileTabBar>
                           : PostsListWidget(
                               posts: cubit.myPosts,
                             ),
-                  Center(
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          AppImages.empty,
-                        ),
-                      ],
-                    ),
-                  ),
+                  state is GetBookMarksLoading
+                      ? ListView.separated(
+                          separatorBuilder: (c, index) {
+                            return const SizedBox(
+                              height: 15,
+                            );
+                          },
+                          itemBuilder: (c, index) {
+                            return Shimmer.fromColors(
+                              baseColor: Colors.grey.withOpacity(0.5),
+                              highlightColor: Colors.white,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: AppColors.grey.withOpacity(0.5),
+                                ),
+                                width: double.infinity,
+                                height: 200,
+                              ),
+                            );
+                          },
+                          itemCount: 4,
+                        )
+                      : cubit.myBookMarks.isEmpty
+                          ? Center(
+                              child: Image.asset(
+                                AppImages.empty,
+                              ),
+                            )
+                          : PostsListWidget(
+                              posts: cubit.myBookMarks,
+                            ),
                   state is GetPostsLoading
                       ? ListView.separated(
                           separatorBuilder: (c, index) {
