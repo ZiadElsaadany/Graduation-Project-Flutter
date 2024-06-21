@@ -3,7 +3,6 @@ import 'package:aoun_tu/features/posts/presentation/controller/get_posts_control
 import 'package:aoun_tu/features/posts/presentation/controller/get_posts_controller/get_posts_states.dart';
 import 'package:aoun_tu/features/posts/presentation/view/widget/post_shimmer/post_shimmer.dart';
 import 'package:aoun_tu/shared/view/widgets/home_app_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -71,10 +70,8 @@ class _PostsBodyState extends State<PostsBody> {
                 } else if (state is GetPostsLoading) {
                   // loading shimmer
 
-
                   return const PostsShimmer();
-
-                }else{
+                } else {
                   // empty widget
 
                   return const SliverToBoxAdapter(

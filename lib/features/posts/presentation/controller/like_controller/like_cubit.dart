@@ -17,4 +17,15 @@ class LikeCubit extends Cubit<LikeStates> {
       emit(LikeSuccess());
     });
   }
+
+  Future<void> bookMark({required int postId}) async {
+    emit(BookMarkLoading());
+
+    var result = await postsRepo.bookMarkPost(postId: postId);
+    result.fold((l) {
+      emit(BookMarkFailure(errorMessage: l.msg));
+    }, (r) {
+      emit(BookMarkSuccess());
+    });
+  }
 }

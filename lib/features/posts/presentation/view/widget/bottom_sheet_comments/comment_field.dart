@@ -1,9 +1,6 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
-import 'package:dartz/dartz.dart';
-import 'package:dartz/dartz.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../constants.dart';
@@ -15,7 +12,7 @@ class CommentField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(
+        const Divider(
           color: AppColors.mainColor,
         ),
         Padding(
@@ -35,7 +32,7 @@ class CommentField extends StatelessWidget {
                 fillColor: AppColors.greyComment),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         )
       ],

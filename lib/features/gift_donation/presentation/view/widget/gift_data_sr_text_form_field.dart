@@ -1,13 +1,15 @@
 import 'package:aoun_tu/core/utls/styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../../../core/utls/colors.dart';
 
 class GiftDataSRTextFormField extends StatelessWidget {
-  const GiftDataSRTextFormField({Key? key, required this.hintText, required this.labelText, this.controller}) : super(key: key);
+  const GiftDataSRTextFormField(
+      {Key? key,
+      required this.hintText,
+      required this.labelText,
+      this.controller})
+      : super(key: key);
 
   final String hintText;
   final String labelText;
@@ -26,18 +28,21 @@ class GiftDataSRTextFormField extends StatelessWidget {
         enabledBorder: outLineInputBorder(),
         focusedBorder: outLineInputBorder(),
         hintText: hintText,
-        hintStyle: AppStyles.textStyle11.copyWith(color: AppColors.mainColor.withOpacity(0.7),),
+        hintStyle: AppStyles.textStyle11.copyWith(
+          color: AppColors.mainColor.withOpacity(0.7),
+        ),
         labelText: labelText,
-        labelStyle: AppStyles.textStyle11.copyWith(color: AppColors.text1,),
+        labelStyle: AppStyles.textStyle11.copyWith(
+          color: AppColors.text1,
+        ),
       ),
     );
   }
-  OutlineInputBorder outLineInputBorder(){
+
+  OutlineInputBorder outLineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
       borderSide: const BorderSide(color: AppColors.mainColor),
     );
   }
 }
-
-

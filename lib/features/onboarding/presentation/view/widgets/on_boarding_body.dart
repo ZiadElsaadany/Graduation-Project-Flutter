@@ -1,7 +1,5 @@
-import 'package:aoun_tu/core/utls/my_hive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/utls/loggers.dart';
 import '../../view_model/onboarding_cubit.dart';
 import 'onboarding_view_body.dart';
 
@@ -31,9 +29,8 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
       controller: onBoardingCubit.pageController,
       onPageChanged: (c) {
         onBoardingCubit.getCurrentPageViewIndex(c);
-
       },
-      itemCount:3,
+      itemCount: 3,
     );
   }
 }

@@ -18,8 +18,9 @@ class CurrentCampiagnList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsetsDirectional.only(end: 10, bottom: 23),
-              child: CurrentCampiagnItem().animate().effect().scale().move(),
+              padding: const EdgeInsetsDirectional.only(end: 10, bottom: 23),
+              child:
+                  const CurrentCampiagnItem().animate().effect().scale().move(),
             );
           }),
     );

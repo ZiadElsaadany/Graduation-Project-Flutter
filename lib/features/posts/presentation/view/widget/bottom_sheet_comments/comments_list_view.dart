@@ -7,11 +7,11 @@ class CommentsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    ListView.builder(
-physics: const BouncingScrollPhysics(),
+    return ListView.builder(
+        physics: const BouncingScrollPhysics(),
         itemCount: 5,
         itemBuilder: (C, index) {
-          return  CommentWidget(  );
-        } );
+          return const CommentWidget();
+        });
   }
 }

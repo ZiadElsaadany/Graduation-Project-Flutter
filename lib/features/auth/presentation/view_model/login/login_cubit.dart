@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login_states.dart';
@@ -6,30 +5,21 @@ import 'login_states.dart';
 class LoginCubit extends Cubit<LoginStates> {
   LoginCubit() : super(LoginInitial());
 
+  int progress = 2;
 
-
-
-  int progress = 2  ;
-
-  int progressCounter= 1 ;
-  void plusProgressCounter ( ){
-    if(progressCounter<progress) {
-      progressCounter++ ;
-
-
-    }else{
-      progressCounter --;
-
+  int progressCounter = 1;
+  void plusProgressCounter() {
+    if (progressCounter < progress) {
+      progressCounter++;
+    } else {
+      progressCounter--;
     }
-    emit(PlusProgressState( ));
+    emit(PlusProgressState());
   }
 
-  bool secure =  true;
-  changeSecureLogin(   ) {
-    secure =!secure;
+  bool secure = true;
+  changeSecureLogin() {
+    secure = !secure;
     emit(ChangeSecureLoginState());
   }
-
-
-
 }

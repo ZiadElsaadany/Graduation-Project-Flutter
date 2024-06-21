@@ -11,8 +11,20 @@ import '../../../../../core/utls/spacing.dart';
 import '../../../../../core/utls/styles.dart';
 import 'profile_tab_view.dart';
 
-class ProfileBody extends StatelessWidget {
+class ProfileBody extends StatefulWidget {
   const ProfileBody({super.key});
+
+  @override
+  State<ProfileBody> createState() => _ProfileBodyState();
+}
+
+class _ProfileBodyState extends State<ProfileBody> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<GetPostsCubit>(context).getPosts(page: 0);
+    BlocProvider.of<GetPostsCubit>(context).getBookMarks();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +32,7 @@ class ProfileBody extends StatelessWidget {
       child: RefreshIndicator(
         onRefresh: () async {
           await BlocProvider.of<GetPostsCubit>(context).getPosts(page: 0);
+          await BlocProvider.of<GetPostsCubit>(context).getBookMarks();
         },
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),

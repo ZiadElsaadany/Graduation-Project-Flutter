@@ -89,10 +89,10 @@ class CommentWidget extends StatelessWidget {
                   ),
                 ),
                 DefaultTextStyle(
-                  style: Theme.of(context).textTheme.caption!.copyWith(
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: Colors.grey[700], fontWeight: FontWeight.bold),
                   child: Padding(
-                    padding: EdgeInsets.only(top: 4),
+                    padding: const EdgeInsets.only(top: 4),
                     child:         Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: Row(

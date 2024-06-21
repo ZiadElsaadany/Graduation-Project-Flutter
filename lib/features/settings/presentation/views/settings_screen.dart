@@ -2,13 +2,11 @@ import 'package:aoun_tu/features/settings/presentation/views/widgets/log_out_wid
 import 'package:aoun_tu/features/settings/presentation/views/widgets/setting_widget.dart';
 import 'package:aoun_tu/shared/view/widgets/home_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utls/images.dart';
 import '../../../../core/utls/routers.dart';
-import '../../../posts/presentation/controller/get_posts_controller/get_posts_cubit.dart';
 import '../../data/models/setting_model.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -18,7 +16,6 @@ class SettingsScreen extends StatelessWidget {
             title: "الملف الشخصي",
             image: AppImages.profileIcon,
             onTap: () async {
-              await BlocProvider.of<GetPostsCubit>(context).getPosts(page: 0);
               GoRouter.of(context).push(AppRouter.kProfileScreen);
             }),
         SettingModel(

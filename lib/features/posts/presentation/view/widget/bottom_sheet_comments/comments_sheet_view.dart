@@ -8,9 +8,8 @@ class CommentsSheetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height-100,
-        child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: CommentsSheetBody()));
+        height: MediaQuery.of(context).size.height - 100,
+        child: const Directionality(
+            textDirection: TextDirection.rtl, child: CommentsSheetBody()));
   }
 }
