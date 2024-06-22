@@ -7,9 +7,11 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
+import '../../../../home/data/models/charity_model.dart';
 
 class ContactButton extends StatelessWidget {
-  const ContactButton({super.key});
+  const ContactButton({super.key, required this.charity});
+  final CharityModel charity;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class ContactButton extends StatelessWidget {
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              AppText.charityAddress,
+                              charity.charityLocation!,
                               style: AppStyles.font16GreyWeight400
                                   .copyWith(fontSize: 15),
                             ),
@@ -56,7 +58,7 @@ class ContactButton extends StatelessWidget {
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              "https://www.facebook.com/MisrElKheir.",
+                              charity.facebookPageUrl!,
                               style: AppStyles.font13LightBlueWeight500
                                   .copyWith(
                                       fontSize: 15,
@@ -76,7 +78,7 @@ class ContactButton extends StatelessWidget {
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              "https://www.instagram.com/misrelkheirorg?i",
+                              charity.instagramPageUrl!,
                               style: AppStyles.font13LightBlueWeight500
                                   .copyWith(
                                       fontSize: 14,
@@ -96,7 +98,7 @@ class ContactButton extends StatelessWidget {
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              "01201354511",
+                              charity.whatsappNumber!,
                               style: AppStyles.font16GreyWeight400,
                             ),
                             horizontalSpace(12),
@@ -113,7 +115,7 @@ class ContactButton extends StatelessWidget {
                           children: [
                             Text(
                               overflow: TextOverflow.ellipsis,
-                              "16140",
+                              charity.phoneNumber!,
                               style: AppStyles.font16BlueBold,
                             ),
                             horizontalSpace(12),

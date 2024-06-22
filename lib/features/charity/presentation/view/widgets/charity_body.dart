@@ -3,6 +3,7 @@ import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:aoun_tu/features/charity/presentation/view/widgets/charity_name_and_logo.dart';
+import 'package:aoun_tu/features/home/data/models/charity_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,7 +13,8 @@ import 'donation_fields_list.dart';
 import 'sample_donation_widget.dart';
 
 class CharityBody extends StatelessWidget {
-  const CharityBody({super.key});
+  const CharityBody({super.key, required this.charityModel});
+  final CharityModel charityModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,9 @@ class CharityBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CharityNameAndLogo(),
+              CharityNameAndLogo(
+                charity: charityModel,
+              ),
               SizedBox(
                 height: 26.h,
               ),
@@ -39,7 +43,9 @@ class CharityBody extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CharityInfo(),
+                        CharityInfo(
+                          charity: charityModel,
+                        ),
                         const DonationFieldsList(),
                         SizedBox(height: 30.h),
                         Padding(
