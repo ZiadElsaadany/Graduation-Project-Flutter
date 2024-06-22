@@ -2,6 +2,7 @@ import 'package:aoun_tu/features/home/data/repos/home_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../data/models/banner_model.dart';
 import '../../../data/models/campain_model.dart';
 import '../../../data/models/charity_model.dart';
 
@@ -28,6 +29,16 @@ class HomeCubit extends Cubit<HomeState> {
       emit(CampaignsFailureState(message: failure.msg));
     }, (campaigns) {
       emit(CampaignsSuccessState(campaigns: campaigns));
+    });
+  }
+
+  Future<void> getBanners() async {
+    emit(BannersLoadingState());
+    var result = await homeRepo.getBanners();
+    result.fold((failure) {
+      emit(BannersFailureState(message: failure.msg));
+    }, (banners) {
+      emit(BannersSuccessState(banners: banners));
     });
   }
 }

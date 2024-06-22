@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
-import '../../../../../core/utls/text.dart';
+import '../../../../home/data/models/charity_model.dart';
 import 'contact_button.dart';
 import 'custom_rating_bar.dart';
 
 class CharityInfo extends StatelessWidget {
-  const CharityInfo({super.key});
+  const CharityInfo({super.key, required this.charity});
+  final CharityModel charity;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CharityInfo extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            AppText.misrElkherDefination,
+            charity.charityDescription!,
             style: AppStyles.textStyle15.copyWith(color: AppColors.text1),
           ),
           SizedBox(
@@ -27,7 +28,7 @@ class CharityInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const ContactButton(),
+              ContactButton(charity: charity),
               Row(
                 children: [
                   Text(

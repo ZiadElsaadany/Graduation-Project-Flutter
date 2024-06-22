@@ -5,6 +5,7 @@ import 'package:aoun_tu/features/charity/presentation/view/charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/current_campiagn_in_charity_view.dart';
 import 'package:aoun_tu/features/charity/presentation/view/donation_field_view.dart';
 import 'package:aoun_tu/features/credit_card/presentation/screens/credit_card_screen.dart';
+import 'package:aoun_tu/features/home/data/models/charity_model.dart';
 import 'package:aoun_tu/features/home/presentation/view/home_screen.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/clothes_donation_view.dart';
 import 'package:aoun_tu/features/inKind_donations/presentations/views/donation_success_view.dart';
@@ -95,7 +96,14 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kCharity,
-        builder: (context, state) => const CharityView(),
+        builder: (context, state) {
+          Map<String, CharityModel> args =
+              state.extra as Map<String, CharityModel>;
+
+          return CharityView(
+            charity: args["charity"]!,
+          );
+        },
       ),
       GoRoute(
         path: kLogin,

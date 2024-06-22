@@ -1,6 +1,8 @@
 import 'package:aoun_tu/features/home/presentation/view/widgets/carousel_item.dart';
+import 'package:aoun_tu/features/home/presentation/view_model/home/home_cubit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utls/colors.dart';
@@ -16,40 +18,53 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
   final _controller = CarouselController();
   int _current = 0;
   List<Widget> carouselItems = [
-    CarouselItem(
-      carouselModel: dummyCampiagnsData[0],
-    ),
-    CarouselItem(
-      carouselModel: dummyCampiagnsData[0],
-    ),
-    CarouselItem(
-      carouselModel: dummyCampiagnsData[1],
-    ),
-    CarouselItem(
-      carouselModel: dummyCampiagnsData[0],
-    ),
-    CarouselItem(
-      carouselModel: dummyCampiagnsData[0],
-    ),
+    // CarouselItem(
+    //   carouselModel: dummyCampiagnsData[0],
+    // ),
+    // CarouselItem(
+    //   carouselModel: dummyCampiagnsData[0],
+    // ),
+    // CarouselItem(
+    //   carouselModel: dummyCampiagnsData[1],
+    // ),
+    // CarouselItem(
+    //   carouselModel: dummyCampiagnsData[0],
+    // ),
+    // CarouselItem(
+    //   carouselModel: dummyCampiagnsData[0],
+    // ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CarouselSlider(
-          items: carouselItems,
-          carouselController: _controller,
-          options: CarouselOptions(
-              autoPlay: true,
-              height: 220.h,
-              enlargeCenterPage: true,
-              aspectRatio: 2.0,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
+        BlocConsumer<HomeCubit, HomeState>(
+          listener: (context, state) {
+            if (state is BannersSuccessState) {
+              carouselItems = state.banners.map((banner) {
+                return CarouselItem(
+                  carouselModel: banner,
+                );
+              }).toList();
+            }
+          },
+          builder: (context, state) {
+            return CarouselSlider(
+              items: carouselItems,
+              carouselController: _controller,
+              options: CarouselOptions(
+                  autoPlay: true,
+                  height: 220.h,
+                  enlargeCenterPage: true,
+                  aspectRatio: 2.0,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+            );
+          },
         ),
         Transform.translate(
           offset: const Offset(0, -30),

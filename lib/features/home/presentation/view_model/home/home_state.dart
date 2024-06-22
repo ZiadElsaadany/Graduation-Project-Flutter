@@ -32,3 +32,16 @@ final class CampaignsFailureState extends HomeState {
   final String message;
   const CampaignsFailureState({required this.message});
 }
+
+final class BannersLoadingState extends HomeState {}
+
+final class BannersSuccessState extends HomeState {
+  final List<BannerModel> banners;
+
+  const BannersSuccessState({required this.banners});
+}
+
+final class BannersFailureState extends HomeState {
+  final String message;
+  const BannersFailureState({required this.message});
+}
