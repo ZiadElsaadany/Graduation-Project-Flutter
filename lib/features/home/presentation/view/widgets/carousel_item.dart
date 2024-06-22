@@ -6,9 +6,11 @@ import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/images.dart';
 import '../../../../../core/utls/styles.dart';
 import '../../../../../core/utls/text.dart';
+import '../../../data/models/banner_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CarouselItem extends StatelessWidget {
-  final CampaignModel carouselModel;
+  final BannerModel carouselModel;
   const CarouselItem({super.key, required this.carouselModel});
 
   @override
@@ -19,33 +21,40 @@ class CarouselItem extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(24.0),
-              child: Image.asset(
-                carouselModel.image,
+              child: CachedNetworkImage(
                 width: double.infinity,
                 height: 180.h,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
+                imageUrl: carouselModel.image,
+                placeholder: (context, url) => Container(
+                  color: AppColors.grey2,
+                ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 180.h,
-              decoration: ShapeDecoration(
-                gradient: LinearGradient(
-                  begin: const Alignment(0.00, -1.00),
-                  end: const Alignment(0, 1),
-                  colors: [Colors.black.withOpacity(0), Colors.black],
+            ClipRRect(
+              borderRadius: BorderRadius.circular(24.0),
+              child: Container(
+                width: double.infinity,
+                height: 180.h,
+                decoration: ShapeDecoration(
+                  gradient: LinearGradient(
+                    begin: const Alignment(0.00, -1.00),
+                    end: const Alignment(0, 1),
+                    colors: [Colors.black.withOpacity(0), Colors.black],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  shadows: const [
+                    BoxShadow(
+                      color: Color(0x3F000000),
+                      blurRadius: 10,
+                      offset: Offset(0, 0),
+                      spreadRadius: 0,
+                    )
+                  ],
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                shadows: const [
-                  BoxShadow(
-                    color: Color(0x3F000000),
-                    blurRadius: 10,
-                    offset: Offset(0, 0),
-                    spreadRadius: 0,
-                  )
-                ],
               ),
             ),
             Padding(
@@ -72,7 +81,7 @@ class CarouselItem extends StatelessWidget {
                     height: 6.h,
                   ),
                   Text(
-                    carouselModel.subTitle,
+                    carouselModel.description,
                     style: AppStyles.textStyle12.copyWith(
                       color: AppColors.white,
                     ),

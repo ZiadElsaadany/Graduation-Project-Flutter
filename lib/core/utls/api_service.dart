@@ -46,15 +46,16 @@ class ApiService {
     FormData formData = FormData.fromMap(data);
     // data.addAll(m);
     AppLogger.print(dio.options.headers.toString());
-    dio.options.headers.addAll({"Content-Type": "multipart/form-data",
-      "Authorization": "Bearer ${AppHive.getToken()}"});
-    AppLogger.print("xxxx"+dio.options.baseUrl.toString());
+    dio.options.headers.addAll({
+      "Content-Type": "multipart/form-data",
+      // "Authorization": "Bearer ${AppHive.getToken()}"
+    });
+    AppLogger.print("xxxx${dio.options.baseUrl}");
 
     var response = await dio.post(
       endpoint,
       data: formData,
     );
-
 
     return response.data;
   }

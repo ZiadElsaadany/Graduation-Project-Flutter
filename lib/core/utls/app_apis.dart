@@ -26,4 +26,6 @@ class AppApis {
       '/api/v1/bookmark/${Hive.box(AppHive.userBox).get(AppHive.idKey)}';
   static String createPost =
       '/api/v1/post';
+
+  static String getBanners ="/api/v1/banner";   
 }
