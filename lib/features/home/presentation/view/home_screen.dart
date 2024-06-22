@@ -29,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (context) => HomeCubit(HomeRepoImpl(
             apiService: ApiService(),
           ))
-            ..getBanners(),
+            ..getBanners()
+            ..getCharities(),
           child: const HomeBody(),
         ),
       ),
