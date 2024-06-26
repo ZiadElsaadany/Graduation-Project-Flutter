@@ -26,7 +26,7 @@ class CurrentCampiagnItem extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 12),
           width: 327.w,
-          height: 199.h,
+          height: 233.h,
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
             color: const Color(0xFFF3F3F3),
@@ -65,8 +65,8 @@ class CurrentCampiagnItem extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 13,
+               SizedBox(
+                height: 13.h,
               ),
               Text(
                 AppText.definitionCampaign,
@@ -81,7 +81,10 @@ class CurrentCampiagnItem extends StatelessWidget {
               AppButton(
                 title: AppText.knowMore,
                 width: 254.w,
-              )
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
             ],
           ),
         )

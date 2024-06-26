@@ -1,11 +1,12 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/styles.dart';
 import 'package:aoun_tu/core/utls/text.dart';
+import 'package:aoun_tu/features/gift_donation/presentation/view/gift_categories_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-
 import '../../../../posts/presentation/view/posts_screen.dart';
+import '../../../../settings/presentation/views/settings_screen.dart';
 import '../home_screen.dart';
 
 class NavBarView extends StatefulWidget {
@@ -17,12 +18,13 @@ class NavBarView extends StatefulWidget {
 
 class _NavBarViewState extends State<NavBarView> {
   final _controller = PersistentTabController();
+
   List<Widget> _buildScreens() {
     return [
       const HomeScreen(),
-      Container(),
       const PostsScreen(),
-      Container(),
+      const GiftCategoriesView(),
+      const SettingsScreen(),
     ];
   }
 
@@ -37,14 +39,6 @@ class _NavBarViewState extends State<NavBarView> {
         textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.rectangle_grid_2x2),
-        title: AppText.donationFields,
-        activeColorPrimary: AppColors.mainColor,
-        inactiveColorPrimary: AppColors.lightBlue,
-        iconSize: 20,
-        textStyle: AppStyles.textStyle10,
-      ),
-      PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.doc_text),
         title: AppText.posts,
         activeColorPrimary: AppColors.mainColor,
@@ -53,8 +47,16 @@ class _NavBarViewState extends State<NavBarView> {
         textStyle: AppStyles.textStyle10,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.volunteer_activism_rounded),
-        title: AppText.myDonation,
+        icon: const Icon(CupertinoIcons.gift),
+        title: AppText.donationGift,
+        activeColorPrimary: AppColors.mainColor,
+        inactiveColorPrimary: AppColors.lightBlue,
+        iconSize: 20,
+        textStyle: AppStyles.textStyle10,
+      ),
+      PersistentBottomNavBarItem(
+        icon: const Icon(Icons.settings_outlined),
+        title: AppText.setting,
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: AppColors.lightBlue,
         iconSize: 22,

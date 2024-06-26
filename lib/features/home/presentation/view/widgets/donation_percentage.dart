@@ -1,5 +1,6 @@
 import 'package:aoun_tu/core/utls/text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utls/colors.dart';
 import '../../../../../core/utls/styles.dart';
@@ -29,8 +30,8 @@ class DonationPercentage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 6,
+           SizedBox(
+            height: 6.h,
           ),
           LinearProgressIndicator(
             minHeight: 7,
@@ -40,12 +41,15 @@ class DonationPercentage extends StatelessWidget {
             valueColor:
                 const AlwaysStoppedAnimation<Color>(AppColors.mainColor),
           ),
-          const SizedBox(
-            height: 13,
+           SizedBox(
+            height: 13.h,
           ),
           const AppButton(
             title: AppText.donateNow,
             color: AppColors.yellow,
+          ),
+           SizedBox(
+            height: 16.h,
           ),
         ],
       ),

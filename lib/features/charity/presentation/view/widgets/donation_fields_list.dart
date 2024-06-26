@@ -1,6 +1,7 @@
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utls/styles.dart';
@@ -39,7 +40,7 @@ class DonationFieldsList extends StatelessWidget {
                   child: DonationFieldItem(
                     title: donationFieldsTitles[index],
                     imageSrc: donationFieldsImages[index],
-                  ),
+                  ).animate().effect().scale().move(),
                 );
               }),
         ),
@@ -51,6 +52,7 @@ class DonationFieldsList extends StatelessWidget {
 List<String> donationFieldsTitles = [
   AppText.education,
   AppText.housing,
+  "أسر متعففه",
   AppText.clothes,
   AppText.feeding,
   AppText.alms,
@@ -64,6 +66,7 @@ List<String> donationFieldsTitles = [
 List<String> donationFieldsImages = [
   AppImages.education,
   AppImages.housing,
+  AppImages.family,
   AppImages.clothes,
   AppImages.feeding,
   AppImages.alms,

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:aoun_tu/core/utls/colors.dart';
 import 'package:aoun_tu/core/utls/images.dart';
+import 'package:aoun_tu/core/utls/my_hive.dart';
 import 'package:aoun_tu/features/splash/presentation/view/widgets/animated_splash_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,11 +20,17 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
       () {
-
         // check token here
-        GoRouter.of(context).pushReplacement(AppRouter.kFirstOnBoarding);
+
+        if (AppHive.onBoarding() == null) {
+          GoRouter.of(context).pushReplacement(AppRouter.kFirstOnBoarding);
+        } else if (AppHive.getToken() == null) {
+          GoRouter.of(context).pushReplacement(AppRouter.kLogin);
+        } else {
+          GoRouter.of(context).pushReplacement(AppRouter.kNavBar);
+        }
       },
     );
   }
@@ -31,33 +38,32 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void dispose() {
     super.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       home: Scaffold(
         backgroundColor: AppColors.mainColor,
-        body: Stack(
-          children: [
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.4,
-              left: MediaQuery.of(context).size.width * 0.4,
-              child: SvgPicture.asset(AppImages.logo),
-            ),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Stack(
+              alignment: Alignment.center,
               children: [
-                SizedBox(
-                  height: 4.54,
-                ),
-                AnimatedTextSplash(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(AppImages.logo),
+                    SizedBox(
+                      height: constraints.maxHeight * 0.02,
+                    ),
+                    const AnimatedTextSplash(),
+                  ],
+                )
               ],
-            )
-          ],
+            );
+          },
         ),
       ),
     );

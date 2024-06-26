@@ -14,7 +14,7 @@ class EmergencyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 281.w,
-      height: 260.h,
+      height: 281.h,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -47,7 +47,7 @@ class EmergencyItem extends StatelessWidget {
               ),
               PositionedDirectional(
                 top: 80.h,
-                start: 12,
+                start: 50.w,
                 child: Text(
                   AppText.helpPalestine,
                   style: AppStyles.textStyle15.copyWith(

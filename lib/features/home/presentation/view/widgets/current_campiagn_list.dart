@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'current_campiagn_item.dart';
 
@@ -8,16 +10,17 @@ class CurrentCampiagnList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 388,
+      height: 423.h,
       child: ListView.builder(
           itemCount: 5,
           shrinkWrap: true,
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsetsDirectional.only(end: 10, bottom: 23),
-              child: CurrentCampiagnItem(),
+            return Padding(
+              padding: const EdgeInsetsDirectional.only(end: 10, bottom: 23),
+              child:
+                  const CurrentCampiagnItem().animate().effect().scale().move(),
             );
           }),
     );

@@ -8,7 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProgressWidgetToLogin extends StatefulWidget {
-  const ProgressWidgetToLogin({Key? key, required this.number}) : super(key: key);
+  const ProgressWidgetToLogin({Key? key, required this.number})
+      : super(key: key);
 
   final int number;
 
@@ -16,7 +17,8 @@ class ProgressWidgetToLogin extends StatefulWidget {
   State<ProgressWidgetToLogin> createState() => _ProgressWidgetToLoginState();
 }
 
-class _ProgressWidgetToLoginState extends State<ProgressWidgetToLogin>  with TickerProviderStateMixin {
+class _ProgressWidgetToLoginState extends State<ProgressWidgetToLogin>
+    with TickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -25,15 +27,15 @@ class _ProgressWidgetToLoginState extends State<ProgressWidgetToLogin>  with Tic
       /// [AnimationController]s can be created with `vsync: this` because of
       /// [TickerProviderStateMixin].
       vsync: this,
-      value:  BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress,
+      value: BlocProvider.of<LoginCubit>(context).progressCounter /
+          BlocProvider.of<LoginCubit>(context).progress,
       duration: const Duration(milliseconds: 800),
     )..addListener(() {
-      setState(() {
-
+        setState(() {});
       });
-    });
     // controller.repeat();
-    controller.animateTo(BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress);
+    controller.animateTo(BlocProvider.of<LoginCubit>(context).progressCounter /
+        BlocProvider.of<LoginCubit>(context).progress);
 
     super.initState();
   }
@@ -48,30 +50,26 @@ class _ProgressWidgetToLoginState extends State<ProgressWidgetToLogin>  with Tic
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<LoginCubit>(context);
     return BlocConsumer<LoginCubit, LoginStates>(
-      listener: (c,state) {
-
-
-        if(state is PlusProgressState) {
-          controller.animateTo(BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress);
-
+      listener: (c, state) {
+        if (state is PlusProgressState) {
+          controller.animateTo(
+              BlocProvider.of<LoginCubit>(context).progressCounter /
+                  BlocProvider.of<LoginCubit>(context).progress);
         }
 
+        debugPrint(controller.value.toString());
         debugPrint(
-          controller.value.toString()
-        );   debugPrint(
-         "BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress"+
-            "${BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress}"
-        );
+            "BlocProvider.of<LoginCubit>(context).progressCounter /  BlocProvider.of<LoginCubit>(context).progress"
+            "${BlocProvider.of<LoginCubit>(context).progressCounter / BlocProvider.of<LoginCubit>(context).progress}");
         // Update the controller duration when progressCounter changes
-    // if(state is PlusProgressState) {
-    //   controller.duration = const Duration(seconds: 2);
-    //   if(BlocProvider.of<LoginCubit>(context).progressCounter==1) {
-    //     controller.animateBack(1);
-    //   }    if(BlocProvider.of<LoginCubit>(context).progressCounter==2) {
-    //     controller.animateTo(2);
-    //   }
-    // }
-
+        // if(state is PlusProgressState) {
+        //   controller.duration = const Duration(seconds: 2);
+        //   if(BlocProvider.of<LoginCubit>(context).progressCounter==1) {
+        //     controller.animateBack(1);
+        //   }    if(BlocProvider.of<LoginCubit>(context).progressCounter==2) {
+        //     controller.animateTo(2);
+        //   }
+        // }
       },
       builder: (context, state) {
         return Padding(
@@ -83,16 +81,13 @@ class _ProgressWidgetToLoginState extends State<ProgressWidgetToLogin>  with Tic
                 Expanded(
                   child: FadeInUp(
                     child: AnimatedOpacity(
-                      opacity: cubit.progressCounter
-                          ==
-                          widget.number
-                          ? 1.0 : 0.3,
+                      opacity:
+                          cubit.progressCounter == widget.number ? 1.0 : 0.3,
                       duration: const Duration(milliseconds: 800),
                       child: LinearProgressIndicator(
-
                         minHeight: 7,
                         borderRadius: BorderRadius.circular(15),
-                        value:controller.value ,
+                        value: controller.value,
                         backgroundColor: const Color(0xffC7C7C7),
                         valueColor: const AlwaysStoppedAnimation<Color>(
                             AppColors.mainColor),
@@ -106,8 +101,7 @@ class _ProgressWidgetToLoginState extends State<ProgressWidgetToLogin>  with Tic
                 Text(
                   "${cubit.progressCounter.toInt()}/${cubit.progress.toInt()}",
                   style: AppStyles.textStyle16.copyWith(
-                      color: AppColors.mainColor,
-                      fontWeight: FontWeight.w600),
+                      color: AppColors.mainColor, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   width: 4,

@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/models/post_model.dart';
 import 'post_item.dart';
 
 class PostsList extends StatelessWidget {
-  const PostsList({super.key});
-
+  const PostsList({super.key,required this.posts});
+final List<PostModel> posts;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        padding: EdgeInsets.zero,
-        itemCount: 8,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
+    return SliverList.builder(
+        itemCount: posts.length,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsetsDirectional.only(bottom: 18),
-            child: PostItem(),
+          return  Padding(
+            padding: const EdgeInsetsDirectional.only(bottom: 18),
+            child: PostItem(index: index,posts: posts,),
           );
         });
   }
